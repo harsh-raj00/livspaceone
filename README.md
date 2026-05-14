@@ -1,6 +1,6 @@
 <div align="center">
   
-  <h1>🏗️ Majdoors Platform</h1>
+  <h1>🏗️ Livspaceone Platform</h1>
   <p><strong>India's Premium Construction Services & E-Commerce Hub</strong></p>
   
   <p>
