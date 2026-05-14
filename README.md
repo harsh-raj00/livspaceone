@@ -16,7 +16,7 @@
 
 ## 🌟 About The Project
 
-Majdoors is a state-of-the-art, full-stack marketplace designed to bridge the gap between users and verified construction professionals (plumbers, electricians, carpenters, etc.). Additionally, it serves as a comprehensive e-commerce hub for purchasing premium construction and interior materials. Built with performance and user experience in mind, Majdoors offers a seamless, real-time ecosystem.
+Workers is a state-of-the-art, full-stack marketplace designed to bridge the gap between users and verified construction professionals (plumbers, electricians, carpenters, etc.). Additionally, it serves as a comprehensive e-commerce hub for purchasing premium construction and interior materials. Built with performance and user experience in mind, Workers offers a seamless, real-time ecosystem.
 
 ## ✨ Core Features
 
