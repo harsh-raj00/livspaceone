@@ -57,7 +57,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 Clone the repository and install the backend dependencies:
 ```bash
 git clone https://github.com/harsh-raj00/livspaceone.git
-cd Majdoors/backend
+cd Livspaceone/backend
 npm install
 ```
 
@@ -69,13 +69,7 @@ MONGO_URI=your_mongodb_atlas_connection_string
 JWT_SECRET=your_super_secret_jwt_key
 ALLOWED_ORIGINS=*
 
-# Optional Email Config (For Nodemailer Contact Form)
-EMAIL_HOST=smtp.gmail.com
-EMAIL_PORT=587
-EMAIL_USER=your-email@gmail.com
-EMAIL_PASS=your-app-password
-EMAIL_TO=Service@majdoors.com
-```
+
 
 ### 4. Database Seeding
 To instantly populate your Atlas database with premium demo data (products, workers, dynamic slides):
