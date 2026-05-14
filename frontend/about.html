@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Majdoors | About Us</title>
+    <meta name="description"
+        content="About Majdoors Mart - Your trusted construction and interior materials supplier in Bihar Sharif.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { navy: '#0a2540', orange: '#f97316', lightgray: '#f3f4f6' }, fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }, animation: { float: 'float 5s ease-in-out infinite', 'fade-up': 'fadeUp 0.6s ease-out', 'pulse-green': 'pulseGreen 2s infinite', 'slide-in-right': 'slideInRight 0.3s ease-out', 'slide-in-up': 'slideInUp 0.4s ease-out', 'bounce-in': 'bounceIn 0.5s ease-out', 'shimmer': 'shimmer 2s infinite' }, keyframes: { float: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-12px)' } }, fadeUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }, pulseGreen: { '0%,100%': { boxShadow: '0 0 0 0 rgba(34,197,94,0.7)' }, '70%': { boxShadow: '0 0 0 10px rgba(34,197,94,0)' } }, slideInRight: { '0%': { transform: 'translateX(100%)', opacity: '0' }, '100%': { transform: 'translateX(0)', opacity: '1' } }, slideInUp: { '0%': { transform: 'translateY(30px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } }, bounceIn: { '0%': { transform: 'scale(0.3)', opacity: '0' }, '50%': { transform: 'scale(1.05)' }, '100%': { transform: 'scale(1)', opacity: '1' } }, shimmer: { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } } } } } }</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="bg-white text-gray-800 font-sans selection:bg-orange selection:text-white" style="display:none">
+    <div id="navbar-container"></div>
+    <div id="modals-container"></div>
+    <main class="pt-16" data-page="about">
+
+        <!-- About Hero -->
+        <section class="hero-bg text-white py-16 md:py-24 px-6 text-center relative overflow-hidden">
+            <div class="max-w-4xl mx-auto relative z-10">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-6">About <span class="text-orange">Majdoors
+                        Mart</span></h1>
+                <p class="text-lg md:text-xl text-gray-300">Your trusted partner for all construction and interior
+                    material needs in Bihar Sharif.</p>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section class="max-w-6xl mx-auto px-6 py-16">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6 text-navy">Our Story</h2>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Founded by Ravi Kumar, Majdoors Mart started with a simple vision: to make high-quality
+                        construction and interior materials accessible and affordable to everyone in Bihar Sharif and
+                        surrounding areas.
+                    </p>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        We understand that building a home or a commercial space is a significant investment. That's why
+                        we bring together a comprehensive catalog of products—from electrical supplies to premium
+                        flooring—under one roof.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        But we didn't stop there. We also recognized the challenge of finding reliable professionals.
+                        So, we created a platform to connect you with verified skilled workers like electricians,
+                        plumbers, painters, and more.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="img/construction_site.png" alt="Construction Site"
+                        class="rounded-2xl shadow-md w-full h-48 object-cover">
+                    <img src="img/construction_tools.png" alt="Tools"
+                        class="rounded-2xl shadow-md w-full h-48 object-cover mt-8">
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="bg-gray-50 py-16 px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center text-navy mb-12">Why Choose Us?</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div
+                        class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 text-center hover:shadow-md transition">
+                        <div class="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-gem text-2xl text-orange"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-3">Quality Assurance</h3>
+                        <p class="text-gray-500">We source all our materials from trusted brands and manufacturers,
+                            ensuring you get the best quality for your project.</p>
+                    </div>
+                    <div
+                        class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 text-center hover:shadow-md transition">
+                        <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-tags text-2xl text-blue-500"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-3">Best Prices</h3>
+                        <p class="text-gray-500">We offer competitive pricing across our entire catalog, helping you
+                            stay within your construction budget.</p>
+                    </div>
+                    <div
+                        class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 text-center hover:shadow-md transition">
+                        <div class="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-shield-alt text-2xl text-green-500"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-3">Verified Workers</h3>
+                        <p class="text-gray-500">Every professional on our platform is thoroughly vetted, verified, and
+                            reviewed for your peace of mind.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Founder Section -->
+        <section class="max-w-4xl mx-auto px-6 py-16 text-center">
+            <div
+                class="w-24 h-24 bg-gradient-to-tr from-orange-400 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <span class="text-4xl font-bold text-black">R</span>
+            </div>
+            <h2 class="text-2xl font-bold text-navy">Ravi Kumar</h2>
+            <p class="text-orange font-semibold mb-6">Founder & Owner</p>
+            <p class="text-gray-600 text-lg leading-relaxed italic max-w-2xl mx-auto">
+                "Our goal is to build long-lasting relationships with our customers by providing unparalleled quality
+                and service. Whether you're building a new home or renovating an old one, Majdoors Mart is here to
+                support you every step of the way."
+            </p>
+        </section>
+
+        <!-- Contact & Action Buttons -->
+        <section class="bg-gradient-to-r from-orange-50 to-orange-100 py-16 px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-navy mb-4">Need Help?</h2>
+                <p class="text-gray-600 mb-8 text-lg">We're just a call or message away. Reach out anytime!</p>
+                <div class="grid md:grid-cols-3 gap-6 mb-10">
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                        <i class="fas fa-phone text-3xl text-orange mb-3"></i>
+                        <h4 class="font-bold mb-1">Phone</h4>
+                        <p class="text-gray-500 text-sm">+91 9279509297</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                        <i class="fas fa-envelope text-3xl text-blue-500 mb-3"></i>
+                        <h4 class="font-bold mb-1">Email</h4>
+                        <p class="text-gray-500 text-sm">Service@majdoors.com</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                        <i class="fas fa-map-marker-alt text-3xl text-green-500 mb-3"></i>
+                        <h4 class="font-bold mb-1">Address</h4>
+                        <p class="text-gray-500 text-sm">Near Digital Duniya, Nala Road, Bihar Sharif, Nalanda, Bihar
+                        </p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <a href="https://wa.me/919279509297?text=Hi%20Majdoors%20Mart%2C%20I%20need%20help" target="_blank"
+                        class="inline-flex items-center gap-2 bg-green-500 text-white px-8 py-3.5 rounded-full font-semibold text-lg hover:bg-green-600 transition shadow-lg hover:shadow-xl"><i
+                            class="fab fa-whatsapp"></i> WhatsApp Us</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <div id="footer-container"></div>
+    <script src="js/api.js?v=10"></script>
+    <script src="js/main.js?v=10"></script>
+    <script src="js/app.js?v=10"></script>
+    <script src="js/pages.js?v=10"></script>
+</body>
+
+</html>

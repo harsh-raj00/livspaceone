@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Majdoors | Checkout</title>
+<meta name="description" content="Complete your order on Majdoors - secure checkout for construction materials.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+<script>tailwind.config={theme:{extend:{colors:{navy:'#0a2540',orange:'#f97316',lightgray:'#f3f4f6'},fontFamily:{sans:['Inter','system-ui','sans-serif']},animation:{float:'float 5s ease-in-out infinite','fade-up':'fadeUp 0.6s ease-out','pulse-green':'pulseGreen 2s infinite','slide-in-right':'slideInRight 0.3s ease-out','slide-in-up':'slideInUp 0.4s ease-out','bounce-in':'bounceIn 0.5s ease-out','shimmer':'shimmer 2s infinite'},keyframes:{float:{'0%,100%':{transform:'translateY(0px)'},'50%':{transform:'translateY(-12px)'}},fadeUp:{'0%':{opacity:'0',transform:'translateY(20px)'},'100%':{opacity:'1',transform:'translateY(0)'}},pulseGreen:{'0%,100%':{boxShadow:'0 0 0 0 rgba(34,197,94,0.7)'},'70%':{boxShadow:'0 0 0 10px rgba(34,197,94,0)'}},slideInRight:{'0%':{transform:'translateX(100%)',opacity:'0'},'100%':{transform:'translateX(0)',opacity:'1'}},slideInUp:{'0%':{transform:'translateY(30px)',opacity:'0'},'100%':{transform:'translateY(0)',opacity:'1'}},bounceIn:{'0%':{transform:'scale(0.3)',opacity:'0'},'50%':{transform:'scale(1.05)'},'100%':{transform:'scale(1)',opacity:'1'}},shimmer:{'0%':{backgroundPosition:'-200% 0'},'100%':{backgroundPosition:'200% 0'}}}}}}</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-white text-gray-800 font-sans selection:bg-orange selection:text-white" style="display:none">
+    <div id="navbar-container"></div>
+    <div id="modals-container"></div>
+    <main class="pt-16 max-w-5xl mx-auto px-6 py-8" data-page="checkout">
+
+<a href="mart.html" class="text-orange font-semibold flex items-center gap-2 mb-6 hover:gap-3 transition-all no-underline"><i class="fas fa-arrow-left"></i> Continue Shopping</a>
+
+<h1 class="text-3xl font-extrabold mb-8"><i class="fas fa-credit-card text-orange"></i> Checkout</h1>
+
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Delivery Info -->
+<div class="md:col-span-2 space-y-6">
+<div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+<h3 class="font-bold text-lg mb-4"><i class="fas fa-truck text-orange"></i> Delivery Address</h3>
+<div class="grid md:grid-cols-2 gap-4">
+<input type="text" id="checkoutName" placeholder="Full Name" class="border border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:border-orange-400">
+<input type="tel" id="checkoutPhone" placeholder="Phone Number" class="border border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:border-orange-400">
+<input type="text" id="checkoutAddress" placeholder="Address Line 1" class="border border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:border-orange-400 md:col-span-2">
+<input type="text" id="checkoutCity" placeholder="City" class="border border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:border-orange-400">
+<input type="text" id="checkoutPin" placeholder="PIN Code" class="border border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:border-orange-400">
+</div>
+</div>
+
+<div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+<h3 class="font-bold text-lg mb-4"><i class="fas fa-wallet text-orange"></i> Payment Method</h3>
+<div class="space-y-3">
+<label class="flex items-center gap-3 p-3 border border-gray-200 rounded-xl cursor-pointer hover:border-orange-400 transition"><input type="radio" name="payment" value="cod" checked class="accent-orange-500"><span class="font-medium">Cash on Delivery</span><span class="ml-auto text-xs bg-green-50 text-green-600 px-2 py-1 rounded-full">No extra charge</span></label>
+<label class="flex items-center gap-3 p-3 border border-gray-200 rounded-xl cursor-pointer hover:border-orange-400 transition"><input type="radio" name="payment" value="upi" class="accent-orange-500"><span class="font-medium">UPI / Google Pay</span></label>
+<label class="flex items-center gap-3 p-3 border border-gray-200 rounded-xl cursor-pointer hover:border-orange-400 transition"><input type="radio" name="payment" value="card" class="accent-orange-500"><span class="font-medium">Credit / Debit Card</span></label>
+<label class="flex items-center gap-3 p-3 border border-gray-200 rounded-xl cursor-pointer hover:border-orange-400 transition"><input type="radio" name="payment" value="netbanking" class="accent-orange-500"><span class="font-medium">Net Banking</span></label>
+</div>
+</div>
+</div>
+
+<!-- Order Summary -->
+<div class="md:col-span-1">
+<div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 sticky top-24">
+<h3 class="font-bold text-lg mb-4"><i class="fas fa-receipt text-orange"></i> Order Summary</h3>
+<div id="checkoutItems" class="space-y-3 mb-4 max-h-64 overflow-y-auto"></div>
+<hr class="my-3">
+<div class="flex justify-between text-sm text-gray-500"><span>Subtotal</span><span id="checkoutSubtotal">₹0</span></div>
+<div class="flex justify-between text-sm text-gray-500 mt-1"><span>Delivery</span><span class="text-green-600">Free</span></div>
+<hr class="my-3">
+<div class="flex justify-between font-bold text-lg"><span>Total</span><span id="checkoutTotal" class="text-orange">₹0</span></div>
+<button onclick="placeOrder()" class="btn-primary w-full py-3 mt-5 text-lg">Place Order</button>
+<p class="text-xs text-gray-400 text-center mt-3"><i class="fas fa-lock"></i> Secure checkout powered by Majdoors</p>
+</div>
+</div>
+</div>
+
+    </main>
+    <div id="footer-container"></div>
+    <script src="js/api.js?v=10"></script>
+    <script src="js/main.js?v=10"></script>
+    <script src="js/app.js?v=10"></script>
+    <script src="js/pages.js?v=10"></script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!-- ===== LOGIN MODAL ===== -->
+<div id="loginModal" class="fixed inset-0 z-[60] hidden items-center justify-center modal-overlay">
+<div class="bg-white rounded-3xl max-w-md w-full mx-4 p-8 shadow-2xl relative animate-bounce-in">
+<i class="fas fa-times absolute top-4 right-5 text-gray-400 cursor-pointer hover:text-gray-700 text-lg" onclick="closeModal('loginModal')"></i>
+<div class="text-center mb-6"><i class="fas fa-hard-hat text-4xl text-orange-500 mb-2"></i><h2 class="text-2xl font-extrabold text-navy">Welcome Back</h2><p class="text-gray-500 text-sm mt-1">Login to access bookings & orders</p></div>
+<div class="space-y-4">
+<div><label class="text-sm font-medium text-gray-600">Email</label><input type="email" id="loginEmail" placeholder="Enter email" class="w-full border border-gray-200 rounded-xl py-3 px-4 mt-1 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition"></div>
+<div class="relative"><label class="text-sm font-medium text-gray-600">Password</label><input type="password" id="loginPassword" placeholder="Enter password" class="w-full border border-gray-200 rounded-xl py-3 px-4 mt-1 pr-12 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition"><button type="button" onclick="togglePassword('loginPassword',this)" class="absolute right-4 top-9 text-gray-400 hover:text-gray-600"><i class="fas fa-eye"></i></button></div>
+<button onclick="handleLogin()" class="btn-primary w-full py-3 text-lg">Login</button>
+<button onclick="closeModal('loginModal')" class="w-full text-center text-orange font-semibold hover:underline py-2">Continue as Guest &rarr;</button>
+</div>
+<p class="text-center text-sm text-gray-500 mt-4">Don't have an account? <a href="#" class="text-orange font-semibold" onclick="closeModal('loginModal');openModal('registerModal')">Register</a></p>
+</div></div>
+
+<!-- ===== REGISTER MODAL ===== -->
+<div id="registerModal" class="fixed inset-0 z-[60] hidden items-center justify-center modal-overlay">
+<div class="bg-white rounded-3xl max-w-md w-full mx-4 p-8 shadow-2xl relative animate-bounce-in">
+<i class="fas fa-times absolute top-4 right-5 text-gray-400 cursor-pointer hover:text-gray-700 text-lg" onclick="closeModal('registerModal')"></i>
+<div class="text-center mb-6"><i class="fas fa-user-plus text-4xl text-orange-500 mb-2"></i><h2 class="text-2xl font-extrabold text-navy">Create Account</h2><p class="text-gray-500 text-sm mt-1">Join Majdoors Mart for best deals</p></div>
+<div class="space-y-3">
+<input type="text" id="regName" placeholder="Full Name" class="w-full border border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition">
+<input type="email" id="regEmail" placeholder="Email Address" class="w-full border border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition">
+<input type="tel" id="regPhone" placeholder="Mobile Number" class="w-full border border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition">
+<div class="relative"><input type="password" id="regPassword" placeholder="Create Password (min 6 chars)" class="w-full border border-gray-200 rounded-xl py-3 px-4 pr-12 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition"><button type="button" onclick="togglePassword('regPassword',this)" class="absolute right-4 top-3.5 text-gray-400 hover:text-gray-600"><i class="fas fa-eye"></i></button></div>
+<button onclick="handleRegister()" class="btn-primary w-full py-3 text-lg">Create Account</button>
+<button onclick="closeModal('registerModal')" class="w-full text-center text-orange font-semibold hover:underline py-1">Continue as Guest &rarr;</button>
+</div>
+<p class="text-center text-sm text-gray-500 mt-4">Already registered? <a href="#" class="text-orange font-semibold" onclick="closeModal('registerModal');openModal('loginModal')">Login</a></p>
+</div></div>
+
+<!-- ===== CHATBOT ===== -->
+<div class="chat-bubble" id="chatbotBtn" onclick="openModal('chatbotModal')"><i class="fas fa-comment-dots text-white text-2xl"></i></div>
+<div id="chatbotModal" class="fixed inset-0 z-[70] hidden items-center justify-center" style="background:rgba(0,0,0,0.5);backdrop-filter:blur(4px)">
+<div class="bg-white rounded-3xl w-full max-w-md mx-4 shadow-2xl overflow-hidden" style="animation:bounceIn 0.4s ease-out">
+<div style="background:linear-gradient(135deg,#f97316,#ea580c)" class="text-white p-4 flex items-center justify-between">
+<div class="flex items-center gap-3"><div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center"><i class="fas fa-robot"></i></div><div><h3 class="font-bold">MajAssist</h3><p class="text-xs opacity-80">Your shopping assistant</p></div></div>
+<button onclick="closeModal('chatbotModal')" class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/40 transition" title="Close"><i class="fas fa-times text-white text-lg"></i></button>
+</div>
+<div class="h-80 overflow-y-auto p-4 bg-gray-50 space-y-3" id="chatMessages">
+<div class="flex gap-2"><div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-robot text-orange-500 text-sm"></i></div><div class="bg-white rounded-2xl rounded-tl-none p-3 shadow-sm max-w-[80%]"><p class="text-sm">Hi! 👋 I'm MajAssist. Ask me about our products, services, store location, delivery, or anything else!</p></div></div>
+<div class="flex flex-wrap gap-2 ml-10">
+<button onclick="sendQuickChat('products')" class="text-xs bg-orange-50 text-orange-600 px-3 py-1.5 rounded-full hover:bg-orange-100 transition font-medium">📦 Products</button>
+<button onclick="sendQuickChat('location')" class="text-xs bg-orange-50 text-orange-600 px-3 py-1.5 rounded-full hover:bg-orange-100 transition font-medium">📍 Location</button>
+<button onclick="sendQuickChat('delivery')" class="text-xs bg-orange-50 text-orange-600 px-3 py-1.5 rounded-full hover:bg-orange-100 transition font-medium">🚚 Delivery</button>
+<button onclick="sendQuickChat('contact')" class="text-xs bg-orange-50 text-orange-600 px-3 py-1.5 rounded-full hover:bg-orange-100 transition font-medium">📞 Contact</button>
+<button onclick="sendQuickChat('timing')" class="text-xs bg-orange-50 text-orange-600 px-3 py-1.5 rounded-full hover:bg-orange-100 transition font-medium">🕐 Timings</button>
+</div>
+</div>
+<div class="p-4 border-t flex gap-2"><input type="text" id="chatInput" placeholder="Ask anything..." class="border flex-1 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:border-orange-400"><button onclick="sendChat()" class="bg-orange-500 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-orange-600 transition"><i class="fas fa-paper-plane text-sm"></i></button></div>
+</div></div>
+
+
+
+<!-- ===== TOAST CONTAINER ===== -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- ===== CART SIDEBAR ===== -->
+<div id="cartSidebar" class="cart-sidebar">
+<div class="p-5 border-b flex justify-between items-center"><h2 class="font-bold text-xl"><i class="fas fa-shopping-cart text-orange"></i> Cart</h2><i id="closeCartSidebar" class="fas fa-times cursor-pointer text-gray-400 hover:text-gray-700 text-lg"></i></div>
+<div id="cartItemsList" class="flex-1 overflow-y-auto p-5 space-y-3"></div>
+<div class="p-5 border-t bg-gray-50"><div class="flex justify-between mb-3 font-bold"><span>Total</span><span id="cartTotal">₹0</span></div><button onclick="handleCheckout()" class="btn-primary w-full py-3">Proceed to Checkout</button></div>
+</div>
+
+<!-- ===== WORKER PROFILE MODAL ===== -->
+<div id="workerProfileModal" class="fixed inset-0 hidden items-center justify-center z-50 modal-overlay"><div class="bg-white rounded-3xl p-6 w-full max-w-lg mx-4 shadow-2xl animate-bounce-in max-h-[90vh] overflow-y-auto" id="workerProfileModalContent"></div></div>
+
+<!-- ===== BOOKING MODAL ===== -->
+<div id="bookingModal" class="fixed inset-0 hidden items-center justify-center z-50 modal-overlay">
+<div class="bg-white rounded-3xl p-7 w-full max-w-md mx-4 shadow-2xl animate-bounce-in">
+<h3 class="font-bold text-xl flex items-center gap-2"><i class="fas fa-calendar-check text-orange"></i> Book Service</h3>
+<p id="modalWorkerName" class="mt-3 text-gray-600"></p>
+<div class="space-y-3 mt-4">
+<input type="date" id="bookingDate" class="border border-gray-200 w-full p-3 rounded-xl focus:outline-none focus:border-orange-400">
+<select id="bookingSlot" class="border border-gray-200 w-full p-3 rounded-xl focus:outline-none focus:border-orange-400"><option>09:00 AM - 11:00 AM</option><option>11:00 AM - 1:00 PM</option><option>2:00 PM - 4:00 PM</option><option>4:00 PM - 6:00 PM</option></select>
+<textarea id="bookingDesc" placeholder="Describe your requirement..." class="border border-gray-200 w-full p-3 rounded-xl focus:outline-none focus:border-orange-400 h-20 resize-none"></textarea>
+</div>
+<div class="flex gap-3 mt-5"><button id="confirmBookingBtn" class="btn-primary flex-1 py-3">Confirm Booking</button><button onclick="closeModal('bookingModal')" class="border-2 border-gray-200 flex-1 py-3 rounded-full hover:bg-gray-50 font-semibold transition">Cancel</button></div>
+</div></div>
+
+<!-- ===== PRODUCT DETAIL MODAL ===== -->
+<div id="productModal" class="fixed inset-0 hidden items-center justify-center z-50 modal-overlay"><div class="bg-white rounded-3xl p-6 w-full max-w-2xl mx-4 shadow-2xl animate-bounce-in max-h-[90vh] overflow-y-auto" id="productModalContent"></div></div>
+
+<!-- ===== ADD PRODUCT MODAL (Admin) ===== -->
+<div id="addProductModal" class="fixed inset-0 hidden items-center justify-center z-50 modal-overlay">
+<div class="bg-white rounded-3xl p-7 w-full max-w-md mx-4 shadow-2xl animate-bounce-in max-h-[90vh] overflow-y-auto relative">
+<i class="fas fa-times absolute top-4 right-5 text-gray-400 cursor-pointer hover:text-gray-700 text-lg" onclick="closeModal('addProductModal')"></i>
+<h3 class="font-bold text-xl mb-4"><i class="fas fa-plus text-orange"></i> Add Product</h3>
+<div class="space-y-3">
+<input type="text" id="newProdName" placeholder="Product Name *" class="w-full border border-gray-200 rounded-xl py-3 px-4 focus:border-orange-400 focus:outline-none">
+<textarea id="newProdDesc" placeholder="Product Description" rows="2" class="w-full border border-gray-200 rounded-xl py-3 px-4 resize-none focus:border-orange-400 focus:outline-none"></textarea>
+<select id="newProdCat" class="w-full border border-gray-200 rounded-xl py-3 px-4 focus:border-orange-400 focus:outline-none" onchange="document.getElementById('customCatBox').style.display=this.value==='other'?'block':'none'"><option value="electrical">Electrical</option><option value="plumbing">Plumbing</option><option value="paints">Paints</option><option value="flooring">Flooring</option><option value="hardware">Hardware</option><option value="construction">Construction</option><option value="other">Other (Custom)</option></select>
+<div id="customCatBox" style="display:none"><input type="text" id="newProdCatCustom" placeholder="Enter custom category name" class="w-full border border-orange-300 rounded-xl py-3 px-4 bg-orange-50"></div>
+<div class="grid grid-cols-2 gap-3">
+<input type="number" id="newProdPrice" placeholder="Min Price (₹) *" class="border border-gray-200 rounded-xl py-3 px-4 focus:border-orange-400 focus:outline-none">
+<input type="number" id="newProdPriceMax" placeholder="Max Price (₹)" class="border border-gray-200 rounded-xl py-3 px-4 focus:border-orange-400 focus:outline-none">
+</div>
+<div class="grid grid-cols-2 gap-3">
+<input type="number" id="newProdOldPrice" placeholder="Old/MRP (₹)" class="border border-gray-200 rounded-xl py-3 px-4 focus:border-orange-400 focus:outline-none">
+<input type="number" id="newProdStock" placeholder="Stock Qty" class="border border-gray-200 rounded-xl py-3 px-4 focus:border-orange-400 focus:outline-none">
+</div>
+
+<!-- Image Upload: One by One -->
+<div>
+<p class="text-sm font-medium text-gray-600 mb-2"><i class="fas fa-images text-orange"></i> Product Images</p>
+<div id="newProdImgGrid" class="grid grid-cols-3 gap-2 mb-3"></div>
+<input type="file" id="newProdImgSingle" accept="image/*" class="hidden" onchange="addSingleImage(this,'new')">
+<button type="button" onclick="document.getElementById('newProdImgSingle').click()" class="w-full border-2 border-dashed border-gray-200 rounded-xl py-3 px-4 text-sm text-gray-400 hover:border-orange-400 hover:text-orange-500 transition flex items-center justify-center gap-2"><i class="fas fa-plus-circle"></i> <span id="addImgBtnText">Upload First Image</span></button>
+<p class="text-xs text-gray-300 mt-1 text-center">JPG, PNG, WEBP • Max 5MB each • Up to 5 images</p>
+</div>
+<input type="text" id="newProdImg" placeholder="Or paste image URL (optional)" class="w-full border border-gray-200 rounded-xl py-3 px-4 text-sm focus:border-orange-400 focus:outline-none">
+</div>
+<div class="flex gap-3 mt-5"><button onclick="addProduct(event)" id="addProductBtn" class="btn-primary flex-1 py-3">Add Product</button><button onclick="closeModal('addProductModal')" class="border-2 flex-1 py-3 rounded-full font-semibold hover:bg-gray-50 transition">Cancel</button></div>
+</div></div>
+
+<!-- ===== EDIT PRODUCT MODAL (Admin) ===== -->
+<div id="editProductModal" class="fixed inset-0 hidden items-center justify-center z-50 modal-overlay">
+<div class="bg-white rounded-3xl p-7 w-full max-w-md mx-4 shadow-2xl animate-bounce-in max-h-[90vh] overflow-y-auto relative">
+<i class="fas fa-times absolute top-4 right-5 text-gray-400 cursor-pointer hover:text-gray-700 text-lg" onclick="closeModal('editProductModal')"></i>
+<h3 class="font-bold text-xl mb-4"><i class="fas fa-edit text-orange"></i> Edit Product</h3>
+<input type="hidden" id="editProdId">
+<div class="space-y-3">
+<input type="text" id="editProdName" placeholder="Product Name *" class="w-full border border-gray-200 rounded-xl py-3 px-4 focus:border-orange-400 focus:outline-none">
+<textarea id="editProdDesc" placeholder="Product Description" rows="2" class="w-full border border-gray-200 rounded-xl py-3 px-4 resize-none focus:border-orange-400 focus:outline-none"></textarea>
+<select id="editProdCat" class="w-full border border-gray-200 rounded-xl py-3 px-4 focus:border-orange-400 focus:outline-none" onchange="document.getElementById('editCustomCatBox').style.display=this.value==='other'?'block':'none'"><option value="electrical">Electrical</option><option value="plumbing">Plumbing</option><option value="paints">Paints</option><option value="flooring">Flooring</option><option value="hardware">Hardware</option><option value="construction">Construction</option><option value="other">Other (Custom)</option></select>
+<div id="editCustomCatBox" style="display:none"><input type="text" id="editProdCatCustom" placeholder="Enter custom category name" class="w-full border border-orange-300 rounded-xl py-3 px-4 bg-orange-50"></div>
+<div class="grid grid-cols-2 gap-3">
+<input type="number" id="editProdPrice" placeholder="Min Price (₹) *" class="border border-gray-200 rounded-xl py-3 px-4 focus:border-orange-400 focus:outline-none">
+<input type="number" id="editProdPriceMax" placeholder="Max Price (₹)" class="border border-gray-200 rounded-xl py-3 px-4 focus:border-orange-400 focus:outline-none">
+</div>
+<div class="grid grid-cols-2 gap-3">
+<input type="number" id="editProdOldPrice" placeholder="Old/MRP (₹)" class="border border-gray-200 rounded-xl py-3 px-4 focus:border-orange-400 focus:outline-none">
+<input type="number" id="editProdStock" placeholder="Stock Qty" class="border border-gray-200 rounded-xl py-3 px-4 focus:border-orange-400 focus:outline-none">
+</div>
+<!-- Current Images -->
+<div>
+<p class="text-sm font-medium text-gray-600 mb-2"><i class="fas fa-images text-orange"></i> Current Images</p>
+<div id="editProdCurrentImgs" class="grid grid-cols-3 gap-2"></div>
+</div>
+<!-- Upload New Images: One by One -->
+<div>
+<div id="editProdNewImgGrid" class="grid grid-cols-3 gap-2 mb-3"></div>
+<input type="file" id="editProdImgSingle" accept="image/*" class="hidden" onchange="addSingleImage(this,'edit')">
+<button type="button" onclick="document.getElementById('editProdImgSingle').click()" class="w-full border-2 border-dashed border-gray-200 rounded-xl py-3 px-4 text-sm text-gray-400 hover:border-orange-400 hover:text-orange-500 transition flex items-center justify-center gap-2"><i class="fas fa-plus-circle"></i> Add More Image</button>
+</div>
+<input type="text" id="editProdImgUrl" placeholder="Or paste new image URL" class="w-full border border-gray-200 rounded-xl py-3 px-4 text-sm focus:border-orange-400 focus:outline-none">
+</div>
+<div class="flex gap-3 mt-5"><button onclick="saveEditProduct()" id="editProductBtn" class="btn-primary flex-1 py-3">Save Changes</button><button onclick="closeModal('editProductModal')" class="border-2 flex-1 py-3 rounded-full font-semibold hover:bg-gray-50 transition">Cancel</button></div>
+</div></div>
+
+<!-- ===== FULLSCREEN LIGHTBOX ===== -->
+<div id="lightboxModal" class="lightbox-overlay" style="display:none">
+<div class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></div>
+<div class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)"><i class="fas fa-chevron-left"></i></div>
+<img id="lightboxImg" src="" alt="Product Image">
+<div class="lightbox-nav lightbox-next" onclick="lightboxNav(1)"><i class="fas fa-chevron-right"></i></div>
+<div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
+
+<!-- ===== ADD WORKER MODAL (Admin) ===== -->
+<div id="addWorkerModal" class="fixed inset-0 hidden items-center justify-center z-50 modal-overlay">
+<div class="bg-white rounded-3xl p-7 w-full max-w-md mx-4 shadow-2xl animate-bounce-in">
+<h3 class="font-bold text-xl mb-4"><i class="fas fa-user-plus text-orange"></i> Add Worker</h3>
+<div class="space-y-3">
+<div class="flex items-center gap-3 mb-2">
+    <div class="w-12 h-12 rounded-full bg-gray-100 flex-shrink-0 flex items-center justify-center overflow-hidden border border-gray-200"><img id="newWorkerImgPreview" src="https://randomuser.me/api/portraits/men/99.jpg" class="w-full h-full object-cover"></div>
+    <div class="flex-1">
+        <label class="block text-xs font-medium text-gray-500 mb-1">Worker Photo (optional)</label>
+        <input type="file" id="newWorkerImgFile" accept="image/*" class="w-full text-sm text-gray-500 file:mr-4 file:py-1.5 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-orange-50 file:text-orange hover:file:bg-orange-100 cursor-pointer" onchange="const f=this.files[0];if(f){const r=new FileReader();r.onload=e=>document.getElementById('newWorkerImgPreview').src=e.target.result;r.readAsDataURL(f)}">
+    </div>
+</div>
+<input type="text" id="newWorkerName" placeholder="Worker Name" class="w-full border border-gray-200 rounded-xl py-3 px-4">
+<select id="newWorkerRole" class="w-full border border-gray-200 rounded-xl py-3 px-4"><option>Electrician</option><option>Plumber</option><option>Labor</option><option>Carpenter</option><option>Painter</option><option>Welder</option><option>Mason</option><option>AC Technician</option></select>
+<input type="text" id="newWorkerExp" placeholder="Experience (e.g. 5 yrs)" class="w-full border border-gray-200 rounded-xl py-3 px-4">
+<input type="text" id="newWorkerCity" placeholder="City" class="w-full border border-gray-200 rounded-xl py-3 px-4">
+<input type="text" id="newWorkerPrice" placeholder="Rate (e.g. ₹399/hr)" class="w-full border border-gray-200 rounded-xl py-3 px-4">
+<input type="text" id="newWorkerPhone" placeholder="Phone Number" class="w-full border border-gray-200 rounded-xl py-3 px-4">
+</div>
+<div class="flex gap-3 mt-5"><button onclick="addWorkerAdmin()" class="btn-primary flex-1 py-3">Add Worker</button><button onclick="closeModal('addWorkerModal')" class="border-2 flex-1 py-3 rounded-full font-semibold">Cancel</button></div>
+</div></div>
+
+<!-- ===== ADD CATEGORY MODAL (Admin) ===== -->
+<div id="addCategoryModal" class="fixed inset-0 hidden items-center justify-center z-50 modal-overlay">
+<div class="bg-white rounded-3xl p-7 w-full max-w-md mx-4 shadow-2xl animate-bounce-in">
+<h3 class="font-bold text-xl mb-4"><i class="fas fa-folder-plus text-orange"></i> Add Category</h3>
+<div class="space-y-3">
+<input type="text" id="newCatName" placeholder="Category Name" class="w-full border border-gray-200 rounded-xl py-3 px-4">
+<input type="text" id="newCatIcon" placeholder="Icon class (e.g. fas fa-bolt)" class="w-full border border-gray-200 rounded-xl py-3 px-4">
+<input type="text" id="newCatDesc" placeholder="Description (optional)" class="w-full border border-gray-200 rounded-xl py-3 px-4">
+</div>
+<div class="flex gap-3 mt-5"><button onclick="addCategoryAdmin()" class="btn-primary flex-1 py-3">Add Category</button><button onclick="closeModal('addCategoryModal')" class="border-2 flex-1 py-3 rounded-full font-semibold">Cancel</button></div>
+</div></div>
+<!-- ===== ADMIN SETTINGS MODAL ===== -->
+<div id="adminSettingsModal" class="fixed inset-0 hidden items-center justify-center z-50 modal-overlay">
+<div class="bg-white rounded-3xl p-7 w-full max-w-md mx-4 shadow-2xl animate-bounce-in relative">
+<i class="fas fa-times absolute top-4 right-5 text-gray-400 cursor-pointer hover:text-gray-700 text-lg" onclick="closeModal('adminSettingsModal')"></i>
+<h3 class="font-bold text-xl mb-2"><i class="fas fa-cog text-orange"></i> Admin Settings</h3>
+<p class="text-sm text-gray-500 mb-5">Change your admin login credentials securely.</p>
+<div class="space-y-3">
+<div class="relative"><input type="password" id="adminCurPass" placeholder="Current Password *" class="w-full border border-gray-200 rounded-xl py-3 px-4 pr-12"><button type="button" onclick="togglePassword('adminCurPass',this)" class="absolute right-4 top-3.5 text-gray-400 hover:text-gray-600"><i class="fas fa-eye"></i></button></div>
+<div>
+<input type="email" id="adminNewEmail" placeholder="New Email (optional)" class="w-full border border-gray-200 rounded-xl py-3 px-4">
+<p class="text-xs text-gray-400 mt-1 ml-1"><i class="fas fa-info-circle"></i> Email can be changed max 2 times per month</p>
+</div>
+<div>
+<div class="relative"><input type="password" id="adminNewPass" placeholder="New Password (optional)" class="w-full border border-gray-200 rounded-xl py-3 px-4 pr-12"><button type="button" onclick="togglePassword('adminNewPass',this)" class="absolute right-4 top-3.5 text-gray-400 hover:text-gray-600"><i class="fas fa-eye"></i></button></div>
+<p class="text-xs text-gray-400 mt-1 ml-1"><i class="fas fa-lock"></i> Min 8 chars, 1 uppercase, 1 lowercase, 1 number, 1 special char</p>
+</div>
+</div>
+<div id="adminSettingsError" class="hidden text-sm text-red-500 mt-3 bg-red-50 p-2 rounded-lg"></div>
+<div class="flex gap-3 mt-5"><button onclick="changeAdminCredentials()" id="adminSettingsSaveBtn" class="btn-primary flex-1 py-3">Save Changes</button><button onclick="closeModal('adminSettingsModal')" class="border-2 flex-1 py-3 rounded-full font-semibold">Cancel</button></div>
+</div></div>
+
+<!-- ===== ADD SLIDE MODAL (Admin) ===== -->
+<div id="addSlideModal" class="fixed inset-0 hidden items-center justify-center z-50 modal-overlay">
+<div class="bg-white rounded-3xl p-7 w-full max-w-md mx-4 shadow-2xl animate-bounce-in max-h-[90vh] overflow-y-auto">
+<h3 class="font-bold text-xl mb-4"><i class="fas fa-images text-purple-500"></i> Add Slide</h3>
+<div class="space-y-3">
+<div class="flex items-center gap-3 mb-2">
+    <div class="w-full h-24 bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden border border-gray-200"><img id="newSlideImgPreview" src="https://via.placeholder.com/400x150" class="w-full h-full object-cover"></div>
+</div>
+<label class="block text-xs font-medium text-gray-500 mb-1">Slide Image *</label>
+<input type="file" id="newSlideImgFile" accept="image/*" class="w-full text-sm text-gray-500 file:mr-4 file:py-1.5 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-orange-50 file:text-orange hover:file:bg-orange-100 cursor-pointer" onchange="const f=this.files[0];if(f){const r=new FileReader();r.onload=e=>document.getElementById('newSlideImgPreview').src=e.target.result;r.readAsDataURL(f)}">
+<input type="text" id="newSlideTitle" placeholder="Title (HTML allowed)" class="w-full border border-gray-200 rounded-xl py-3 px-4">
+<input type="text" id="newSlideSubtitle" placeholder="Subtitle" class="w-full border border-gray-200 rounded-xl py-3 px-4">
+<input type="text" id="newSlideBtnText" placeholder="Button Text (e.g. Explore →)" class="w-full border border-gray-200 rounded-xl py-3 px-4">
+<input type="text" id="newSlideBtnLink" placeholder="Button Link (e.g. mart.html)" class="w-full border border-gray-200 rounded-xl py-3 px-4">
+<input type="number" id="newSlideOrder" placeholder="Sort Order" class="w-full border border-gray-200 rounded-xl py-3 px-4" value="0">
+
+<!-- Gallery Images for Modal -->
+<div>
+<p class="text-sm font-medium text-gray-600 mt-2 mb-2"><i class="fas fa-images text-orange"></i> Gallery Images (Optional)</p>
+<input type="file" id="newSlideGalleryFiles" accept="image/*" multiple class="w-full text-sm text-gray-500 file:mr-4 file:py-1.5 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-orange-50 file:text-orange hover:file:bg-orange-100 cursor-pointer" onchange="previewGalleryImages(this)">
+<div id="newSlideGalleryPreview" class="flex gap-2 mt-2 overflow-x-auto pb-2"></div>
+</div>
+</div>
+<div class="flex gap-3 mt-5"><button onclick="addSlideAdmin()" class="btn-primary flex-1 py-3">Add Slide</button><button onclick="closeModal('addSlideModal')" class="border-2 flex-1 py-3 rounded-full font-semibold">Cancel</button></div>
+</div></div>
+
+<!-- ===== EDIT SLIDE MODAL (Admin) ===== -->
+<div id="editSlideModal" class="fixed inset-0 hidden items-center justify-center z-50 modal-overlay">
+<div class="bg-white rounded-3xl p-7 w-full max-w-md mx-4 shadow-2xl animate-bounce-in max-h-[90vh] overflow-y-auto">
+<h3 class="font-bold text-xl mb-4"><i class="fas fa-edit text-purple-500"></i> Edit Slide</h3>
+<div class="space-y-3">
+<input type="hidden" id="editSlideId">
+<div class="flex items-center gap-3 mb-2">
+    <div class="w-full h-24 bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden border border-gray-200"><img id="editSlideImgPreview" src="https://via.placeholder.com/400x150" class="w-full h-full object-cover"></div>
+</div>
+<label class="block text-xs font-medium text-gray-500 mb-1">Slide Image (Leave blank to keep existing)</label>
+<input type="file" id="editSlideImgFile" accept="image/*" class="w-full text-sm text-gray-500 file:mr-4 file:py-1.5 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-orange-50 file:text-orange hover:file:bg-orange-100 cursor-pointer" onchange="const f=this.files[0];if(f){const r=new FileReader();r.onload=e=>document.getElementById('editSlideImgPreview').src=e.target.result;r.readAsDataURL(f)}">
+<input type="hidden" id="editSlideImgUrl">
+<input type="text" id="editSlideTitle" placeholder="Title (HTML allowed)" class="w-full border border-gray-200 rounded-xl py-3 px-4">
+<input type="text" id="editSlideSubtitle" placeholder="Subtitle" class="w-full border border-gray-200 rounded-xl py-3 px-4">
+<input type="text" id="editSlideBtnText" placeholder="Button Text (e.g. Explore →)" class="w-full border border-gray-200 rounded-xl py-3 px-4">
+<input type="text" id="editSlideBtnLink" placeholder="Button Link (e.g. mart.html)" class="w-full border border-gray-200 rounded-xl py-3 px-4">
+<input type="number" id="editSlideOrder" placeholder="Sort Order" class="w-full border border-gray-200 rounded-xl py-3 px-4">
+
+<!-- Edit Gallery Images -->
+<div>
+<p class="text-sm font-medium text-gray-600 mt-2 mb-2"><i class="fas fa-images text-orange"></i> Existing Gallery Images</p>
+<div id="editSlideKeepGalleryGrid" class="grid grid-cols-4 gap-2 mb-2"></div>
+<p class="text-sm font-medium text-gray-600 mt-2 mb-2">Add New Gallery Images</p>
+<input type="file" id="editSlideGalleryFiles" accept="image/*" multiple class="w-full text-sm text-gray-500 file:mr-4 file:py-1.5 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-orange-50 file:text-orange hover:file:bg-orange-100 cursor-pointer" onchange="previewEditSlideGalleryImages(this)">
+<div id="editSlideGalleryPreview" class="flex gap-2 mt-2 overflow-x-auto pb-2"></div>
+</div>
+</div>
+<div class="flex gap-3 mt-5"><button onclick="saveEditSlide()" id="editSlideBtn" class="btn-primary flex-1 py-3">Save Changes</button><button onclick="closeModal('editSlideModal')" class="border-2 flex-1 py-3 rounded-full font-semibold">Cancel</button></div>
+</div></div>
+
+<!-- ===== MOBILE BOTTOM NAV ===== -->
+<div class="sticky-mobile-nav">
+<a href="index.html" class="mob-nav-item" data-page="index"><i class="fas fa-home text-lg"></i><span>Home</span></a>
+<a href="services.html" class="mob-nav-item" data-page="services"><i class="fas fa-hard-hat text-lg"></i><span>Services</span></a>
+<a href="mart.html" class="mob-nav-item" data-page="mart"><i class="fas fa-store text-lg"></i><span>Mart</span></a>
+<div class="mob-nav-item" onclick="openCartSidebar()"><i class="fas fa-shopping-cart text-lg"></i><span>Cart</span></div>
+<a href="account.html" class="mob-nav-item" data-page="account"><i class="fas fa-user text-lg"></i><span>Account</span></a>
+</div>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Majdoors | My Bookings</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+<script>tailwind.config={theme:{extend:{colors:{navy:'#0a2540',orange:'#f97316'},fontFamily:{sans:['Inter','system-ui','sans-serif']}}}}</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-white text-gray-800" style="display:none">
+<div id="navbar-container"></div>
+<div id="modals-container"></div>
+<main class="pt-16 max-w-4xl mx-auto px-6 py-8" data-page="bookings">
+<a href="account.html" class="text-orange font-semibold flex items-center gap-2 mb-6 hover:gap-3 transition-all no-underline"><i class="fas fa-arrow-left"></i> Back to Account</a>
+<h1 class="text-3xl font-extrabold mb-8"><i class="fas fa-calendar-check text-orange"></i> My Bookings</h1>
+<div id="bookingsContainer" class="space-y-4">
+<div class="text-center py-20"><i class="fas fa-calendar-times text-6xl text-gray-200 mb-4"></i><p class="text-gray-400">No bookings yet</p><a href="services.html" class="btn-primary inline-block px-6 py-2.5 mt-4">Book a Service</a></div>
+</div>
+</main>
+<div id="footer-container"></div>
+<script src="js/api.js?v=10"></script>
+<script src="js/main.js?v=10"></script>
+<script src="js/app.js?v=10"></script>
+    <script src="js/pages.js?v=10"></script>
+</body>
+</html>

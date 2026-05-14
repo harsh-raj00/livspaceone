@@ -1,0 +1,89 @@
+<nav class="glass-nav fixed top-0 w-full z-50 py-3 px-4 md:px-10 border-b border-gray-100 shadow-sm">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+
+        <a href="index.html" class="flex items-center gap-2 cursor-pointer no-underline"><i
+                class="fas fa-hard-hat text-2xl text-orange-500"></i><span
+                class="font-extrabold text-2xl tracking-tight text-navy">Maj<span
+                    class="text-orange">doors</span></span></a>
+
+        <div class="hidden md:flex gap-8 font-medium text-sm">
+            <a href="index.html" class="nav-link hover:text-orange transition" data-page="index">Home</a>
+            <a href="services.html" class="nav-link hover:text-orange transition" data-page="services">Services</a>
+            <a href="mart.html" class="nav-link hover:text-orange transition" data-page="mart">Mart</a>
+            <a href="about.html" class="nav-link hover:text-orange transition" data-page="about">About</a>
+            <a href="contact.html" class="nav-link hover:text-orange transition" data-page="contact">Contact</a>
+        </div>
+
+        <div class="flex items-center gap-3">
+
+            <div class="relative hidden md:block"><input type="text" id="globalSearch"
+                    placeholder="Search services or products..."
+                    class="border border-gray-200 rounded-full py-2 px-4 pl-10 w-64 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 text-sm transition"><i
+                    class="fas fa-search absolute left-3.5 top-2.5 text-gray-400 text-sm"></i></div>
+
+            <div class="relative cursor-pointer" id="notifBell"><i
+                    class="fas fa-bell text-lg text-gray-600 hover:text-orange transition"></i><span class="cart-badge"
+                    id="notifCount" style="display:none">0</span>
+                <div class="notif-dropdown" id="notifDropdown">
+                    <p class="text-sm font-bold px-2 pb-2 border-b mb-2">Notifications</p>
+                    <div id="notifList">
+                        <p class="text-xs text-gray-400 text-center py-4">No notifications yet</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative cursor-pointer" id="cartIcon"><i
+                    class="fas fa-shopping-cart text-lg text-gray-600 hover:text-orange transition"></i><span
+                    id="cartCount" class="cart-badge">0</span></div>
+
+            <div class="relative" id="userNavArea">
+                <div id="userAvatar"
+                    class="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center cursor-pointer hover:ring-2 hover:ring-orange-300 transition">
+                    <i class="fas fa-user text-gray-500"></i>
+                </div>
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div id="profileHeader" class="px-3 py-2 border-b mb-1">
+                        <p class="font-bold text-sm" id="profileName">Guest User</p>
+                        <p class="text-xs text-gray-400" id="profileEmail">Not logged in</p>
+                    </div>
+                    <a href="account.html" onclick="closeDropdowns()"><i class="fas fa-user-circle"></i> My Account</a>
+                    <a href="orders.html" onclick="closeDropdowns()"><i class="fas fa-box"></i> My Orders</a>
+                    <a href="bookings.html" onclick="closeDropdowns()"><i class="fas fa-calendar-check"></i> My
+                        Bookings</a>
+                    <a href="admin.html" id="adminNavLink" onclick="closeDropdowns()" style="display:none"><i
+                            class="fas fa-shield-halved"></i> Admin Panel</a>
+                    <hr class="my-1">
+                    <a href="#" id="loginNavBtn" onclick="openModal('loginModal');closeDropdowns()"><i
+                            class="fas fa-sign-in-alt"></i> Login / Register</a>
+                    <a href="#" id="logoutNavBtn" onclick="logout();closeDropdowns()" style="display:none"><i
+                            class="fas fa-sign-out-alt text-red-500"></i><span class="text-red-500">Logout</span></a>
+                </div>
+            </div>
+
+            <button id="mobileMenuBtn" class="md:hidden text-xl text-gray-700"><i class="fas fa-bars"></i></button>
+
+        </div>
+    </div>
+
+    <div id="mobileMenu"
+        class="hidden md:hidden bg-white absolute top-full left-0 w-full shadow-lg p-5 space-y-1 border-t animate-slide-in-up">
+        <a href="index.html" class="block py-3 px-4 font-medium rounded-xl hover:bg-orange-50 transition"><i
+                class="fas fa-home w-5 text-orange"></i> Home</a>
+        <a href="services.html" class="block py-3 px-4 font-medium rounded-xl hover:bg-orange-50 transition"><i
+                class="fas fa-hard-hat w-5 text-orange"></i> Services</a>
+        <a href="mart.html" class="block py-3 px-4 font-medium rounded-xl hover:bg-orange-50 transition"><i
+                class="fas fa-store w-5 text-orange"></i> Mart</a>
+        <a href="about.html" class="block py-3 px-4 font-medium rounded-xl hover:bg-orange-50 transition"><i
+                class="fas fa-info-circle w-5 text-orange"></i> About Us</a>
+        <a href="contact.html" class="block py-3 px-4 font-medium rounded-xl hover:bg-orange-50 transition"><i
+                class="fas fa-phone w-5 text-orange"></i> Contact</a>
+        <a href="admin.html" id="adminNavLinkMobile"
+            class="block py-3 px-4 font-medium rounded-xl hover:bg-orange-50 transition" style="display:none"><i
+                class="fas fa-shield-halved w-5 text-orange"></i> Admin</a>
+        <a href="account.html" class="block py-3 px-4 font-medium rounded-xl hover:bg-orange-50 transition"><i
+                class="fas fa-user w-5 text-orange"></i> Account</a>
+        <div class="pt-2"><input type="text" placeholder="Search..."
+                class="w-full border rounded-full py-2.5 px-4 text-sm focus:outline-none focus:border-orange-400"></div>
+    </div>
+
+</nav>
