@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "Modular Switches",
+    "category": "switches",
+    "price": 899,
+    "oldPrice": 1299,
+    "discount": "30% off",
+    "stock": 45,
+    "rating": 4.5,
+    "img": "https://images.unsplash.com/photo-1558442074-3c19857bc1dc?auto=format&fit=crop&q=80&w=400&h=300"
+  },
+  {
+    "id": 2,
+    "name": "PVC Pipes 6m",
+    "category": "pipes",
+    "price": 349,
+    "oldPrice": 499,
+    "discount": "30% off",
+    "stock": 120,
+    "rating": 4.3,
+    "img": "https://images.unsplash.com/photo-1585408453188-75e117b846e4?auto=format&fit=crop&q=80&w=400&h=300"
+  },
+  {
+    "id": 3,
+    "name": "Premium Plywood",
+    "category": "plywood",
+    "price": 1250,
+    "oldPrice": 1600,
+    "discount": "22% off",
+    "stock": 15,
+    "rating": 4.7,
+    "img": "https://images.unsplash.com/photo-1601628828688-632f38a5a7d0?auto=format&fit=crop&q=80&w=400&h=300"
+  },
+  {
+    "id": 4,
+    "name": "Steel Rods Fe500",
+    "category": "rods",
+    "price": 3500,
+    "oldPrice": 3800,
+    "discount": "8% off",
+    "stock": 8,
+    "rating": 4.8,
+    "img": "https://images.unsplash.com/photo-1518709766631-90aace3d67f4?auto=format&fit=crop&q=80&w=400&h=300"
+  },
+  {
+    "id": 5,
+    "name": "Vitrified Tiles",
+    "category": "tiles",
+    "price": 750,
+    "oldPrice": 999,
+    "discount": "25% off",
+    "stock": 200,
+    "rating": 4.4,
+    "img": "https://images.unsplash.com/photo-1523413363574-c30aa1c2a516?auto=format&fit=crop&q=80&w=400&h=300"
+  },
+  {
+    "id": 6,
+    "name": "Copper Wires 1.5mm",
+    "category": "wires",
+    "price": 1100,
+    "oldPrice": 1350,
+    "discount": "20% off",
+    "stock": 35,
+    "rating": 4.6,
+    "img": "https://images.unsplash.com/photo-1544724569-5f546fd6f2b6?auto=format&fit=crop&q=80&w=400&h=300"
+  }
+]
