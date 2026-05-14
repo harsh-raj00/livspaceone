@@ -31,7 +31,7 @@ Workers is a state-of-the-art, full-stack marketplace designed to bridge the gap
 ## 📁 System Architecture
 
 ```text
-Majdoors/
+Livespaceone/
 ├── frontend/             # Client-Side Application (HTML, JS, Tailwind)
 │   ├── components/       # Reusable UI (Modals, Navbar, Footer)
 │   ├── css/ & img/       # Styling and Premium Image Assets
