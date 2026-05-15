@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: majdoors-app
+    env: node
+    buildCommand: "cd backend && npm install"
+    startCommand: "node backend/server.js"
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
