@@ -115,7 +115,7 @@ NODE_ENV=development
 ### 3. Launch the Server
 Start the local server instance:
 ```bash
-npm run dev
+node server.js
 ```
 Visit the application at:
 * 🌐 **Main Client**: `http://localhost:3000`

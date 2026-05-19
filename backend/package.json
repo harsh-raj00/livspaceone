@@ -1,7 +1,7 @@
 {
-  "name": "majdoors-mart",
+  "name": "livspaceone-backend",
   "version": "1.0.0",
-  "description": "Majdoors Mart - Construction & Interior Materials Platform",
+  "description": "LivspaceOne Backend - Premium Luxury Interior & E-Commerce Platform",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -24,6 +24,6 @@
   "devDependencies": {
     "mongodb-memory-server": "^9.1.6"
   },
-  "author": "Ravi Kumar",
+  "author": "Harsh Raj",
   "license": "ISC"
 }
