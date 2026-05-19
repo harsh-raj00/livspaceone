@@ -1,55 +1,110 @@
 /* ============================================
-   Majdoors.com — Shared Design System
+   LivspaceOne — Ultra-Premium Design System v2
    ============================================ */
 
-/* === Base === */
-* {
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,300,400&f[]=general-sans@400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #FAFAFA;
+    --bg-card: rgba(255, 255, 255, 0.7);
+    --bg-elevated: #F5F5F5;
+    --gold: #000000;
+    --gold-light: #333333;
+    --gold-dark: #1A1A1A;
+    --emerald: #000000;
+    --lux-blue: #000000;
+    --pearl: #000000;
+    --platinum: #333333;
+    --text-primary: #000000;
+    --text-secondary: #525252;
+    --text-muted: #737373;
+    --border: rgba(0, 0, 0, 0.1);
+    --border-hover: rgba(0, 0, 0, 0.3);
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --shadow-gold: 0 0 60px rgba(0, 0, 0, 0.05);
+    --shadow-card: 0 8px 40px rgba(0, 0, 0, 0.08);
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --radius-full: 9999px;
+    --transition: all 0.4s cubic-bezier(.22, 1, .36, 1);
+    --font-display: 'General Sans', 'Satoshi', 'Inter', system-ui, sans-serif;
+    --font-body: 'Satoshi', 'Inter', system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background: #fefefe;
-    overflow-x: hidden
+    font-family: var(--font-body);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    line-height: 1.7
 }
 
-/* === Slider Dots === */
-.slider-dot { transition: all 0.3s; cursor: pointer; }
-.slider-dot.active { transform: scale(1.4); box-shadow: 0 0 8px rgba(249,115,22,0.5); }
+::selection {
+    background: var(--gold);
+    color: var(--bg-primary)
+}
 
-/* === Glass Navbar === */
+/* Scrollbar */
+body::-webkit-scrollbar {
+    width: 5px
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--bg-primary)
+}
+
+body::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--gold), var(--gold-dark));
+    border-radius: 3px
+}
+
+/* ===== GLASS NAVBAR ===== */
 .glass-nav {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px)
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(30px) saturate(1.8);
+    -webkit-backdrop-filter: blur(30px) saturate(1.8);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04)
 }
 
-/* === Cards === */
-.service-card,
-.product-card {
-    transition: transform 0.3s cubic-bezier(.4, 0, .2, 1), box-shadow 0.3s
-}
-
-.service-card:hover,
-.product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15)
-}
-
-/* === Buttons === */
+/* ===== BUTTONS ===== */
 .btn-primary {
-    background: linear-gradient(135deg, #f97316, #ea580c);
-    color: white;
-    border-radius: 40px;
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    border-radius: var(--radius-full);
     font-weight: 600;
-    transition: all 0.3s;
+    font-family: var(--font-display);
+    letter-spacing: 0.03em;
+    transition: var(--transition);
     position: relative;
-    overflow: hidden
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    text-decoration: none
 }
 
 .btn-primary:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 25px rgba(249, 115, 22, 0.4)
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3)
 }
 
 .btn-primary::after {
@@ -59,10 +114,10 @@ body {
     left: 50%;
     width: 0;
     height: 0;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s
+    transition: width 0.5s, height 0.5s
 }
 
 .btn-primary:active::after {
@@ -71,22 +126,29 @@ body {
 }
 
 .btn-outline {
-    border: 2px solid #f97316;
-    color: #f97316;
-    border-radius: 40px;
+    border: 1.5px solid rgba(0, 0, 0, 0.5);
+    color: var(--gold);
+    border-radius: var(--radius-full);
     font-weight: 600;
-    transition: all 0.3s
+    font-family: var(--font-display);
+    transition: var(--transition);
+    background: transparent;
+    cursor: pointer;
+    text-decoration: none;
+    backdrop-filter: blur(10px)
 }
 
 .btn-outline:hover {
-    background: #f97316;
-    color: white;
-    transform: scale(1.03)
+    background: var(--gold);
+    color: var(--bg-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    border-color: var(--gold)
 }
 
-/* === Hero === */
+/* ===== HERO ===== */
 .hero-bg {
-    background: linear-gradient(135deg, rgba(10, 37, 64, 0.85) 0%, rgba(13, 50, 81, 0.85) 50%, rgba(15, 59, 79, 0.85) 100%), url('../img/bg.png') center/cover no-repeat;
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.2) 0%, rgba(250, 250, 250, 0.2) 50%, rgba(255, 255, 255, 0.3) 100%), url('../img/hero-luxury.png') center/cover no-repeat;
     position: relative
 }
 
@@ -94,48 +156,125 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
+    background: radial-gradient(ellipse at 20% 50%, rgba(0, 0, 0, 0.03) 0%, transparent 55%), radial-gradient(ellipse at 80% 20%, rgba(0, 0, 0, 0.02) 0%, transparent 50%);
+    pointer-events: none
 }
 
-/* === Category Chips === */
+.hero-bg::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(to top, var(--bg-primary), transparent);
+    pointer-events: none
+}
+
+/* ===== CARDS ===== */
+.service-card,
+.product-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    transition: transform 0.5s cubic-bezier(.22, 1, .36, 1), box-shadow 0.5s, border-color 0.5s
+}
+
+.service-card:hover,
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1), 0 0 30px rgba(0, 0, 0, 0.06);
+    border-color: var(--border-hover)
+}
+
+/* Glass Cards */
+.glass-card {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(24px) saturate(1.4);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: var(--radius-xl);
+    transition: var(--transition)
+}
+
+.glass-card:hover {
+    border-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1)
+}
+
+.gold-border {
+    border: 1px solid rgba(0, 0, 0, 0.15)
+}
+
+.gold-border:hover {
+    border-color: rgba(0, 0, 0, 0.4)
+}
+
+.gold-glow {
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.05)
+}
+
+.gold-glow:hover {
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.15)
+}
+
+/* Category Chips */
 .category-chip {
-    background: #f1f5f9;
-    border-radius: 40px;
-    padding: 8px 20px;
-    font-size: 0.85rem;
+    background: var(--bg-elevated);
+    border-radius: var(--radius-full);
+    padding: 10px 22px;
+    font-size: .85rem;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: var(--transition);
     font-weight: 500;
-    border: 1px solid transparent
+    border: 1px solid var(--border);
+    color: var(--text-secondary)
 }
 
 .category-chip.active,
 .category-chip:hover {
-    background: linear-gradient(135deg, #f97316, #ea580c);
-    color: white;
-    border-color: #f97316;
-    transform: scale(1.05)
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    border-color: var(--text-primary);
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2)
 }
 
-/* === Ratings === */
+/* Ratings */
 .rating-star {
-    color: #fbbf24
+    color: var(--gold)
 }
 
-/* === Modal Overlay === */
+/* Counter Values */
+.counter-value {
+    font-size: 2.8rem;
+    font-weight: 800;
+    font-family: var(--font-display);
+    color: var(--text-primary);
+}
+
+/* Section Divider */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    margin: 0 auto;
+    max-width: 200px
+}
+
+/* ===== MODAL ===== */
 .modal-overlay {
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(6px);
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(12px);
     transition: all 0.3s
 }
 
-/* === Cart Badge === */
+/* Cart Badge */
 .cart-badge {
     position: absolute;
     top: -8px;
     right: -8px;
-    background: linear-gradient(135deg, #f97316, #ea580c);
-    color: white;
+    background: var(--text-primary);
+    color: var(--bg-primary);
     border-radius: 30px;
     font-size: 10px;
     padding: 2px 7px;
@@ -144,63 +283,78 @@ body {
     text-align: center
 }
 
-/* === Sticky Mobile Nav === */
+/* Slider */
+.slider-dot {
+    transition: all 0.3s;
+    cursor: pointer
+}
+
+.slider-dot.active {
+    transform: scale(1.4);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5)
+}
+
+/* ===== MOBILE NAV ===== */
 .sticky-mobile-nav {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background: white;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(20px);
     z-index: 40;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid var(--border);
     display: none;
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08)
+    box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.4)
 }
 
 @media(max-width:768px) {
     .sticky-mobile-nav {
         display: flex;
         justify-content: space-around;
-        padding: 10px 0
+        padding: 10px 0 env(safe-area-inset-bottom, 8px)
     }
 
     .sticky-mobile-nav .mob-nav-item {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 2px;
+        gap: 3px;
         font-size: 10px;
-        color: #64748b;
+        color: var(--text-muted);
         cursor: pointer;
-        transition: 0.2s
+        transition: .3s;
+        text-decoration: none
     }
 
     .sticky-mobile-nav .mob-nav-item.active,
     .sticky-mobile-nav .mob-nav-item:hover {
-        color: #f97316
+        color: var(--gold)
     }
 }
 
-/* === Chat Bubble (LEFT side) === */
+/* ===== CHAT BUBBLE ===== */
 .chat-bubble {
     position: fixed;
     bottom: 90px;
     left: 20px;
     z-index: 9997;
-    background: linear-gradient(135deg, #f97316, #ea580c);
+    background: var(--text-primary);
     width: 58px;
     height: 58px;
-    border-radius: 30px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 8px 25px rgba(249, 115, 22, 0.4);
-    animation: float 3s infinite;
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.25);
+    animation: float 4s ease-in-out infinite;
     transition: transform 0.3s
 }
 
-.chat-bubble:hover { transform: scale(1.1) }
+.chat-bubble:hover {
+    transform: scale(1.12)
+}
 
 @media(max-width:768px) {
     .chat-bubble {
@@ -218,7 +372,7 @@ body {
     }
 }
 
-/* === Toast System === */
+/* ===== TOASTS ===== */
 .toast-container {
     position: fixed;
     top: 80px;
@@ -231,46 +385,41 @@ body {
 
 .toast {
     padding: 14px 24px;
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     color: white;
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: .9rem;
     animation: slideInRight 0.3s ease-out;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
     display: flex;
     align-items: center;
     gap: 10px;
-    max-width: 360px
+    max-width: 360px;
+    backdrop-filter: blur(16px)
 }
 
 .toast-success {
-    background: linear-gradient(135deg, #22c55e, #16a34a)
+    background: linear-gradient(135deg, rgba(15, 175, 143, 0.9), rgba(10, 140, 114, 0.9))
 }
 
 .toast-error {
-    background: linear-gradient(135deg, #ef4444, #dc2626)
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.9), rgba(220, 38, 38, 0.9))
 }
 
 .toast-info {
-    background: linear-gradient(135deg, #3b82f6, #2563eb)
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--bg-primary)
 }
 
 .toast-warning {
-    background: linear-gradient(135deg, #f59e0b, #d97706)
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.9), rgba(217, 119, 6, 0.9))
 }
 
 .toast-exit {
     animation: slideOutRight 0.3s ease-in forwards
 }
 
-@keyframes slideOutRight {
-    to {
-        transform: translateX(120%);
-        opacity: 0
-    }
-}
-
-/* === Status Dots === */
+/* ===== STATUS DOTS ===== */
 .status-dot {
     width: 10px;
     height: 10px;
@@ -279,7 +428,7 @@ body {
 }
 
 .status-available {
-    background: #22c55e;
+    background: var(--emerald);
     animation: pulseGreen 2s infinite
 }
 
@@ -288,16 +437,16 @@ body {
 }
 
 .status-offline {
-    background: #9ca3af
+    background: #6b7280
 }
 
-/* === Offers Slider === */
+/* ===== OFFERS SLIDER ===== */
 .offers-slider {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     gap: 1rem;
-    padding-bottom: 0.5rem;
+    padding-bottom: .5rem;
     scrollbar-width: none
 }
 
@@ -310,25 +459,27 @@ body {
     scroll-snap-align: start
 }
 
-/* === Dashboard Cards === */
+/* ===== DASHBOARD ===== */
 .dashboard-card {
-    background: white;
-    border-radius: 1.25rem;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s;
-    border: 1px solid #f1f5f9
+    background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    transition: var(--transition);
+    border: 1px solid var(--border)
 }
 
 .dashboard-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1)
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.5);
+    border-color: var(--border-hover)
 }
 
-/* === Scroll Reveal === */
+/* ===== REVEAL ANIMATION ===== */
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(.4, 0, .2, 1)
+    transform: translateY(40px);
+    transition: all 0.9s cubic-bezier(.22, 1, .36, 1)
 }
 
 .reveal.active {
@@ -336,28 +487,19 @@ body {
     transform: translateY(0)
 }
 
-/* === Voice Search === */
+/* ===== VOICE SEARCH ===== */
 .voice-search {
-    background: rgba(255, 255, 255, 0.9);
+    background: var(--bg-elevated);
     border-radius: 60px;
-    border: 1px solid #ddd;
-    transition: 0.2s
+    border: 1px solid var(--border);
+    transition: .2s
 }
 
 .voice-search:hover {
-    border-color: #f97316
+    border-color: var(--gold)
 }
 
-/* === Counter Values === */
-.counter-value {
-    font-size: 2.5rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, #f97316, #fbbf24);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent
-}
-
-/* === Admin Table === */
+/* ===== ADMIN TABLE ===== */
 .admin-table {
     width: 100%;
     border-collapse: separate;
@@ -365,44 +507,47 @@ body {
 }
 
 .admin-table th {
-    background: #f8fafc;
-    padding: 12px 16px;
+    background: var(--bg-elevated);
+    padding: 14px 16px;
     text-align: left;
     font-weight: 600;
-    font-size: 0.85rem;
-    color: #64748b;
+    font-size: .75rem;
+    color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.05em
+    letter-spacing: .1em;
+    border-bottom: 1px solid var(--border)
 }
 
 .admin-table td {
-    padding: 12px 16px;
-    border-bottom: 1px solid #f1f5f9;
-    font-size: 0.9rem
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: .9rem;
+    color: var(--text-secondary)
 }
 
 .admin-table tr:hover td {
-    background: #fefce8
+    background: rgba(255, 255, 255, 0.03)
 }
 
-/* === Profile Dropdown === */
+/* ===== PROFILE DROPDOWN ===== */
 .profile-dropdown {
     position: absolute;
     top: 100%;
     right: 0;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    background: var(--bg-elevated);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
     min-width: 240px;
     padding: 8px;
     z-index: 100;
     display: none;
-    border: 1px solid #f1f5f9
+    border: 1px solid var(--border);
+    backdrop-filter: blur(20px)
 }
 
 .profile-dropdown.show {
     display: block;
-    animation: slideInUp 0.2s ease-out
+    animation: slideInUp 0.25s ease-out
 }
 
 .profile-dropdown a {
@@ -410,107 +555,96 @@ body {
     align-items: center;
     gap: 10px;
     padding: 10px 14px;
-    border-radius: 10px;
-    transition: 0.2s;
-    color: #334155;
-    font-weight: 500
+    border-radius: 12px;
+    transition: .2s;
+    color: var(--text-secondary);
+    font-weight: 500;
+    text-decoration: none
 }
 
 .profile-dropdown a:hover {
-    background: #fff7ed;
-    color: #f97316
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--gold)
 }
 
-/* === Skeleton Loader === */
+/* ===== SKELETON ===== */
 .skeleton {
-    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background: linear-gradient(90deg, var(--bg-elevated) 25%, rgba(255, 255, 255, 0.04) 50%, var(--bg-elevated) 75%);
     background-size: 200% 100%;
     animation: shimmer 2s infinite;
     border-radius: 8px
 }
 
-/* === Notification Dropdown === */
+/* ===== NOTIFICATION ===== */
 .notif-dropdown {
     position: absolute;
     top: 100%;
     right: -10px;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    background: var(--bg-elevated);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
     width: 320px;
     padding: 12px;
     z-index: 100;
     display: none;
-    border: 1px solid #f1f5f9
+    border: 1px solid var(--border);
+    backdrop-filter: blur(20px)
 }
 
 .notif-dropdown.show {
     display: block;
-    animation: slideInUp 0.2s ease-out
+    animation: slideInUp 0.25s ease-out
 }
 
-/* === Scrollbar === */
-body::-webkit-scrollbar {
-    width: 8px
-}
-
-body::-webkit-scrollbar-track {
-    background: #f1f5f9
-}
-
-body::-webkit-scrollbar-thumb {
-    background: linear-gradient(#f97316, #ea580c);
-    border-radius: 4px
-}
-
-/* === Cart Sidebar === */
+/* ===== CART SIDEBAR ===== */
 .cart-sidebar {
     position: fixed;
     right: 0;
     top: 0;
     height: 100%;
-    width: 320px;
-    background: white;
-    box-shadow: -8px 0 30px rgba(0, 0, 0, 0.1);
+    width: 380px;
+    background: var(--bg-secondary);
+    box-shadow: -10px 0 50px rgba(0, 0, 0, 0.5);
     z-index: 55;
     transform: translateX(100%);
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(.22, 1, .36, 1);
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    border-left: 1px solid var(--border);
+    backdrop-filter: blur(20px)
 }
 
 .cart-sidebar.open {
     transform: translateX(0)
 }
 
-/* === Page Transition === */
+/* ===== PAGE TRANSITION ===== */
 .page-content {
-    animation: fadeUp 0.4s ease-out
+    animation: fadeUp 0.5s ease-out
 }
 
-/* === Chatbot Styles === */
+/* ===== CHATBOT ===== */
 #chatMessages {
     scroll-behavior: smooth
 }
 
-#chatMessages .flex.gap-2.justify-end > div {
-    background: linear-gradient(135deg, #f97316, #ea580c) !important;
-    color: white !important;
+#chatMessages .flex.gap-2.justify-end>div {
+    background: var(--text-primary) !important;
+    color: var(--bg-primary) !important
 }
 
 #chatMessages .flex.gap-2.justify-end p {
-    color: white !important;
+    color: var(--bg-primary) !important
 }
 
-#chatMessages .flex.gap-2:not(.justify-end) .bg-white p {
-    color: #374151 !important;
-}
-
-/* === Search Dropdown === */
+/* ===== SEARCH ===== */
 #searchDropdown {
     max-height: 320px;
     overflow-y: auto;
-    scrollbar-width: thin
+    scrollbar-width: thin;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg)
 }
 
 #searchDropdown a {
@@ -522,70 +656,69 @@ body::-webkit-scrollbar-thumb {
 }
 
 #searchDropdown::-webkit-scrollbar-thumb {
-    background: #f97316;
+    background: var(--gold);
     border-radius: 4px
 }
 
-/* === WhatsApp FAB === */
+/* ===== WHATSAPP FAB ===== */
 .whatsapp-fab {
     position: fixed;
     bottom: 90px;
     right: 20px;
     z-index: 9998;
-    background: #25D366;
-    width: 60px;
-    height: 60px;
-    border-radius: 30px;
+    background: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
-    transition: all 0.3s ease;
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
     text-decoration: none;
-    animation: whatsappPulse 2s infinite
+    animation: whatsappPulse 2.5s infinite
 }
 
 .whatsapp-fab:hover {
     transform: scale(1.12);
-    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.55)
+    box-shadow: 0 10px 40px rgba(37, 211, 102, 0.4)
 }
 
 .whatsapp-fab::after {
     content: 'Chat with us';
     position: absolute;
-    right: 70px;
-    background: #333;
-    color: white;
+    right: 65px;
+    background: var(--bg-elevated);
+    color: var(--text-primary);
     padding: 6px 14px;
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 13px;
     font-weight: 500;
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s;
-    font-family: 'Inter', sans-serif
+    font-family: var(--font-body);
+    border: 1px solid var(--border)
 }
 
 .whatsapp-fab:hover::after {
     opacity: 1
 }
 
-@keyframes whatsappPulse {
-    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5) }
-    70% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0) }
-    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0) }
-}
-
 @media(max-width:768px) {
     .whatsapp-fab {
         bottom: 80px;
         right: 16px;
-        width: 54px;
-        height: 54px
+        width: 50px;
+        height: 50px
     }
-    .whatsapp-fab::after { display: none }
+
+    .whatsapp-fab::after {
+        display: none
+    }
 }
 
 @media(min-width:769px) {
@@ -595,53 +728,45 @@ body::-webkit-scrollbar-thumb {
     }
 }
 
-/* === Animate Bounce === */
-@keyframes bounce {
-    0%, 100% { transform: translateY(0) }
-    50% { transform: translateY(-4px) }
-}
-.animate-bounce {
-    animation: bounce 0.6s infinite
-}
-
-/* === Delete Confirm Overlay === */
+/* ===== CONFIRM OVERLAY ===== */
 .confirm-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.5);
-    backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
     z-index: 10000;
     display: flex;
     align-items: center;
     justify-content: center;
     animation: fadeIn 0.2s ease-out
 }
-@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
 
-/* === Lightbox === */
+/* ===== LIGHTBOX ===== */
 .lightbox-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.92);
+    background: rgba(0, 0, 0, 0.96);
     z-index: 10001;
     display: flex;
     align-items: center;
     justify-content: center;
     animation: fadeIn 0.25s ease-out
 }
+
 .lightbox-overlay img {
     max-width: 90vw;
     max-height: 85vh;
     object-fit: contain;
-    border-radius: 12px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5)
+    border-radius: 16px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6)
 }
+
 .lightbox-close {
     position: absolute;
     top: 20px;
     right: 24px;
     color: white;
-    font-size: 28px;
+    font-size: 24px;
     cursor: pointer;
     width: 44px;
     height: 44px;
@@ -649,16 +774,21 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: rgba(255,255,255,0.1);
-    transition: background 0.2s
+    background: rgba(255, 255, 255, 0.08);
+    transition: background 0.2s;
+    backdrop-filter: blur(10px)
 }
-.lightbox-close:hover { background: rgba(255,255,255,0.25) }
+
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.15)
+}
+
 .lightbox-nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     color: white;
-    font-size: 24px;
+    font-size: 20px;
     cursor: pointer;
     width: 48px;
     height: 48px;
@@ -666,32 +796,45 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: rgba(255,255,255,0.12);
-    transition: background 0.2s
+    background: rgba(255, 255, 255, 0.06);
+    transition: background 0.2s;
+    backdrop-filter: blur(10px)
 }
-.lightbox-nav:hover { background: rgba(255,255,255,0.3) }
-.lightbox-prev { left: 20px }
-.lightbox-next { right: 20px }
+
+.lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.15)
+}
+
+.lightbox-prev {
+    left: 20px
+}
+
+.lightbox-next {
+    right: 20px
+}
+
 .lightbox-counter {
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.5);
     font-size: 14px;
-    font-family: 'Inter', sans-serif
+    font-family: var(--font-body)
 }
 
-/* === Product Gallery Slider === */
+/* ===== PRODUCT GALLERY ===== */
 .product-gallery {
     position: relative;
     overflow: hidden;
-    border-radius: 16px
+    border-radius: var(--radius-lg)
 }
+
 .product-gallery-track {
     display: flex;
-    transition: transform 0.35s ease
+    transition: transform 0.4s cubic-bezier(.22, 1, .36, 1)
 }
+
 .product-gallery-track img {
     flex: 0 0 100%;
     width: 100%;
@@ -699,27 +842,40 @@ body::-webkit-scrollbar-thumb {
     object-fit: cover;
     cursor: pointer
 }
+
 .gallery-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: 36px;
     height: 36px;
-    background: rgba(255,255,255,0.85);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     font-size: 14px;
-    color: #333;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    transition: all 0.2s;
+    color: white;
+    transition: all 0.3s;
     z-index: 5
 }
-.gallery-arrow:hover { background: white; transform: translateY(-50%) scale(1.1) }
-.gallery-arrow-left { left: 8px }
-.gallery-arrow-right { right: 8px }
+
+.gallery-arrow:hover {
+    background: var(--gold);
+    color: var(--bg-primary);
+    transform: translateY(-50%) scale(1.1)
+}
+
+.gallery-arrow-left {
+    left: 8px
+}
+
+.gallery-arrow-right {
+    right: 8px
+}
+
 .gallery-dots {
     position: absolute;
     bottom: 10px;
@@ -729,15 +885,250 @@ body::-webkit-scrollbar-thumb {
     gap: 6px;
     z-index: 5
 }
+
 .gallery-dot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.5);
+    background: rgba(255, 255, 255, 0.3);
     cursor: pointer;
-    transition: all 0.2s
+    transition: all 0.3s
 }
+
 .gallery-dot.active {
-    background: white;
-    transform: scale(1.3)
+    background: var(--gold);
+    transform: scale(1.3);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5)
+}
+
+/* ===== LOADING SCREEN ===== */
+.loading-screen {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-primary);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 24px;
+    transition: opacity 0.6s, visibility 0.6s
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden
+}
+
+.loading-spinner {
+    width: 44px;
+    height: 44px;
+    border: 2px solid var(--border);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite
+}
+
+/* ===== AMBIENT GLOW ===== */
+.ambient-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0
+}
+
+.ambient-gold {
+    background: var(--gold)
+}
+
+.ambient-blue {
+    background: var(--lux-blue)
+}
+
+.ambient-emerald {
+    background: var(--emerald)
+}
+
+/* ===== KEYFRAMES ===== */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0)
+    }
+
+    50% {
+        transform: translateY(-14px)
+    }
+}
+
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(24px)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes pulseGreen {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(15, 175, 143, 0.6)
+    }
+
+    70% {
+        box-shadow: 0 0 0 12px rgba(15, 175, 143, 0)
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1
+    }
+}
+
+@keyframes slideOutRight {
+    to {
+        transform: translateX(120%);
+        opacity: 0
+    }
+}
+
+@keyframes slideInUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0
+    }
+
+    50% {
+        transform: scale(1.04)
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0
+    }
+
+    100% {
+        background-position: 200% 0
+    }
+}
+
+@keyframes goldPulse {
+
+    0%,
+    100% {
+        opacity: 0.4
+    }
+
+    50% {
+        opacity: 1
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes whatsappPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4)
+    }
+
+    70% {
+        box-shadow: 0 0 0 16px rgba(37, 211, 102, 0)
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0)
+    }
+}
+
+@keyframes orbFloat {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1)
+    }
+
+    25% {
+        transform: translate(10px, -15px) scale(1.02)
+    }
+
+    50% {
+        transform: translate(-5px, -25px) scale(0.98)
+    }
+
+    75% {
+        transform: translate(-15px, -10px) scale(1.01)
+    }
+}
+
+@keyframes textReveal {
+    0% {
+        clip-path: inset(0 100% 0 0)
+    }
+
+    100% {
+        clip-path: inset(0 0 0 0)
+    }
+}
+
+@keyframes lineGrow {
+    0% {
+        width: 0
+    }
+
+    100% {
+        width: 100%
+    }
+}
+
+.animate-bounce {
+    animation: bounceIn 0.5s ease-out
 }

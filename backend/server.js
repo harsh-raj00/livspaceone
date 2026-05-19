@@ -97,18 +97,18 @@ const chatbotKB = {
 };
 
 const chatbotResponses = {
-    greeting: "Hello! 👋 Welcome to Majdoors Mart. I'm here to help you find construction materials, book services, or answer any questions. How can I assist you today?",
-    location: "📍 Our store is located at:\nNear Digital Duniya, Nala Road,\nBihar Sharif, Nalanda,\nBihar, India\n\nYou can visit us during business hours or order online!",
-    contact: "📞 You can reach us at:\nPhone: +91 9279509297\nEmail: Service@majdoors.com\nWhatsApp: +91 9279509297\n\nOwner: Ravi Kumar",
-    timing: "🕐 Our business hours are:\nMonday - Saturday: 9:00 AM - 7:00 PM\nSunday: 10:00 AM - 4:00 PM",
-    delivery: "🚚 We offer delivery across Bihar Sharif and nearby areas.\n• Orders above ₹1999 get FREE delivery\n• Standard delivery: 2-4 business days\n• Express delivery available on request\n\nCall +91 9279509297 for bulk orders.",
-    products: "🏗️ We offer a wide range of construction & interior materials:\n• Electrical supplies\n• Plumbing materials\n• Paints & finishes\n• Flooring & tiles\n• Hardware & tools\n• Construction materials\n\nBrowse our Mart section or visit our store!",
-    services: "👷 We connect you with verified professionals:\n• Electricians\n• Plumbers\n• Carpenters\n• Painters\n• Masons\n• Welders\n• AC Technicians\n\nCheck our Services page to book instantly!",
-    payment: "💳 We accept multiple payment methods:\n• Cash on Delivery (COD)\n• UPI / Google Pay\n• Credit / Debit Cards\n• Net Banking\n• Cash at Store",
-    returns: "🔄 Our return policy:\n• 7 days hassle-free returns for unused products\n• Products must be in original packaging\n• Contact us at +91 9279509297 for returns\n• Refund processed within 5-7 business days",
-    owner: "👤 Majdoors Mart is owned by Ravi Kumar.\nContact: +91 9279509297\nEmail: Service@majdoors.com\n\nWe're a trusted construction & interior materials supplier in Bihar Sharif.",
-    categories: "📦 Our main product categories:\n1. Electrical (switches, wires, MCBs)\n2. Plumbing (pipes, fittings, taps)\n3. Paints (wall paint, primers, brushes)\n4. Flooring (tiles, marble, granite)\n5. Hardware (locks, hinges, tools)\n6. Construction Materials (cement, rods, sand)\n\nAdmin can add more categories anytime!",
-    fallback: "I'm not sure about that. You can:\n• Call us: +91 9279509297\n• Email: Service@majdoors.com\n• WhatsApp us for instant help\n• Visit our store at Nala Road, Bihar Sharif\n\nOr try asking about our products, services, location, or delivery!"
+    greeting: "Hello! 👋 Welcome to LivspaceOne. I'm here to help you find premium construction materials, consult with experts, or answer any questions. How can I assist you today?",
+    location: "📍 Our design studio is located at:\nLivspaceOne HQ,\nCyber City, Gurugram,\nIndia\n\nYou can visit us during business hours or book a consultation online!",
+    contact: "📞 You can reach our Concierge at:\nPhone: +91 98765 43210\nEmail: concierge@livspaceone.com\nWhatsApp: +91 98765 43210",
+    timing: "🕐 Our business hours are:\nMonday - Saturday: 9:00 AM - 8:00 PM\nSunday: 10:00 AM - 5:00 PM",
+    delivery: "🚚 We offer premium white-glove delivery.\n• Standard delivery: 2-4 business days\n• Express delivery available on request\n\nCall +91 98765 43210 for specialized delivery.",
+    products: "🏗️ We offer curated LuxeBuild collections:\n• Smart Electricals\n• Premium Plumbing\n• Designer Paints\n• Luxury Flooring\n• Architectural Hardware\n\nBrowse our LuxeBuild section to explore!",
+    services: "👷 We connect you with top-tier professionals:\n• Architects\n• Interior Designers\n• Master Electricians\n• Premium Carpenters\n\nCheck our Experts page to schedule a consultation!",
+    payment: "💳 We accept premium payment methods:\n• Credit / Debit Cards\n• Net Banking\n• UPI\n• Wire Transfer for large projects",
+    returns: "🔄 Our return policy:\n• 14 days hassle-free returns for unused premium products\n• Contact our concierge at +91 98765 43210 for returns",
+    owner: "👤 LivspaceOne is a premium architecture-tech platform.\nContact: +91 98765 43210\nEmail: concierge@livspaceone.com",
+    categories: "📦 Our LuxeBuild collections:\n1. Electrical\n2. Plumbing\n3. Paints\n4. Flooring\n5. Hardware\n6. Construction",
+    fallback: "I'm not completely sure about that. You can:\n• Call our Concierge: +91 98765 43210\n• Email: concierge@livspaceone.com\n• WhatsApp us for priority support\n\nOr try asking about our collections, experts, or delivery!"
 };
 
 function getChatbotReply(message) {

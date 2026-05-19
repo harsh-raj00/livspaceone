@@ -1,53 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Majdoors Mart | Shop Construction Materials Online</title>
-<meta name="description" content="Shop quality construction materials at best prices. Switches, pipes, plywood, steel rods, tiles, wires, cement, paints, tools and more.">
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
-<script>tailwind.config={theme:{extend:{colors:{navy:'#0a2540',orange:'#f97316',lightgray:'#f3f4f6'},fontFamily:{sans:['Inter','system-ui','sans-serif']},animation:{float:'float 5s ease-in-out infinite','fade-up':'fadeUp 0.6s ease-out','pulse-green':'pulseGreen 2s infinite','slide-in-right':'slideInRight 0.3s ease-out','slide-in-up':'slideInUp 0.4s ease-out','bounce-in':'bounceIn 0.5s ease-out','shimmer':'shimmer 2s infinite'},keyframes:{float:{'0%,100%':{transform:'translateY(0px)'},'50%':{transform:'translateY(-12px)'}},fadeUp:{'0%':{opacity:'0',transform:'translateY(20px)'},'100%':{opacity:'1',transform:'translateY(0)'}},pulseGreen:{'0%,100%':{boxShadow:'0 0 0 0 rgba(34,197,94,0.7)'},'70%':{boxShadow:'0 0 0 10px rgba(34,197,94,0)'}},slideInRight:{'0%':{transform:'translateX(100%)',opacity:'0'},'100%':{transform:'translateX(0)',opacity:'1'}},slideInUp:{'0%':{transform:'translateY(30px)',opacity:'0'},'100%':{transform:'translateY(0)',opacity:'1'}},bounceIn:{'0%':{transform:'scale(0.3)',opacity:'0'},'50%':{transform:'scale(1.05)'},'100%':{transform:'scale(1)',opacity:'1'}},shimmer:{'0%':{backgroundPosition:'-200% 0'},'100%':{backgroundPosition:'200% 0'}}}}}}</script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>LuxeBuild Collections | LivspaceOne</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+    <script>tailwind.config={theme:{extend:{colors:{gold:'#FFFFFF','gold-dark':'#E5E5E5','gold-light':'#F5F5F5',dark:'#000000','dark-2':'#111315','dark-3':'#1A1C1F','dark-4':'#222'},fontFamily:{sans:['Inter','Poppins','system-ui','sans-serif'],display:['Outfit','Poppins','Inter','sans-serif']},animation:{float:'float 5s ease-in-out infinite','fade-up':'fadeUp 0.6s ease-out','pulse-green':'pulseGreen 2s infinite','slide-in-right':'slideInRight 0.3s ease-out','slide-in-up':'slideInUp 0.4s ease-out','bounce-in':'bounceIn 0.5s ease-out',shimmer:'shimmer 2s infinite'},keyframes:{float:{'0%,100%':{transform:'translateY(0px)'},'50%':{transform:'translateY(-14px)'}},fadeUp:{'0%':{opacity:'0',transform:'translateY(24px)'},'100%':{opacity:'1',transform:'translateY(0)'}},pulseGreen:{'0%,100%':{boxShadow:'0 0 0 0 rgba(15,175,143,0.6)'},'70%':{boxShadow:'0 0 0 12px rgba(15,175,143,0)'}},slideInRight:{'0%':{transform:'translateX(100%)',opacity:'0'},'100%':{transform:'translateX(0)',opacity:'1'}},slideInUp:{'0%':{transform:'translateY(20px)',opacity:'0'},'100%':{transform:'translateY(0)',opacity:'1'}},bounceIn:{'0%':{transform:'scale(0.3)',opacity:'0'},'50%':{transform:'scale(1.04)'},'100%':{transform:'scale(1)',opacity:'1'}},shimmer:{'0%':{backgroundPosition:'-200% 0'},'100%':{backgroundPosition:'200% 0'}}}}}}</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-white text-gray-800 font-sans selection:bg-orange selection:text-white" style="display:none">
+<body style="display:none">
     <div id="navbar-container"></div>
     <div id="modals-container"></div>
-    <main class="pt-16 max-w-7xl mx-auto px-6 py-8" data-page="mart">
 
-<a href="index.html" class="text-orange font-semibold flex items-center gap-2 mb-6 hover:gap-3 transition-all no-underline"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    <main class="pt-24 pb-20" data-page="mart">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="text-center mb-10 reveal active">
+                <h1 class="text-3xl font-bold" style="font-family:'Outfit',sans-serif">LuxeBuild Collections</h1>
+                <p class="text-[#525252] text-sm mt-1 max-w-xl mx-auto">Discover premium architectural materials, bespoke decor, and smart home solutions curated for luxury spaces.</p>
+            </div>
 
-<div class="flex flex-wrap justify-between items-center gap-4 mb-6">
-<div><h1 class="text-3xl font-extrabold"><i class="fas fa-shopping-cart text-orange"></i> Majdoors Mart</h1><p class="text-gray-500 mt-1">Quality construction materials at best prices</p></div>
-<div class="flex gap-3">
-<input type="text" id="productSearch" placeholder="Search products..." class="border border-gray-200 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:border-orange-400 w-48" oninput="filterProducts()">
-<select id="sortProducts" class="border border-gray-200 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:border-orange-400" onchange="filterProducts()"><option value="">Sort By</option><option value="priceLow">Price: Low to High</option><option value="priceHigh">Price: High to Low</option><option value="rating">Top Rated</option></select>
-</div>
-</div>
+            <!-- Category Chips -->
+            <div class="flex gap-3 overflow-x-auto pb-4 mb-6 scrollbar-hide reveal" id="categoryFilter" style="scrollbar-width:none">
+                <div class="category-chip active whitespace-nowrap" data-cat="all">Explore All</div>
+                <div class="category-chip whitespace-nowrap" data-cat="electrical">Electrical & Smart</div>
+                <div class="category-chip whitespace-nowrap" data-cat="plumbing">Premium Plumbing</div>
+                <div class="category-chip whitespace-nowrap" data-cat="hardware">Designer Hardware</div>
+                <div class="category-chip whitespace-nowrap" data-cat="paints">Luxury Paints</div>
+                <div class="category-chip whitespace-nowrap" data-cat="flooring">Premium Flooring</div>
+                <div class="category-chip whitespace-nowrap" data-cat="construction">Construction Core</div>
+            </div>
 
-<div class="flex flex-wrap gap-8">
-<aside class="w-full md:w-56 space-y-4">
-<h3 class="font-bold text-sm text-gray-500 uppercase tracking-wider">Categories</h3>
-<div class="space-y-1">
-<div class="category-chip active" data-cat="all">All Products</div>
-<div class="category-chip" data-cat="electrical"><i class="fas fa-bolt text-yellow-500"></i> Electrical</div>
-<div class="category-chip" data-cat="plumbing"><i class="fas fa-faucet text-blue-500"></i> Plumbing</div>
-<div class="category-chip" data-cat="paints"><i class="fas fa-paint-roller text-purple-500"></i> Paints</div>
-<div class="category-chip" data-cat="flooring"><i class="fas fa-th-large text-red-400"></i> Flooring</div>
-<div class="category-chip" data-cat="hardware"><i class="fas fa-tools text-gray-600"></i> Hardware</div>
-<div class="category-chip" data-cat="construction"><i class="fas fa-cubes text-gray-500"></i> Construction</div>
-</div>
-</aside>
-<div class="flex-1"><div class="grid grid-cols-2 md:grid-cols-3 gap-5" id="productsGrid"></div></div>
-</div>
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4 reveal">
+                <div class="relative w-full md:w-80">
+                    <input type="text" id="productSearch" onkeyup="renderMartPage(document.querySelector('.category-chip.active')?.dataset.cat || 'all')" placeholder="Search premium collections..." 
+                        class="w-full bg-[rgba(0,0,0,0.03)] border border-[rgba(0,0,0,0.1)] rounded-full py-2.5 px-4 pl-10 text-sm focus:outline-none focus:border-[#FFFFFF] transition">
+                    <i class="fas fa-search absolute left-4 top-3.5 text-[#555] text-sm"></i>
+                </div>
+                <select id="sortProducts" onchange="renderMartPage(document.querySelector('.category-chip.active')?.dataset.cat || 'all')" class="bg-[rgba(0,0,0,0.03)] border border-[rgba(0,0,0,0.1)] rounded-full py-2.5 px-4 text-sm focus:outline-none focus:border-[#FFFFFF] transition appearance-none min-w-[160px]">
+                    <option value="">Sort by Relevance</option>
+                    <option value="priceLow">Price: Low to High</option>
+                    <option value="priceHigh">Price: High to Low</option>
+                    <option value="rating">Top Rated</option>
+                </select>
+            </div>
 
+            <!-- Products Grid -->
+            <div id="productsGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 reveal">
+                <!-- Dynamically populated by JS -->
+            </div>
+            
+        </div>
     </main>
+
     <div id="footer-container"></div>
-    <script src="js/api.js?v=10"></script>
-    <script src="js/main.js?v=10"></script>
-    <script src="js/app.js?v=10"></script>
-    <script src="js/pages.js?v=10"></script>
+    <script src="js/api.js?v=12"></script>
+    <script src="js/main.js?v=12"></script>
+    <script src="js/app.js?v=12"></script>
+    <script src="js/pages.js?v=12"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const c = urlParams.get('cat');
+            if(c) {
+                setTimeout(() => {
+                    const chip = document.querySelector(`.category-chip[data-cat="${c}"]`);
+                    if(chip) chip.click();
+                }, 100);
+            }
+        });
+    </script>
 </body>
 </html>

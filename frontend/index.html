@@ -1,280 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Majdoors | India's #1 Construction Services & Mart</title>
-    <meta name="description"
-        content="Majdoors - India's #1 Construction Services & Materials Marketplace. Book trusted workers instantly, shop quality materials online.">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
-        rel="stylesheet">
+    <title>LivspaceOne | Premium Architecture & Interior Ecosystem</title>
+    <meta name="description" content="LivspaceOne — India's premier construction-tech ecosystem. Connect with verified professionals, explore luxury interior collections, and build exceptional spaces.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
-    <script>tailwind.config = { theme: { extend: { colors: { navy: '#0a2540', orange: '#f97316', lightgray: '#f3f4f6' }, fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }, animation: { float: 'float 5s ease-in-out infinite', 'fade-up': 'fadeUp 0.6s ease-out', 'pulse-green': 'pulseGreen 2s infinite', 'slide-in-right': 'slideInRight 0.3s ease-out', 'slide-in-up': 'slideInUp 0.4s ease-out', 'bounce-in': 'bounceIn 0.5s ease-out', 'shimmer': 'shimmer 2s infinite' }, keyframes: { float: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-12px)' } }, fadeUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }, pulseGreen: { '0%,100%': { boxShadow: '0 0 0 0 rgba(34,197,94,0.7)' }, '70%': { boxShadow: '0 0 0 10px rgba(34,197,94,0)' } }, slideInRight: { '0%': { transform: 'translateX(100%)', opacity: '0' }, '100%': { transform: 'translateX(0)', opacity: '1' } }, slideInUp: { '0%': { transform: 'translateY(30px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } }, bounceIn: { '0%': { transform: 'scale(0.3)', opacity: '0' }, '50%': { transform: 'scale(1.05)' }, '100%': { transform: 'scale(1)', opacity: '1' } }, shimmer: { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } } } } } }</script>
+    <script>tailwind.config={theme:{extend:{colors:{gold:'#FFFFFF','gold-dark':'#E5E5E5','gold-light':'#F5F5F5',dark:'#000000','dark-2':'#111315','dark-3':'#1A1C1F','dark-4':'#222'},fontFamily:{sans:['Inter','Poppins','system-ui','sans-serif'],display:['Outfit','Poppins','Inter','sans-serif']},animation:{float:'float 5s ease-in-out infinite','fade-up':'fadeUp 0.6s ease-out','pulse-green':'pulseGreen 2s infinite','slide-in-right':'slideInRight 0.3s ease-out','slide-in-up':'slideInUp 0.4s ease-out','bounce-in':'bounceIn 0.5s ease-out',shimmer:'shimmer 2s infinite'},keyframes:{float:{'0%,100%':{transform:'translateY(0px)'},'50%':{transform:'translateY(-14px)'}},fadeUp:{'0%':{opacity:'0',transform:'translateY(24px)'},'100%':{opacity:'1',transform:'translateY(0)'}},pulseGreen:{'0%,100%':{boxShadow:'0 0 0 0 rgba(15,175,143,0.6)'},'70%':{boxShadow:'0 0 0 12px rgba(15,175,143,0)'}},slideInRight:{'0%':{transform:'translateX(100%)',opacity:'0'},'100%':{transform:'translateX(0)',opacity:'1'}},slideInUp:{'0%':{transform:'translateY(20px)',opacity:'0'},'100%':{transform:'translateY(0)',opacity:'1'}},bounceIn:{'0%':{transform:'scale(0.3)',opacity:'0'},'50%':{transform:'scale(1.04)'},'100%':{transform:'scale(1)',opacity:'1'}},shimmer:{'0%':{backgroundPosition:'-200% 0'},'100%':{backgroundPosition:'200% 0'}}}}}}</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-
-<body class="bg-white text-gray-800 font-sans selection:bg-orange selection:text-white" style="display:none">
+<body style="display:none">
     <div id="navbar-container"></div>
     <div id="modals-container"></div>
 
     <main class="pt-16" data-page="index">
 
-        <!-- Hero Section -->
-        <section class="hero-bg text-white py-24 md:py-32 px-6 text-center relative overflow-hidden">
-            <div class="absolute top-10 left-10 text-6xl opacity-5 animate-float"><i class="fas fa-hard-hat"></i></div>
-            <div class="absolute bottom-20 right-10 text-5xl opacity-5 animate-float" style="animation-delay:1s"><i
-                    class="fas fa-hammer"></i></div>
-            <div class="absolute top-1/3 right-1/4 text-4xl opacity-5 animate-float" style="animation-delay:2s"><i
-                    class="fas fa-wrench"></i></div>
+        <!-- HERO -->
+        <section class="hero-bg text-black py-32 md:py-44 px-6 text-center relative overflow-hidden">
+            <div class="ambient-glow ambient-gold" style="top:-100px;left:10%;"></div>
+            <div class="ambient-glow ambient-blue" style="bottom:-150px;right:5%;"></div>
+
+            <div class="absolute top-24 left-12 w-24 h-24 border border-[rgba(255,255,255,0.07)] rounded-2xl animate-float opacity-20" style="animation-delay:0s"></div>
+            <div class="absolute bottom-40 right-20 w-16 h-16 border border-[rgba(0,0,0,0.05)] rounded-full animate-float opacity-15" style="animation-delay:1.5s"></div>
+            <div class="absolute top-1/3 right-1/4 w-10 h-10 border border-[rgba(74,124,255,0.06)] rounded-lg animate-float opacity-10" style="animation-delay:2.5s"></div>
+
             <div class="max-w-5xl mx-auto relative z-10">
-                <div class="animate-[fadeUp_0.6s]">
-                    <span
-                        class="inline-block bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-1.5 rounded-full text-sm font-medium mb-6"><i
-                            class="fas fa-rocket"></i> India's #1 Construction Marketplace</span>
-                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">Book Trusted Workers<br><span
-                            class="text-orange">Instantly</span></h1>
-                    <p class="text-lg md:text-xl mt-4 text-gray-300 max-w-2xl mx-auto">Hire skilled professionals or
-                        shop quality construction materials &mdash; all in one place.</p>
+                <div class="animate-[fadeUp_0.8s]">
+                    <span class="inline-block bg-[rgba(255,255,255,0.08)] backdrop-blur-sm border border-[rgba(255,255,255,0.15)] px-6 py-2.5 rounded-full text-sm font-medium mb-10 text-[#000000] tracking-wide">
+                        <i class="fas fa-gem mr-1.5 text-xs"></i>India's Premier Architecture-Tech Ecosystem
+                    </span>
+                    <h1 class="text-5xl md:text-8xl font-extrabold leading-[1.05] tracking-tight" style="font-family:'Outfit',sans-serif">
+                        Build Your<br><span class="bg-gradient-to-r from-[#FFFFFF] via-[#F5F5F5] to-[#FFFFFF] bg-clip-text text-transparent">Dream Space</span>
+                    </h1>
+                    <p class="text-base md:text-lg mt-8 text-[#525252] max-w-2xl mx-auto leading-relaxed">
+                        Premium construction services, verified professionals, and luxury interior collections &mdash; unified into one intelligent ecosystem.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center mt-12">
+                        <a href="services.html" class="btn-primary px-10 py-4 text-base font-semibold inline-flex items-center gap-2.5 no-underline">Explore Services <i class="fas fa-arrow-right text-sm"></i></a>
+                        <a href="mart.html" class="btn-outline px-10 py-4 text-base font-semibold inline-flex items-center gap-2.5 no-underline">Shop Collections <i class="fas fa-gem text-sm"></i></a>
+                    </div>
                 </div>
-                <!-- Counters -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-14 max-w-3xl mx-auto">
-                    <div>
+                <!-- Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-5 mt-20 max-w-3xl mx-auto">
+                    <div class="glass-card p-5 text-center hover:shadow-[0_0_40px_rgba(255,255,255,0.06)] transition-all duration-500">
                         <p class="counter-value" data-target="1200">0</p>
-                        <p class="text-sm text-gray-400 mt-1">Skilled Workers</p>
+                        <p class="text-xs text-[#555] mt-1.5 uppercase tracking-[0.15em] font-medium">Verified Experts</p>
                     </div>
-                    <div>
+                    <div class="glass-card p-5 text-center hover:shadow-[0_0_40px_rgba(255,255,255,0.06)] transition-all duration-500">
                         <p class="counter-value" data-target="500">0</p>
-                        <p class="text-sm text-gray-400 mt-1">Projects Done</p>
+                        <p class="text-xs text-[#555] mt-1.5 uppercase tracking-[0.15em] font-medium">Projects Delivered</p>
                     </div>
-                    <div>
+                    <div class="glass-card p-5 text-center hover:shadow-[0_0_40px_rgba(255,255,255,0.06)] transition-all duration-500">
                         <p class="counter-value" data-target="10000">0</p>
-                        <p class="text-sm text-gray-400 mt-1">Products</p>
+                        <p class="text-xs text-[#555] mt-1.5 uppercase tracking-[0.15em] font-medium">Premium Products</p>
                     </div>
-                    <div>
+                    <div class="glass-card p-5 text-center hover:shadow-[0_0_40px_rgba(255,255,255,0.06)] transition-all duration-500">
                         <p class="counter-value" data-target="50">0</p>
-                        <p class="text-sm text-gray-400 mt-1">Cities</p>
+                        <p class="text-xs text-[#555] mt-1.5 uppercase tracking-[0.15em] font-medium">Cities</p>
                     </div>
                 </div>
             </div>
-            <div class="absolute bottom-0 left-0 w-full h-28 bg-gradient-to-t from-white to-transparent"></div>
         </section>
 
-        <!-- Services + Mart Cards -->
-        <div class="max-w-7xl mx-auto px-6 -mt-16 relative z-20 reveal">
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white rounded-3xl shadow-2xl p-7 transition-all hover:shadow-orange-200/40 cursor-pointer border border-gray-50 group"
-                    onclick="window.location.href='services.html'">
+        <!-- BENTO CARDS -->
+        <div class="max-w-7xl mx-auto px-6 -mt-14 relative z-20 reveal">
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass-card p-8 gold-border hover:shadow-[0_0_50px_rgba(255,255,255,0.06)] transition-all duration-500 cursor-pointer group" onclick="window.location.href='services.html'">
                     <div class="flex justify-between items-start">
                         <div>
-                            <div class="w-20 h-20 bg-orange-50 rounded-2xl flex items-center justify-center mb-4"><i
-                                    class="fas fa-hard-hat text-5xl text-orange"></i></div>
-                            <h2 class="text-2xl font-bold">Services</h2>
-                            <p class="text-gray-500 mt-1">Expert plumbers, electricians, labor & more.</p>
-                        </div><i
-                            class="fas fa-arrow-right text-orange text-xl group-hover:translate-x-1 transition-transform"></i>
+                            <div class="w-14 h-14 bg-gradient-to-br from-[rgba(255,255,255,0.12)] to-[rgba(255,255,255,0.03)] rounded-2xl flex items-center justify-center mb-5">
+                                <i class="fas fa-compass text-2xl text-[#000000]"></i>
+                            </div>
+                            <h2 class="text-2xl font-bold" style="font-family:'Outfit',sans-serif">Expert Professionals</h2>
+                            <p class="text-[#555] mt-2 text-sm">Certified interior designers, architects & skilled craftsmen</p>
+                        </div><i class="fas fa-arrow-right text-[#000000] text-lg group-hover:translate-x-2 transition-transform duration-500"></i>
                     </div>
-                    <div class="grid grid-cols-3 gap-3 mt-5">
-                        <div class="bg-gray-50 p-3 rounded-xl text-center hover:bg-orange-50 transition cursor-pointer"
-                            onclick="event.stopPropagation();window.location.href='services.html?role=Electrician'">
-                            <i class="fas fa-bolt text-orange"></i>
-                            <p class="text-xs font-medium mt-1">Electrician</p>
+                    <div class="grid grid-cols-3 gap-3 mt-6">
+                        <div class="bg-[rgba(0,0,0,0.03)] p-3 rounded-xl text-center hover:bg-[rgba(0,0,0,0.06)] transition-all duration-300 cursor-pointer border border-[rgba(255,255,255,0.03)]" onclick="event.stopPropagation();window.location.href='services.html?role=Electrician'">
+                            <i class="fas fa-bolt text-[#000000]"></i><p class="text-xs font-medium mt-1 text-[#525252]">Electrician</p>
                         </div>
-                        <div class="bg-gray-50 p-3 rounded-xl text-center hover:bg-orange-50 transition cursor-pointer"
-                            onclick="event.stopPropagation();window.location.href='services.html?role=Plumber'">
-                            <i class="fas fa-wrench text-orange"></i>
-                            <p class="text-xs font-medium mt-1">Plumber</p>
+                        <div class="bg-[rgba(0,0,0,0.03)] p-3 rounded-xl text-center hover:bg-[rgba(0,0,0,0.06)] transition-all duration-300 cursor-pointer border border-[rgba(255,255,255,0.03)]" onclick="event.stopPropagation();window.location.href='services.html?role=Plumber'">
+                            <i class="fas fa-wrench text-[#000000]"></i><p class="text-xs font-medium mt-1 text-[#525252]">Plumber</p>
                         </div>
-                        <div class="bg-gray-50 p-3 rounded-xl text-center hover:bg-orange-50 transition cursor-pointer"
-                            onclick="event.stopPropagation();window.location.href='services.html?role=Labor'">
-                            <i class="fas fa-hard-hat text-orange"></i>
-                            <p class="text-xs font-medium mt-1">Labor</p>
+                        <div class="bg-[rgba(0,0,0,0.03)] p-3 rounded-xl text-center hover:bg-[rgba(0,0,0,0.06)] transition-all duration-300 cursor-pointer border border-[rgba(255,255,255,0.03)]" onclick="event.stopPropagation();window.location.href='services.html?role=Carpenter'">
+                            <i class="fas fa-hammer text-[#000000]"></i><p class="text-xs font-medium mt-1 text-[#525252]">Carpenter</p>
                         </div>
-                        <div class="bg-gray-50 p-3 rounded-xl text-center hover:bg-orange-50 transition cursor-pointer"
-                            onclick="event.stopPropagation();window.location.href='services.html?role=Carpenter'">
-                            <i class="fas fa-hammer text-orange"></i>
-                            <p class="text-xs font-medium mt-1">Carpenter</p>
+                        <div class="bg-[rgba(0,0,0,0.03)] p-3 rounded-xl text-center hover:bg-[rgba(0,0,0,0.06)] transition-all duration-300 cursor-pointer border border-[rgba(255,255,255,0.03)]" onclick="event.stopPropagation();window.location.href='services.html?role=Painter'">
+                            <i class="fas fa-paint-roller text-[#000000]"></i><p class="text-xs font-medium mt-1 text-[#525252]">Painter</p>
                         </div>
-                        <div class="bg-gray-50 p-3 rounded-xl text-center hover:bg-orange-50 transition cursor-pointer"
-                            onclick="event.stopPropagation();window.location.href='services.html?role=Painter'">
-                            <i class="fas fa-paint-roller text-orange"></i>
-                            <p class="text-xs font-medium mt-1">Painter</p>
+                        <div class="bg-[rgba(0,0,0,0.03)] p-3 rounded-xl text-center hover:bg-[rgba(0,0,0,0.06)] transition-all duration-300 cursor-pointer border border-[rgba(255,255,255,0.03)]" onclick="event.stopPropagation();window.location.href='services.html?role=Welder'">
+                            <i class="fas fa-fire text-[#000000]"></i><p class="text-xs font-medium mt-1 text-[#525252]">Welder</p>
                         </div>
-                        <div class="bg-gray-50 p-3 rounded-xl text-center hover:bg-orange-50 transition cursor-pointer"
-                            onclick="event.stopPropagation();window.location.href='services.html?role=Welder'">
-                            <i class="fas fa-fire text-orange"></i>
-                            <p class="text-xs font-medium mt-1">Welder</p>
+                        <div class="bg-[rgba(0,0,0,0.03)] p-3 rounded-xl text-center hover:bg-[rgba(0,0,0,0.06)] transition-all duration-300 cursor-pointer border border-[rgba(255,255,255,0.03)]" onclick="event.stopPropagation();window.location.href='services.html?role=Labor'">
+                            <i class="fas fa-hard-hat text-[#000000]"></i><p class="text-xs font-medium mt-1 text-[#525252]">Specialist</p>
                         </div>
                     </div>
-                    <button
-                        class="mt-6 w-full py-2.5 border-2 border-orange text-orange rounded-full hover:bg-orange hover:text-white transition font-semibold text-sm"
-                        onclick="event.stopPropagation();window.location.href='services.html'">Explore All Services
-                        &rarr;</button>
+                    <button class="mt-7 w-full py-3 border border-[rgba(255,255,255,0.3)] text-[#000000] rounded-full hover:bg-[#FFFFFF] hover:text-[#000000] transition-all duration-400 font-semibold text-sm" onclick="event.stopPropagation();window.location.href='services.html'">Browse All Professionals &rarr;</button>
                 </div>
 
-                <div class="bg-white rounded-3xl shadow-2xl p-7 transition-all hover:shadow-orange-200/40 cursor-pointer border border-gray-50 group"
-                    onclick="window.location.href='mart.html'">
+                <div class="glass-card p-8 gold-border hover:shadow-[0_0_50px_rgba(255,255,255,0.06)] transition-all duration-500 cursor-pointer group" onclick="window.location.href='mart.html'">
                     <div class="flex justify-between items-start">
                         <div>
-                            <div class="w-20 h-20 bg-orange-50 rounded-2xl flex items-center justify-center mb-4"><i
-                                    class="fas fa-store text-5xl text-orange"></i></div>
-                            <h2 class="text-2xl font-bold">Majdoors Mart</h2>
-                            <p class="text-gray-500 mt-1">Quality construction materials at best prices.</p>
-                        </div><i
-                            class="fas fa-arrow-right text-orange text-xl group-hover:translate-x-1 transition-transform"></i>
+                            <div class="w-14 h-14 bg-gradient-to-br from-[rgba(255,255,255,0.12)] to-[rgba(255,255,255,0.03)] rounded-2xl flex items-center justify-center mb-5">
+                                <i class="fas fa-gem text-2xl text-[#000000]"></i>
+                            </div>
+                            <h2 class="text-2xl font-bold" style="font-family:'Outfit',sans-serif">LuxeBuild Collections</h2>
+                            <p class="text-[#555] mt-2 text-sm">Premium building & interior materials, curated for you</p>
+                        </div><i class="fas fa-arrow-right text-[#000000] text-lg group-hover:translate-x-2 transition-transform duration-500"></i>
                     </div>
-                    <div class="grid grid-cols-3 gap-3 mt-5">
-                        <div class="bg-gray-50 p-3 rounded-xl text-center hover:bg-orange-50 transition cursor-pointer"
-                            onclick="event.stopPropagation();window.location.href='mart.html?cat=electrical'">
-                            <i class="fas fa-plug text-orange"></i>
-                            <p class="text-xs font-medium mt-1">Electrical</p>
+                    <div class="grid grid-cols-3 gap-3 mt-6">
+                        <div class="bg-[rgba(0,0,0,0.03)] p-3 rounded-xl text-center hover:bg-[rgba(0,0,0,0.06)] transition-all duration-300 cursor-pointer border border-[rgba(255,255,255,0.03)]" onclick="event.stopPropagation();window.location.href='mart.html?cat=electrical'">
+                            <i class="fas fa-plug text-[#000000]"></i><p class="text-xs font-medium mt-1 text-[#525252]">Electrical</p>
                         </div>
-                        <div class="bg-gray-50 p-3 rounded-xl text-center hover:bg-orange-50 transition cursor-pointer"
-                            onclick="event.stopPropagation();window.location.href='mart.html?cat=plumbing'">
-                            <i class="fas fa-water text-orange"></i>
-                            <p class="text-xs font-medium mt-1">Plumbing</p>
+                        <div class="bg-[rgba(0,0,0,0.03)] p-3 rounded-xl text-center hover:bg-[rgba(0,0,0,0.06)] transition-all duration-300 cursor-pointer border border-[rgba(255,255,255,0.03)]" onclick="event.stopPropagation();window.location.href='mart.html?cat=plumbing'">
+                            <i class="fas fa-water text-[#000000]"></i><p class="text-xs font-medium mt-1 text-[#525252]">Plumbing</p>
                         </div>
-                        <div class="bg-gray-50 p-3 rounded-xl text-center hover:bg-orange-50 transition cursor-pointer"
-                            onclick="event.stopPropagation();window.location.href='mart.html?cat=hardware'">
-                            <i class="fas fa-border-all text-orange"></i>
-                            <p class="text-xs font-medium mt-1">Hardware</p>
+                        <div class="bg-[rgba(0,0,0,0.03)] p-3 rounded-xl text-center hover:bg-[rgba(0,0,0,0.06)] transition-all duration-300 cursor-pointer border border-[rgba(255,255,255,0.03)]" onclick="event.stopPropagation();window.location.href='mart.html?cat=hardware'">
+                            <i class="fas fa-border-all text-[#000000]"></i><p class="text-xs font-medium mt-1 text-[#525252]">Hardware</p>
                         </div>
-                        <div class="bg-gray-50 p-3 rounded-xl text-center hover:bg-orange-50 transition cursor-pointer"
-                            onclick="event.stopPropagation();window.location.href='mart.html?cat=construction'">
-                            <i class="fas fa-charging-station text-orange"></i>
-                            <p class="text-xs font-medium mt-1">Construction</p>
+                        <div class="bg-[rgba(0,0,0,0.03)] p-3 rounded-xl text-center hover:bg-[rgba(0,0,0,0.06)] transition-all duration-300 cursor-pointer border border-[rgba(255,255,255,0.03)]" onclick="event.stopPropagation();window.location.href='mart.html?cat=construction'">
+                            <i class="fas fa-cubes text-[#000000]"></i><p class="text-xs font-medium mt-1 text-[#525252]">Construction</p>
                         </div>
-                        <div class="bg-gray-50 p-3 rounded-xl text-center hover:bg-orange-50 transition cursor-pointer"
-                            onclick="event.stopPropagation();window.location.href='mart.html?cat=flooring'">
-                            <i class="fas fa-th-large text-orange"></i>
-                            <p class="text-xs font-medium mt-1">Flooring</p>
+                        <div class="bg-[rgba(0,0,0,0.03)] p-3 rounded-xl text-center hover:bg-[rgba(0,0,0,0.06)] transition-all duration-300 cursor-pointer border border-[rgba(255,255,255,0.03)]" onclick="event.stopPropagation();window.location.href='mart.html?cat=flooring'">
+                            <i class="fas fa-th-large text-[#000000]"></i><p class="text-xs font-medium mt-1 text-[#525252]">Flooring</p>
                         </div>
-                        <div class="bg-gray-50 p-3 rounded-xl text-center hover:bg-orange-50 transition cursor-pointer"
-                            onclick="event.stopPropagation();window.location.href='mart.html?cat=paints'">
-                            <i class="fas fa-paint-roller text-orange"></i>
-                            <p class="text-xs font-medium mt-1">Paints</p>
+                        <div class="bg-[rgba(0,0,0,0.03)] p-3 rounded-xl text-center hover:bg-[rgba(0,0,0,0.06)] transition-all duration-300 cursor-pointer border border-[rgba(255,255,255,0.03)]" onclick="event.stopPropagation();window.location.href='mart.html?cat=paints'">
+                            <i class="fas fa-paint-roller text-[#000000]"></i><p class="text-xs font-medium mt-1 text-[#525252]">Paints</p>
                         </div>
                     </div>
-                    <button
-                        class="mt-6 w-full py-2.5 border-2 border-orange text-orange rounded-full hover:bg-orange hover:text-white transition font-semibold text-sm"
-                        onclick="event.stopPropagation();window.location.href='mart.html'">Shop Mart &rarr;</button>
+                    <button class="mt-7 w-full py-3 border border-[rgba(255,255,255,0.3)] text-[#000000] rounded-full hover:bg-[#FFFFFF] hover:text-[#000000] transition-all duration-400 font-semibold text-sm" onclick="event.stopPropagation();window.location.href='mart.html'">Explore Collections &rarr;</button>
                 </div>
             </div>
         </div>
 
-        <!-- Image Slider/Carousel -->
-        <div class="max-w-7xl mx-auto px-6 mt-20 reveal">
-            <h3 class="text-2xl font-bold mb-5"><i class="fas fa-images text-orange"></i> Explore More</h3>
-            <div class="hero-slider relative rounded-3xl overflow-hidden shadow-xl" id="heroSlider">
-                <div class="slider-track flex transition-transform duration-700 ease-in-out" id="sliderTrack">
-                    <!-- Dynamic slides will be injected here -->
-                </div>
-                <!-- Arrows -->
-                <button onclick="moveSlider(-1)"
-                    class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/30 backdrop-blur rounded-full flex items-center justify-center text-navy hover:bg-white transition shadow-lg z-10"><i
-                        class="fas fa-chevron-left"></i></button>
-                <button onclick="moveSlider(1)"
-                    class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/30 backdrop-blur rounded-full flex items-center justify-center text-navy hover:bg-white transition shadow-lg z-10"><i
-                        class="fas fa-chevron-right"></i></button>
-                <!-- Dots -->
-                <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10" id="sliderDots">
-                    <!-- Dynamic dots will be injected here -->
-                </div>
+        <!-- SLIDER -->
+        <div class="w-full mt-24 reveal">
+            <div class="flex items-center gap-4 mb-8 max-w-7xl mx-auto px-6">
+                <div class="section-divider flex-1"></div>
+                <h3 class="text-xl font-bold text-[#000000] whitespace-nowrap" style="font-family:'Outfit',sans-serif">
+                    <i class="fas fa-images text-[#000000] mr-2"></i>Featured Showcase
+                </h3>
+                <div class="section-divider flex-1"></div>
+            </div>
+            <div class="hero-slider relative border-y border-[rgba(0,0,0,0.08)]" id="heroSlider">
+                <div class="slider-track flex transition-transform duration-700 ease-in-out" id="sliderTrack"></div>
+                <button onclick="moveSlider(-1)" class="absolute left-6 top-1/2 -translate-y-1/2 w-11 h-11 bg-[rgba(0,0,0,0.4)] backdrop-blur-md rounded-full flex items-center justify-center text-black hover:bg-[#FFFFFF] hover:text-[#000000] transition-all duration-300 shadow-lg z-10"><i class="fas fa-chevron-left"></i></button>
+                <button onclick="moveSlider(1)" class="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 bg-[rgba(0,0,0,0.4)] backdrop-blur-md rounded-full flex items-center justify-center text-black hover:bg-[#FFFFFF] hover:text-[#000000] transition-all duration-300 shadow-lg z-10"><i class="fas fa-chevron-right"></i></button>
+                <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10" id="sliderDots"></div>
             </div>
         </div>
 
-        <!-- Testimonials + FAQ -->
-        <div class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 reveal">
+        <!-- TESTIMONIALS + FAQ -->
+        <div class="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 reveal">
             <div>
-                <h3 class="text-2xl font-bold"><i class="fas fa-star text-orange"></i> What Customers Say</h3>
-                <div class="mt-6 space-y-4">
-                    <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition">
-                        <div class="flex items-center gap-3 mb-3"><img
-                                src="https://randomuser.me/api/portraits/men/36.jpg"
-                                class="w-10 h-10 rounded-full object-cover">
-                            <div>
-                                <p class="font-semibold text-sm">Rakesh Kumar</p>
-                                <div class="rating-star text-xs">★★★★★</div>
-                            </div>
+                <span class="text-xs uppercase tracking-[0.2em] text-[#000000] font-semibold">Social Proof</span>
+                <h3 class="text-2xl font-bold mt-2" style="font-family:'Outfit',sans-serif">Client Testimonials</h3>
+                <div class="mt-8 space-y-5">
+                    <div class="glass-card p-6 gold-border hover:shadow-[0_0_40px_rgba(0,0,0,0.05)] transition-all duration-500">
+                        <div class="flex items-center gap-3 mb-3"><img src="https://randomuser.me/api/portraits/men/36.jpg" class="w-11 h-11 rounded-full object-cover border-2 border-[rgba(0,0,0,0.1)]">
+                            <div><p class="font-semibold text-sm text-[#000000]">Rakesh Kumar</p><div class="rating-star text-xs">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
                         </div>
-                        <p class="text-gray-600 text-sm">"Amazing service &mdash; plumber arrived within 1 hour! Highly
-                            professional and clean work."</p>
+                        <p class="text-[#525252] text-sm leading-relaxed">"Exceptional service — the electrician arrived within an hour. Thoroughly professional and meticulous craftsmanship."</p>
                     </div>
-                    <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition">
-                        <div class="flex items-center gap-3 mb-3"><img
-                                src="https://randomuser.me/api/portraits/women/44.jpg"
-                                class="w-10 h-10 rounded-full object-cover">
-                            <div>
-                                <p class="font-semibold text-sm">Sneha Patel</p>
-                                <div class="rating-star text-xs">★★★★★</div>
-                            </div>
+                    <div class="glass-card p-6 gold-border hover:shadow-[0_0_40px_rgba(0,0,0,0.05)] transition-all duration-500">
+                        <div class="flex items-center gap-3 mb-3"><img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-11 h-11 rounded-full object-cover border-2 border-[rgba(0,0,0,0.1)]">
+                            <div><p class="font-semibold text-sm text-[#000000]">Sneha Patel</p><div class="rating-star text-xs">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
                         </div>
-                        <p class="text-gray-600 text-sm">"Bought steel rods and tiles, quality was excellent & delivery
-                            was on time. Will order again!"</p>
+                        <p class="text-[#525252] text-sm leading-relaxed">"The quality of materials exceeded expectations. Premium finishes delivered on schedule. Highly recommended for luxury projects."</p>
                     </div>
-                    <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition">
-                        <div class="flex items-center gap-3 mb-3"><img
-                                src="https://randomuser.me/api/portraits/men/55.jpg"
-                                class="w-10 h-10 rounded-full object-cover">
-                            <div>
-                                <p class="font-semibold text-sm">Amit Sharma</p>
-                                <div class="rating-star text-xs">★★★★★</div>
-                            </div>
+                    <div class="glass-card p-6 gold-border hover:shadow-[0_0_40px_rgba(0,0,0,0.05)] transition-all duration-500">
+                        <div class="flex items-center gap-3 mb-3"><img src="https://randomuser.me/api/portraits/men/55.jpg" class="w-11 h-11 rounded-full object-cover border-2 border-[rgba(0,0,0,0.1)]">
+                            <div><p class="font-semibold text-sm text-[#000000]">Amit Sharma</p><div class="rating-star text-xs">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
                         </div>
-                        <p class="text-gray-600 text-sm">"The carpenter was skilled and completed my wardrobe in just 2
-                            days. Great platform!"</p>
+                        <p class="text-[#525252] text-sm leading-relaxed">"The artisan completed my custom wardrobe in just 48 hours. Outstanding platform for premium home solutions."</p>
                     </div>
                 </div>
             </div>
             <div>
-                <h3 class="text-2xl font-bold"><i class="fas fa-handshake text-orange"></i> Trusted Partners</h3>
-                <div class="flex flex-wrap gap-6 mt-6 items-center">
-                    <div class="bg-gray-50 px-6 py-3 rounded-xl"><span class="font-bold text-gray-400">UltraTech</span>
-                    </div>
-                    <div class="bg-gray-50 px-6 py-3 rounded-xl"><span class="font-bold text-gray-400">Havells</span>
-                    </div>
-                    <div class="bg-gray-50 px-6 py-3 rounded-xl"><span class="font-bold text-gray-400">Asian
-                            Paints</span></div>
-                    <div class="bg-gray-50 px-6 py-3 rounded-xl"><span class="font-bold text-gray-400">Finolex</span>
-                    </div>
+                <span class="text-xs uppercase tracking-[0.2em] text-[#000000] font-semibold">Partners</span>
+                <h3 class="text-2xl font-bold mt-2" style="font-family:'Outfit',sans-serif">Trusted By</h3>
+                <div class="flex flex-wrap gap-4 mt-8 items-center">
+                    <div class="bg-[rgba(0,0,0,0.03)] px-7 py-3.5 rounded-xl border border-[rgba(0,0,0,0.08)]"><span class="font-bold text-[#444]">UltraTech</span></div>
+                    <div class="bg-[rgba(0,0,0,0.03)] px-7 py-3.5 rounded-xl border border-[rgba(0,0,0,0.08)]"><span class="font-bold text-[#444]">Havells</span></div>
+                    <div class="bg-[rgba(0,0,0,0.03)] px-7 py-3.5 rounded-xl border border-[rgba(0,0,0,0.08)]"><span class="font-bold text-[#444]">Asian Paints</span></div>
+                    <div class="bg-[rgba(0,0,0,0.03)] px-7 py-3.5 rounded-xl border border-[rgba(0,0,0,0.08)]"><span class="font-bold text-[#444]">Finolex</span></div>
                 </div>
-                <div class="mt-10">
-                    <h3 class="text-2xl font-bold mb-4"><i class="fas fa-question-circle text-orange"></i> FAQ</h3>
+                <div class="mt-12">
+                    <span class="text-xs uppercase tracking-[0.2em] text-[#000000] font-semibold">Support</span>
+                    <h3 class="text-2xl font-bold mt-2 mb-6" style="font-family:'Outfit',sans-serif">FAQ</h3>
                     <div class="space-y-3">
-                        <details class="bg-white border border-gray-100 rounded-2xl p-4 shadow-sm group">
-                            <summary class="cursor-pointer font-semibold flex justify-between items-center">How to book
-                                a service? <i
-                                    class="fas fa-chevron-down text-orange text-sm group-open:rotate-180 transition-transform"></i>
-                            </summary>
-                            <p class="text-sm text-gray-600 mt-3">Browse Services, select a professional, choose your
-                                time slot, and confirm booking. It's that easy!</p>
+                        <details class="glass-card p-5 gold-border group">
+                            <summary class="cursor-pointer font-semibold flex justify-between items-center text-[#000000] text-sm">How do I engage a professional? <i class="fas fa-chevron-down text-[#000000] text-xs group-open:rotate-180 transition-transform duration-300"></i></summary>
+                            <p class="text-sm text-[#525252] mt-4 leading-relaxed">Browse our curated directory, select a certified professional, choose your preferred schedule, and confirm your appointment. It's seamless.</p>
                         </details>
-                        <details class="bg-white border border-gray-100 rounded-2xl p-4 shadow-sm group">
-                            <summary class="cursor-pointer font-semibold flex justify-between items-center">Return
-                                policy on materials? <i
-                                    class="fas fa-chevron-down text-orange text-sm group-open:rotate-180 transition-transform"></i>
-                            </summary>
-                            <p class="text-sm text-gray-600 mt-3">7 days hassle-free returns for unused products in
-                                original packaging.</p>
+                        <details class="glass-card p-5 gold-border group">
+                            <summary class="cursor-pointer font-semibold flex justify-between items-center text-[#000000] text-sm">What is your return policy? <i class="fas fa-chevron-down text-[#000000] text-xs group-open:rotate-180 transition-transform duration-300"></i></summary>
+                            <p class="text-sm text-[#525252] mt-4 leading-relaxed">We offer 7-day hassle-free returns for unused products in original packaging. Your satisfaction is our priority.</p>
                         </details>
-                        <details class="bg-white border border-gray-100 rounded-2xl p-4 shadow-sm group">
-                            <summary class="cursor-pointer font-semibold flex justify-between items-center">Are workers
-                                verified? <i
-                                    class="fas fa-chevron-down text-orange text-sm group-open:rotate-180 transition-transform"></i>
-                            </summary>
-                            <p class="text-sm text-gray-600 mt-3">Yes! All workers undergo background verification,
-                                skill assessment, and ID verification before joining.</p>
+                        <details class="glass-card p-5 gold-border group">
+                            <summary class="cursor-pointer font-semibold flex justify-between items-center text-[#000000] text-sm">Are professionals verified? <i class="fas fa-chevron-down text-[#000000] text-xs group-open:rotate-180 transition-transform duration-300"></i></summary>
+                            <p class="text-sm text-[#525252] mt-4 leading-relaxed">Absolutely. Every professional undergoes rigorous background verification, skill assessment, and identity validation before joining our ecosystem.</p>
                         </details>
-                        <details class="bg-white border border-gray-100 rounded-2xl p-4 shadow-sm group">
-                            <summary class="cursor-pointer font-semibold flex justify-between items-center">Payment
-                                methods available? <i
-                                    class="fas fa-chevron-down text-orange text-sm group-open:rotate-180 transition-transform"></i>
-                            </summary>
-                            <p class="text-sm text-gray-600 mt-3">We accept UPI, cards, net banking, wallets, and cash
-                                on delivery for mart orders.</p>
+                        <details class="glass-card p-5 gold-border group">
+                            <summary class="cursor-pointer font-semibold flex justify-between items-center text-[#000000] text-sm">Which payment methods are supported? <i class="fas fa-chevron-down text-[#000000] text-xs group-open:rotate-180 transition-transform duration-300"></i></summary>
+                            <p class="text-sm text-[#525252] mt-4 leading-relaxed">We accept UPI, credit/debit cards, net banking, digital wallets, and cash on delivery for all marketplace orders.</p>
                         </details>
                     </div>
                 </div>
@@ -283,10 +215,9 @@
 
     </main>
     <div id="footer-container"></div>
-    <script src="js/api.js?v=10"></script>
-    <script src="js/main.js?v=10"></script>
-    <script src="js/app.js?v=10"></script>
-    <script src="js/pages.js?v=10"></script>
+    <script src="js/api.js?v=12"></script>
+    <script src="js/main.js?v=12"></script>
+    <script src="js/app.js?v=12"></script>
+    <script src="js/pages.js?v=12"></script>
 </body>
-
 </html>

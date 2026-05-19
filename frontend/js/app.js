@@ -140,7 +140,7 @@ function updateAuthUI() {
         if (lb) lb.style.display = 'none';
         if (lo) lo.style.display = 'flex';
         const av = document.getElementById('userAvatar');
-        if (av) av.innerHTML = `<span class="font-bold text-orange text-sm">${currentUser.name[0]}</span>`;
+        if (av) av.innerHTML = `<span class="font-bold text-[#D4AF37] text-sm">${currentUser.name[0]}</span>`;
         const al = document.getElementById('adminNavLink');
         const alm = document.getElementById('adminNavLinkMobile');
         if (al) al.style.display = isAdmin ? 'flex' : 'none';
@@ -169,11 +169,12 @@ function updateCartUI() {
     let total = 0;
     if (list) {
         if (!cart.length) {
-            list.innerHTML = '<div class="text-center py-10"><i class="fas fa-shopping-cart text-4xl text-gray-200 mb-3"></i><p class="text-gray-400 text-sm">Your cart is empty</p></div>';
+            list.innerHTML = '\u003cdiv class="text-center py-10"\u003e\u003ci class="fas fa-shopping-bag text-4xl text-[#333] mb-3"\u003e\u003c/i\u003e\u003cp class="text-[#666] text-sm"\u003eYour cart is empty\u003c/p\u003e\u003c/div\u003e';
         } else {
             list.innerHTML = cart.map((p, i) => {
                 total += p.price * (p.qty || 1);
-                return `<div class="flex items-center gap-3 bg-gray-50 rounded-xl p-3"><img src="${p.img}" class="w-14 h-14 rounded-lg object-cover"><div class="flex-1"><p class="font-semibold text-sm">${p.name}</p><p class="text-orange font-bold text-sm">₹${p.price}</p><div class="flex items-center gap-2 mt-1"><button onclick="changeQty(${i},-1)" class="w-6 h-6 bg-gray-200 rounded-full text-xs hover:bg-orange-500 hover:text-white transition">-</button><span class="text-sm font-medium">${p.qty || 1}</span><button onclick="changeQty(${i},1)" class="w-6 h-6 bg-gray-200 rounded-full text-xs hover:bg-orange-500 hover:text-white transition">+</button></div></div><i class="fas fa-trash text-gray-300 cursor-pointer hover:text-red-500 transition" onclick="removeFromCart(${i})"></i></div>`;
+                return `\u003cdiv class="flex items-center gap-3 bg-[#232323] rounded-xl p-3 border border-[rgba(0,0,0,0.08)]"\u003e\u003cimg src="${p.img}" class="w-14 h-14 rounded-lg object-cover"\u003e\u003cdiv class="flex-1"\u003e\u003cp class="font-semibold text-sm text-[#F5F5F5]"\u003e${p.name}\u003c/p\u003e\u003cp class="text-[#D4AF37] font-bold text-sm"\u003e₹${p.price}\u003c/p\u003e\u003cdiv class="flex items-center gap-2 mt-1"\u003e\u003cbutton onclick="changeQty(${i},-1)" class="w-6 h-6 bg-[#1E1E1E] border border-[rgba(0,0,0,0.12)] rounded-full text-xs text-[#A0A0A0] hover:bg-[#D4AF37] hover:text-[#0F0F0F] transition"\u003e-\u003c/button\u003e\u003cspan class="text-sm font-medium text-[#F5F5F5]"\u003e${p.qty || 1}\u003c/span\u003e\u003cbutton onclick="changeQty(${i},1)" class="w-6 h-6 bg-[#1E1E1E] border border-[rgba(0,0,0,0.12)] rounded-full text-xs text-[#A0A0A0] hover:bg-[#D4AF37] hover:text-[#0F0F0F] transition"\u003e+\u003c/button\u003e\u003c/div\u003e\u003c/div\u003e\u003ci class="fas fa-trash text-[#444] cursor-pointer hover:text-red-400 transition" onclick="removeFromCart(${i})"\u003e\u003c/i\u003e\u003c/div\u003e`;
+
             }).join('');
         }
     }
@@ -246,18 +247,18 @@ function initGlobalSearch() {
                 const data = await res.json();
                 let html = '';
                 if (data.products?.length) {
-                    html += '<p class="px-4 py-2 text-xs font-bold text-gray-400 uppercase">Products</p>';
+                    html += '<p class="px-4 py-2 text-xs font-bold text-gray-600 uppercase">Products</p>';
                     data.products.forEach(p => {
-                        html += `<a href="mart.html" class="flex items-center gap-3 px-4 py-2.5 hover:bg-orange-50 transition cursor-pointer no-underline text-gray-700"><img src="${p.img}" class="w-10 h-10 rounded-lg object-cover"><div><p class="font-medium text-sm">${p.name}</p><p class="text-xs text-gray-400">₹${p.price} · ${p.category}</p></div></a>`;
+                        html += `<a href="mart.html" class="flex items-center gap-3 px-4 py-2.5 hover:bg-orange-50 transition cursor-pointer no-underline text-gray-700"><img src="${p.img}" class="w-10 h-10 rounded-lg object-cover"><div><p class="font-medium text-sm">${p.name}</p><p class="text-xs text-gray-600">₹${p.price} · ${p.category}</p></div></a>`;
                     });
                 }
                 if (data.workers?.length) {
-                    html += '<p class="px-4 py-2 text-xs font-bold text-gray-400 uppercase border-t">Workers</p>';
+                    html += '<p class="px-4 py-2 text-xs font-bold text-gray-600 uppercase border-t">Workers</p>';
                     data.workers.forEach(w => {
-                        html += `<a href="services.html" class="flex items-center gap-3 px-4 py-2.5 hover:bg-orange-50 transition cursor-pointer no-underline text-gray-700"><img src="${w.img}" class="w-10 h-10 rounded-full object-cover"><div><p class="font-medium text-sm">${w.name}</p><p class="text-xs text-gray-400">${w.role} · ${w.city}</p></div></a>`;
+                        html += `<a href="services.html" class="flex items-center gap-3 px-4 py-2.5 hover:bg-orange-50 transition cursor-pointer no-underline text-gray-700"><img src="${w.img}" class="w-10 h-10 rounded-full object-cover"><div><p class="font-medium text-sm">${w.name}</p><p class="text-xs text-gray-600">${w.role} · ${w.city}</p></div></a>`;
                     });
                 }
-                if (!html) html = '<p class="text-center py-6 text-gray-400 text-sm">No results found</p>';
+                if (!html) html = '<p class="text-center py-6 text-gray-600 text-sm">No results found</p>';
                 dropdown.innerHTML = html;
                 dropdown.classList.remove('hidden');
             } catch(e) { dropdown.classList.add('hidden'); }

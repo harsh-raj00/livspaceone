@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (typeof renderServicesPage === 'function') renderServicesPage();
             if (typeof renderAdmin === 'function') renderAdmin();
         });
-    } catch(e) { console.error('Socket.io connection failed', e); }
+    } catch (e) { console.error('Socket.io connection failed', e); }
 
     // 4. Init UI
     updateAuthUI();
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // 5. Page-specific init
     const page = document.querySelector('main')?.dataset.page;
-    if (page === 'index') { initHomeSlider(); animateCounters(); initScrollReveal(); }
+    if (page === 'index') { initHomeSlider(); animateCounters(); }
     if (page === 'services') { applyServiceFilter(); renderServicesPage(); }
     if (page === 'mart') { applyMartFilter(); renderMartPage('all'); initCategoryChips(); }
     if (page === 'admin') initAdminPage();
@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 6. Global event listeners
     attachGlobalListeners();
     if (typeof initGlobalSearch === 'function') initGlobalSearch();
+    if (typeof initScrollReveal === 'function') initScrollReveal();
 });
 
 // ===== NAV HIGHLIGHTING =====
@@ -97,24 +98,24 @@ function initHomeSlider() {
     const track = document.getElementById('sliderTrack');
     const dotsContainer = document.getElementById('sliderDots');
     if (!track || !slides || slides.length === 0) return;
-    
+
     track.innerHTML = slides.map((s, i) => {
         const hasGallery = s.galleryImages && s.galleryImages.length > 0;
-        const btnAction = hasGallery 
-            ? `onclick="openLightbox(${JSON.stringify(s.galleryImages).replace(/"/g, '&quot;')}, 0)"` 
+        const btnAction = hasGallery
+            ? `onclick="openLightbox(${JSON.stringify(s.galleryImages).replace(/"/g, '&quot;')}, 0)"`
             : `href="${s.buttonLink}"`;
-            
+
         return `
         <div class="slider-slide min-w-full relative">
-            <img src="${s.img}" alt="Slide ${i+1}" class="w-full h-64 md:h-96 object-cover">
-            <div class="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/40 to-transparent"></div>
-            <div class="absolute bottom-6 left-6 md:bottom-10 md:left-10 text-white max-w-md">
-                <h3 class="text-2xl md:text-3xl font-extrabold leading-tight">${s.title}</h3>
-                <p class="text-sm md:text-base text-gray-200 mt-2">${s.subtitle}</p>
-                ${hasGallery 
-                    ? `<button ${btnAction} class="inline-block mt-4 bg-orange text-white px-6 py-2.5 rounded-full font-semibold text-sm hover:bg-orange-600 transition">${s.buttonText}</button>`
-                    : `<a ${btnAction} class="inline-block mt-4 bg-orange text-white px-6 py-2.5 rounded-full font-semibold text-sm hover:bg-orange-600 transition">${s.buttonText}</a>`
-                }
+            <img src="${s.img}" alt="Slide ${i + 1}" class="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-[rgba(0,0,0,0.2)] via-[rgba(0,0,0,0.1)] to-transparent"></div>
+            <div class="absolute bottom-10 left-10 md:bottom-20 md:left-20 text-[#FFFFFF] max-w-2xl z-10">
+                <h3 class="text-4xl md:text-6xl font-bold leading-[1.1]" style="font-family:'Outfit',sans-serif">${s.title}</h3>
+                <p class="text-lg md:text-xl text-[#E5E5E5] mt-5 leading-relaxed">${s.subtitle}</p>
+                ${hasGallery
+                ? `<button ${btnAction} class="inline-block mt-8 btn-primary px-8 py-3.5 text-sm font-semibold">${s.buttonText}</button>`
+                : `<a ${btnAction} class="inline-block mt-8 btn-primary px-8 py-3.5 text-sm font-semibold no-underline">${s.buttonText}</a>`
+            }
             </div>
         </div>
         `;
@@ -122,7 +123,7 @@ function initHomeSlider() {
 
     if (dotsContainer) {
         dotsContainer.innerHTML = slides.map((_, i) => `
-            <button onclick="goSlider(${i})" class="w-3 h-3 rounded-full ${i===0?'bg-white':'bg-white/50'} shadow slider-dot ${i===0?'active':''}"></button>
+            <button onclick="goSlider(${i})" class="w-12 h-1 rounded-full ${i === 0 ? 'bg-[#FFFFFF]' : 'bg-[rgba(255,255,255,0.4)] hover:bg-[#FFFFFF]'} transition-colors duration-300 slider-dot ${i === 0 ? 'active' : ''}"></button>
         `).join('');
     }
 
@@ -151,8 +152,8 @@ function goSlider(idx) {
 function updateSliderDots() {
     document.querySelectorAll('.slider-dot').forEach((d, i) => {
         d.classList.toggle('active', i === _sliderIdx);
-        d.classList.toggle('bg-white', i === _sliderIdx);
-        d.classList.toggle('bg-white/50', i !== _sliderIdx);
+        d.classList.toggle('bg-[#FFFFFF]', i === _sliderIdx);
+        d.classList.toggle('bg-[rgba(255,255,255,0.4)]', i !== _sliderIdx);
     });
 }
 

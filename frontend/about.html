@@ -4,152 +4,370 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Majdoors | About Us</title>
+    <title>About Us | LivspaceOne — Redefining Architecture & Technology</title>
     <meta name="description"
-        content="About Majdoors Mart - Your trusted construction and interior materials supplier in Bihar Sharif.">
+        content="LivspaceOne is India's premier architecture-tech ecosystem. Discover our story, meet the visionaries, and learn how we're transforming the future of living spaces.">
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
-    <script>tailwind.config = { theme: { extend: { colors: { navy: '#0a2540', orange: '#f97316', lightgray: '#f3f4f6' }, fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }, animation: { float: 'float 5s ease-in-out infinite', 'fade-up': 'fadeUp 0.6s ease-out', 'pulse-green': 'pulseGreen 2s infinite', 'slide-in-right': 'slideInRight 0.3s ease-out', 'slide-in-up': 'slideInUp 0.4s ease-out', 'bounce-in': 'bounceIn 0.5s ease-out', 'shimmer': 'shimmer 2s infinite' }, keyframes: { float: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-12px)' } }, fadeUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }, pulseGreen: { '0%,100%': { boxShadow: '0 0 0 0 rgba(34,197,94,0.7)' }, '70%': { boxShadow: '0 0 0 10px rgba(34,197,94,0)' } }, slideInRight: { '0%': { transform: 'translateX(100%)', opacity: '0' }, '100%': { transform: 'translateX(0)', opacity: '1' } }, slideInUp: { '0%': { transform: 'translateY(30px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } }, bounceIn: { '0%': { transform: 'scale(0.3)', opacity: '0' }, '50%': { transform: 'scale(1.05)' }, '100%': { transform: 'scale(1)', opacity: '1' } }, shimmer: { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } } } } } }</script>
+    <script>tailwind.config = { theme: { extend: { colors: { gold: '#FFFFFF', 'gold-dark': '#E5E5E5', 'gold-light': '#F5F5F5', dark: '#000000', 'dark-2': '#111315', 'dark-3': '#1A1C1F', 'dark-4': '#222' }, fontFamily: { sans: ['Inter', 'Poppins', 'system-ui', 'sans-serif'], display: ['Outfit', 'Poppins', 'Inter', 'sans-serif'] }, animation: { float: 'float 5s ease-in-out infinite', 'fade-up': 'fadeUp 0.6s ease-out', 'pulse-green': 'pulseGreen 2s infinite', 'slide-in-right': 'slideInRight 0.3s ease-out', 'slide-in-up': 'slideInUp 0.4s ease-out', 'bounce-in': 'bounceIn 0.5s ease-out', shimmer: 'shimmer 2s infinite' }, keyframes: { float: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-14px)' } }, fadeUp: { '0%': { opacity: '0', transform: 'translateY(24px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }, pulseGreen: { '0%,100%': { boxShadow: '0 0 0 0 rgba(15,175,143,0.6)' }, '70%': { boxShadow: '0 0 0 12px rgba(15,175,143,0)' } }, slideInRight: { '0%': { transform: 'translateX(100%)', opacity: '0' }, '100%': { transform: 'translateX(0)', opacity: '1' } }, slideInUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } }, bounceIn: { '0%': { transform: 'scale(0.3)', opacity: '0' }, '50%': { transform: 'scale(1.04)' }, '100%': { transform: 'scale(1)', opacity: '1' } }, shimmer: { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } } } } } }</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .about-stat {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .about-stat.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-line {
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, #000, transparent);
+        }
+
+        .timeline-dot {
+            width: 14px;
+            height: 14px;
+            border: 3px solid #000;
+            background: #FFF;
+            border-radius: 50%;
+            position: absolute;
+            left: -7px;
+            top: 8px;
+            transition: all 0.3s;
+        }
+
+        .timeline-item:hover .timeline-dot {
+            background: #000;
+            transform: scale(1.3);
+        }
+
+        .partner-logo {
+            filter: grayscale(1) opacity(0.4);
+            transition: all 0.4s;
+        }
+
+        .partner-logo:hover {
+            filter: grayscale(0) opacity(1);
+        }
+
+        .value-card {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .value-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .hero-about-img {
+            clip-path: inset(0 0 0 0 round 24px);
+            transition: clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hero-about-img:hover {
+            clip-path: inset(2% 2% 2% 2% round 24px);
+        }
+    </style>
 </head>
 
-<body class="bg-white text-gray-800 font-sans selection:bg-orange selection:text-white" style="display:none">
+<body style="display:none">
     <div id="navbar-container"></div>
     <div id="modals-container"></div>
-    <main class="pt-16" data-page="about">
 
-        <!-- About Hero -->
-        <section class="hero-bg text-white py-16 md:py-24 px-6 text-center relative overflow-hidden">
-            <div class="max-w-4xl mx-auto relative z-10">
-                <h1 class="text-4xl md:text-6xl font-extrabold mb-6">About <span class="text-orange">Majdoors
-                        Mart</span></h1>
-                <p class="text-lg md:text-xl text-gray-300">Your trusted partner for all construction and interior
-                    material needs in Bihar Sharif.</p>
-            </div>
-        </section>
+    <main class="pt-20 pb-0" data-page="about">
 
-        <!-- Our Story Section -->
-        <section class="max-w-6xl mx-auto px-6 py-16">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold mb-6 text-navy">Our Story</h2>
-                    <p class="text-gray-600 mb-4 leading-relaxed">
-                        Founded by Ravi Kumar, Majdoors Mart started with a simple vision: to make high-quality
-                        construction and interior materials accessible and affordable to everyone in Bihar Sharif and
-                        surrounding areas.
-                    </p>
-                    <p class="text-gray-600 mb-4 leading-relaxed">
-                        We understand that building a home or a commercial space is a significant investment. That's why
-                        we bring together a comprehensive catalog of products—from electrical supplies to premium
-                        flooring—under one roof.
-                    </p>
-                    <p class="text-gray-600 leading-relaxed">
-                        But we didn't stop there. We also recognized the challenge of finding reliable professionals.
-                        So, we created a platform to connect you with verified skilled workers like electricians,
-                        plumbers, painters, and more.
-                    </p>
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <img src="img/construction_site.png" alt="Construction Site"
-                        class="rounded-2xl shadow-md w-full h-48 object-cover">
-                    <img src="img/construction_tools.png" alt="Tools"
-                        class="rounded-2xl shadow-md w-full h-48 object-cover mt-8">
-                </div>
-            </div>
-        </section>
-
-        <!-- Why Choose Us -->
-        <section class="bg-gray-50 py-16 px-6">
-            <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl font-bold text-center text-navy mb-12">Why Choose Us?</h2>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div
-                        class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 text-center hover:shadow-md transition">
-                        <div class="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-gem text-2xl text-orange"></i>
-                        </div>
-                        <h3 class="font-bold text-xl mb-3">Quality Assurance</h3>
-                        <p class="text-gray-500">We source all our materials from trusted brands and manufacturers,
-                            ensuring you get the best quality for your project.</p>
-                    </div>
-                    <div
-                        class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 text-center hover:shadow-md transition">
-                        <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-tags text-2xl text-blue-500"></i>
-                        </div>
-                        <h3 class="font-bold text-xl mb-3">Best Prices</h3>
-                        <p class="text-gray-500">We offer competitive pricing across our entire catalog, helping you
-                            stay within your construction budget.</p>
-                    </div>
-                    <div
-                        class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 text-center hover:shadow-md transition">
-                        <div class="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-shield-alt text-2xl text-green-500"></i>
-                        </div>
-                        <h3 class="font-bold text-xl mb-3">Verified Workers</h3>
-                        <p class="text-gray-500">Every professional on our platform is thoroughly vetted, verified, and
-                            reviewed for your peace of mind.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Founder Section -->
-        <section class="max-w-4xl mx-auto px-6 py-16 text-center">
-            <div
-                class="w-24 h-24 bg-gradient-to-tr from-orange-400 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <span class="text-4xl font-bold text-black">R</span>
-            </div>
-            <h2 class="text-2xl font-bold text-navy">Ravi Kumar</h2>
-            <p class="text-orange font-semibold mb-6">Founder & Owner</p>
-            <p class="text-gray-600 text-lg leading-relaxed italic max-w-2xl mx-auto">
-                "Our goal is to build long-lasting relationships with our customers by providing unparalleled quality
-                and service. Whether you're building a new home or renovating an old one, Majdoors Mart is here to
-                support you every step of the way."
+        <!-- ═══════════ HERO ═══════════ -->
+        <section class="relative py-24 md:py-36 px-6 text-center max-w-5xl mx-auto reveal active">
+            <span
+                class="inline-block bg-[rgba(0,0,0,0.04)] border border-[rgba(0,0,0,0.08)] px-6 py-2.5 rounded-full text-xs font-semibold mb-8 text-[#000000] tracking-[0.2em] uppercase">
+                Est. 2024 — Bihar Sharif, India
+            </span>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-[1.02] tracking-tight mb-8"
+                style="font-family:'Outfit',sans-serif">
+                We build spaces<br>
+                <span class="text-[#525252]">that inspire life.</span>
+            </h1>
+            <p class="text-[#525252] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                LivspaceOne is a new-generation architecture-tech ecosystem connecting homeowners with certified
+                professionals, premium materials, and intelligent design — all in one platform.
             </p>
         </section>
 
-        <!-- Contact & Action Buttons -->
-        <section class="bg-gradient-to-r from-orange-50 to-orange-100 py-16 px-6">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl font-bold text-navy mb-4">Need Help?</h2>
-                <p class="text-gray-600 mb-8 text-lg">We're just a call or message away. Reach out anytime!</p>
-                <div class="grid md:grid-cols-3 gap-6 mb-10">
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                        <i class="fas fa-phone text-3xl text-orange mb-3"></i>
-                        <h4 class="font-bold mb-1">Phone</h4>
-                        <p class="text-gray-500 text-sm">+91 9279509297</p>
+        <!-- ═══════════ FULL-WIDTH CINEMATIC BANNER ═══════════ -->
+        <section class="w-full mb-32 reveal">
+            <div class="relative w-full aspect-video overflow-hidden hero-about-img">
+                <img src="img/about_hero_ultimate.png" alt="LivspaceOne Studio" class="w-full h-full object-cover">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.7)] via-[rgba(0,0,0,0.2)] to-transparent">
+                </div>
+                <div class="absolute bottom-10 left-8 md:bottom-16 md:left-16 z-10">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white mb-3" style="font-family:'Outfit',sans-serif">
+                        Crafting Legacy</h2>
+                    <p class="text-[#E5E5E5] text-lg max-w-xl">Where visionary design meets precise engineering. Every
+                        project, a masterpiece.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════ IMPACT STATS ═══════════ -->
+        <section class="max-w-6xl mx-auto px-6 mb-32 reveal">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+                <div class="about-stat text-center border-r border-[rgba(0,0,0,0.08)] last:border-0">
+                    <p class="text-5xl md:text-6xl font-extrabold text-[#000000] tracking-tight"
+                        style="font-family:'Outfit',sans-serif">1.2K+</p>
+                    <p class="text-sm text-[#525252] mt-3 font-medium uppercase tracking-[0.15em]">Verified Experts</p>
+                </div>
+                <div class="about-stat text-center border-r border-[rgba(0,0,0,0.08)] last:border-0"
+                    style="transition-delay:0.1s">
+                    <p class="text-5xl md:text-6xl font-extrabold text-[#000000] tracking-tight"
+                        style="font-family:'Outfit',sans-serif">500+</p>
+                    <p class="text-sm text-[#525252] mt-3 font-medium uppercase tracking-[0.15em]">Projects Delivered
+                    </p>
+                </div>
+                <div class="about-stat text-center border-r border-[rgba(0,0,0,0.08)] last:border-0"
+                    style="transition-delay:0.2s">
+                    <p class="text-5xl md:text-6xl font-extrabold text-[#000000] tracking-tight"
+                        style="font-family:'Outfit',sans-serif">10K+</p>
+                    <p class="text-sm text-[#525252] mt-3 font-medium uppercase tracking-[0.15em]">Premium Products</p>
+                </div>
+                <div class="about-stat text-center" style="transition-delay:0.3s">
+                    <p class="text-5xl md:text-6xl font-extrabold text-[#000000] tracking-tight"
+                        style="font-family:'Outfit',sans-serif">50+</p>
+                    <p class="text-sm text-[#525252] mt-3 font-medium uppercase tracking-[0.15em]">Cities Served</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════ MISSION STATEMENT ═══════════ -->
+        <section class="max-w-4xl mx-auto px-6 mb-32 reveal">
+            <div class="text-center">
+                <span class="text-xs uppercase tracking-[0.25em] text-[#525252] font-semibold">Our Mission</span>
+                <div class="w-12 h-[2px] bg-[#000000] mx-auto mt-4 mb-10"></div>
+                <p class="text-2xl md:text-4xl font-bold leading-relaxed text-[#000000]"
+                    style="font-family:'Outfit',sans-serif">
+                    "To democratize access to world-class architecture, design, and construction — making premium living
+                    spaces attainable for every Indian household through technology and trust."
+                </p>
+            </div>
+        </section>
+
+        <!-- ═══════════ VALUES GRID ═══════════ -->
+        <section class="max-w-7xl mx-auto px-6 mb-32 reveal">
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase tracking-[0.25em] text-[#525252] font-semibold">What Drives Us</span>
+                <h2 class="text-3xl md:text-5xl font-bold mt-4" style="font-family:'Outfit',sans-serif">Our Core Values
+                </h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="value-card bg-[#FFFFFF] border border-[rgba(0,0,0,0.08)] rounded-2xl p-8 cursor-default">
+                    <div class="w-14 h-14 bg-[#000000] rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-crown text-xl text-[#FFFFFF]"></i>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                        <i class="fas fa-envelope text-3xl text-blue-500 mb-3"></i>
-                        <h4 class="font-bold mb-1">Email</h4>
-                        <p class="text-gray-500 text-sm">Service@majdoors.com</p>
+                    <h3 class="text-lg font-bold mb-3 text-[#000000]">Uncompromising Quality</h3>
+                    <p class="text-[#525252] text-sm leading-relaxed">Every material sourced, every professional
+                        onboarded — held to the highest standard of craftsmanship and reliability.</p>
+                </div>
+                <div class="value-card bg-[#FFFFFF] border border-[rgba(0,0,0,0.08)] rounded-2xl p-8 cursor-default">
+                    <div class="w-14 h-14 bg-[#000000] rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-microchip text-xl text-[#FFFFFF]"></i>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                        <i class="fas fa-map-marker-alt text-3xl text-green-500 mb-3"></i>
-                        <h4 class="font-bold mb-1">Address</h4>
-                        <p class="text-gray-500 text-sm">Near Digital Duniya, Nala Road, Bihar Sharif, Nalanda, Bihar
-                        </p>
+                    <h3 class="text-lg font-bold mb-3 text-[#000000]">Technology First</h3>
+                    <p class="text-[#525252] text-sm leading-relaxed">AI-powered recommendations, real-time project
+                        tracking, and smart marketplace logistics that redefine the building experience.</p>
+                </div>
+                <div class="value-card bg-[#FFFFFF] border border-[rgba(0,0,0,0.08)] rounded-2xl p-8 cursor-default">
+                    <div class="w-14 h-14 bg-[#000000] rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-xl text-[#FFFFFF]"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3 text-[#000000]">Verified Trust</h3>
+                    <p class="text-[#525252] text-sm leading-relaxed">Rigorous background checks, skill assessments, and
+                        customer reviews ensure every professional on our platform is trustworthy.</p>
+                </div>
+                <div class="value-card bg-[#FFFFFF] border border-[rgba(0,0,0,0.08)] rounded-2xl p-8 cursor-default">
+                    <div class="w-14 h-14 bg-[#000000] rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-heart text-xl text-[#FFFFFF]"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3 text-[#000000]">Customer Obsession</h3>
+                    <p class="text-[#525252] text-sm leading-relaxed">From the first consultation to final handover, we
+                        treat your space like our own — with care, precision, and genuine passion.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════ JOURNEY TIMELINE (Temporarily Hidden) ═══════════ -->
+        <!--
+        <section class="max-w-4xl mx-auto px-6 mb-32 reveal">
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase tracking-[0.25em] text-[#525252] font-semibold">Our Journey</span>
+                <h2 class="text-3xl md:text-5xl font-bold mt-4" style="font-family:'Outfit',sans-serif">From Vision to Reality</h2>
+            </div>
+            <div class="relative ml-6 md:ml-12">
+                <div class="timeline-line absolute left-0 top-0 bottom-0"></div>
+                <div class="space-y-16 pl-10">
+                    <div class="timeline-item relative">
+                        <div class="timeline-dot"></div>
+                        <span class="text-xs font-bold tracking-[0.2em] text-[#525252] uppercase">2024 — Genesis</span>
+                        <h3 class="text-xl font-bold mt-2 text-[#000000]">Majdoors.com Was Born</h3>
+                        <p class="text-[#525252] text-sm mt-2 leading-relaxed max-w-xl">Started as a hyperlocal construction services platform in Bihar Sharif, connecting homeowners with skilled tradespeople — electricians, plumbers, carpenters, and more.</p>
+                    </div>
+                    <div class="timeline-item relative">
+                        <div class="timeline-dot"></div>
+                        <span class="text-xs font-bold tracking-[0.2em] text-[#525252] uppercase">2024 — Expansion</span>
+                        <h3 class="text-xl font-bold mt-2 text-[#000000]">LuxeBuild Marketplace Launched</h3>
+                        <p class="text-[#525252] text-sm mt-2 leading-relaxed max-w-xl">Introduced a curated marketplace for premium construction materials — electrical, plumbing, paints, flooring, and hardware — delivered directly to project sites.</p>
+                    </div>
+                    <div class="timeline-item relative">
+                        <div class="timeline-dot"></div>
+                        <span class="text-xs font-bold tracking-[0.2em] text-[#525252] uppercase">2025 — Rebrand</span>
+                        <h3 class="text-xl font-bold mt-2 text-[#000000]">Became LivspaceOne</h3>
+                        <p class="text-[#525252] text-sm mt-2 leading-relaxed max-w-xl">Reimagined the entire platform into a luxury architecture-tech ecosystem. New branding, AI Concierge, interior design partnerships, and wedding planning services added.</p>
+                    </div>
+                    <div class="timeline-item relative">
+                        <div class="timeline-dot"></div>
+                        <span class="text-xs font-bold tracking-[0.2em] text-[#525252] uppercase">2026 — Future</span>
+                        <h3 class="text-xl font-bold mt-2 text-[#000000]">Scaling Nationwide</h3>
+                        <p class="text-[#525252] text-sm mt-2 leading-relaxed max-w-xl">Expanding to 50+ cities across India with smart home integrations, AR-powered room visualization, and an exclusive network of certified architects and interior designers.</p>
                     </div>
                 </div>
+            </div>
+        </section>
+        -->
+
+        <!-- ═══════════ OUR PROCESS ═══════════ -->
+        <section class="max-w-7xl mx-auto px-6 mb-32 reveal">
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase tracking-[0.25em] text-[#525252] font-semibold">How We Work</span>
+                <h2 class="text-3xl md:text-5xl font-bold mt-4" style="font-family:'Outfit',sans-serif">The LivspaceOne
+                    Process</h2>
+            </div>
+            <div class="grid md:grid-cols-4 gap-6">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="text-[#E5E5E5] font-bold text-6xl mb-4" style="font-family:'Outfit',sans-serif">01</div>
+                    <h3 class="text-lg font-bold mb-3 text-[#000000]">Consultation</h3>
+                    <p class="text-[#525252] text-sm leading-relaxed">Meet with our AI Concierge or human experts to
+                        outline your vision, budget, and timeline.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div class="text-[#E5E5E5] font-bold text-6xl mb-4" style="font-family:'Outfit',sans-serif">02</div>
+                    <h3 class="text-lg font-bold mb-3 text-[#000000]">Design & Discovery</h3>
+                    <p class="text-[#525252] text-sm leading-relaxed">Review 3D renderings and select premium materials
+                        from our exclusive LuxeBuild collections.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div class="text-[#E5E5E5] font-bold text-6xl mb-4" style="font-family:'Outfit',sans-serif">03</div>
+                    <h3 class="text-lg font-bold mb-3 text-[#000000]">Execution</h3>
+                    <p class="text-[#525252] text-sm leading-relaxed">Our verified professionals bring the design to
+                        life with unparalleled precision and quality.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="text-center">
+                    <div class="text-[#E5E5E5] font-bold text-6xl mb-4" style="font-family:'Outfit',sans-serif">04</div>
+                    <h3 class="text-lg font-bold mb-3 text-[#000000]">Handover</h3>
+                    <p class="text-[#525252] text-sm leading-relaxed">Step into your newly transformed space. Every
+                        detail checked, every expectation exceeded.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════ LEADERSHIP TEAM ═══════════ -->
+        <section class="bg-[#FAFAFA] py-24 mb-0 reveal">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <span class="text-xs uppercase tracking-[0.25em] text-[#525252] font-semibold">Leadership</span>
+                    <h2 class="text-3xl md:text-5xl font-bold mt-4" style="font-family:'Outfit',sans-serif">The
+                        Visionaries</h2>
+                    <p class="text-[#525252] mt-4 max-w-xl mx-auto">A multidisciplinary team of architects, engineers,
+                        and technologists united by one mission: transform how India builds and lives.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+                    <div class="text-center group cursor-default">
+                        <div
+                            class="w-36 h-36 mx-auto rounded-2xl overflow-hidden mb-5 border-2 border-transparent group-hover:border-[#000000] transition-all duration-500 shadow-lg">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Sachin_Tendulkar_2012.jpg"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+                                alt="Sachin Tendulkar">
+                        </div>
+                        <h4 class="font-bold text-[#000000] text-lg">Sachin Tendulkar</h4>
+                        <p class="text-xs text-[#525252] mt-1 font-medium uppercase tracking-wider">Founder & CEO</p>
+                    </div>
+                    <div class="text-center group cursor-default">
+                        <div
+                            class="w-36 h-36 mx-auto rounded-2xl overflow-hidden mb-5 border-2 border-transparent group-hover:border-[#000000] transition-all duration-500 shadow-lg">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Rohit_Sharma_in_2024.jpg"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+                                alt="Rohit Sharma">
+                        </div>
+                        <h4 class="font-bold text-[#000000] text-lg">Rohit Sharma</h4>
+                        <p class="text-xs text-[#525252] mt-1 font-medium uppercase tracking-wider">Chief Architect</p>
+                    </div>
+                    <div class="text-center group cursor-default">
+                        <div
+                            class="w-36 h-36 mx-auto rounded-2xl overflow-hidden mb-5 border-2 border-transparent group-hover:border-[#000000] transition-all duration-500 shadow-lg">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Mahendra_Singh_Dhoni_January_2016_%28cropped%29.jpg"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+                                alt="MS DHONI">
+                        </div>
+                        <h4 class="font-bold text-[#000000] text-lg">MS DHONI</h4>
+                        <p class="text-xs text-[#525252] mt-1 font-medium uppercase tracking-wider">Head of Design</p>
+                    </div>
+                    <div class="text-center group cursor-default">
+                        <div
+                            class="w-36 h-36 mx-auto rounded-2xl overflow-hidden mb-5 border-2 border-transparent group-hover:border-[#000000] transition-all duration-500 shadow-lg">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Virat_Kohli_portrait.jpg"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+                                alt="Virat Kohli">
+                        </div>
+                        <h4 class="font-bold text-[#000000] text-lg">Virat Kohli</h4>
+                        <p class="text-xs text-[#525252] mt-1 font-medium uppercase tracking-wider">VP of Operations</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════ CTA BANNER ═══════════ -->
+        <section class="bg-[#000000] py-24 reveal">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-5xl font-bold text-[#FFFFFF] mb-6" style="font-family:'Outfit',sans-serif">
+                    Ready to build something extraordinary?</h2>
+                <p class="text-[#999] text-lg mb-10 max-w-2xl mx-auto">From a single room renovation to a full
+                    architectural project — we're here to make your vision a reality.</p>
                 <div class="flex flex-wrap gap-4 justify-center">
-                    <a href="https://wa.me/919279509297?text=Hi%20Majdoors%20Mart%2C%20I%20need%20help" target="_blank"
-                        class="inline-flex items-center gap-2 bg-green-500 text-white px-8 py-3.5 rounded-full font-semibold text-lg hover:bg-green-600 transition shadow-lg hover:shadow-xl"><i
-                            class="fab fa-whatsapp"></i> WhatsApp Us</a>
+                    <a href="services.html"
+                        class="inline-flex items-center gap-2.5 bg-[#FFFFFF] text-[#000000] px-10 py-4 rounded-full font-semibold hover:bg-[#E5E5E5] transition-all duration-300 no-underline">Explore
+                        Services <i class="fas fa-arrow-right text-sm"></i></a>
+                    <a href="contact.html"
+                        class="inline-flex items-center gap-2.5 border border-[rgba(255,255,255,0.3)] text-[#FFFFFF] px-10 py-4 rounded-full font-semibold hover:bg-[rgba(255,255,255,0.1)] transition-all duration-300 no-underline">Contact
+                        Us <i class="fas fa-envelope text-sm"></i></a>
                 </div>
             </div>
         </section>
 
     </main>
+
     <div id="footer-container"></div>
-    <script src="js/api.js?v=10"></script>
-    <script src="js/main.js?v=10"></script>
-    <script src="js/app.js?v=10"></script>
-    <script src="js/pages.js?v=10"></script>
+    <script src="js/api.js?v=13"></script>
+    <script src="js/main.js?v=13"></script>
+    <script src="js/app.js?v=13"></script>
+    <script src="js/pages.js?v=13"></script>
+    <script>
+        // Animate stats on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.about-stat').forEach(el => observer.observe(el));
+    </script>
 </body>
 
 </html>

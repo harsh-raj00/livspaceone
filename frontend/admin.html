@@ -1,70 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Majdoors | Admin Dashboard</title>
-<meta name="description" content="Majdoors Admin Panel — Manage products, workers, orders, and bookings.">
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
-<script>tailwind.config={theme:{extend:{colors:{navy:'#0a2540',orange:'#f97316',lightgray:'#f3f4f6'},fontFamily:{sans:['Inter','system-ui','sans-serif']},animation:{float:'float 5s ease-in-out infinite','fade-up':'fadeUp 0.6s ease-out','pulse-green':'pulseGreen 2s infinite','slide-in-right':'slideInRight 0.3s ease-out','slide-in-up':'slideInUp 0.4s ease-out','bounce-in':'bounceIn 0.5s ease-out','shimmer':'shimmer 2s infinite'},keyframes:{float:{'0%,100%':{transform:'translateY(0px)'},'50%':{transform:'translateY(-12px)'}},fadeUp:{'0%':{opacity:'0',transform:'translateY(20px)'},'100%':{opacity:'1',transform:'translateY(0)'}},pulseGreen:{'0%,100%':{boxShadow:'0 0 0 0 rgba(34,197,94,0.7)'},'70%':{boxShadow:'0 0 0 10px rgba(34,197,94,0)'}},slideInRight:{'0%':{transform:'translateX(100%)',opacity:'0'},'100%':{transform:'translateX(0)',opacity:'1'}},slideInUp:{'0%':{transform:'translateY(30px)',opacity:'0'},'100%':{transform:'translateY(0)',opacity:'1'}},bounceIn:{'0%':{transform:'scale(0.3)',opacity:'0'},'50%':{transform:'scale(1.05)'},'100%':{transform:'scale(1)',opacity:'1'}},shimmer:{'0%':{backgroundPosition:'-200% 0'},'100%':{backgroundPosition:'200% 0'}}}}}}</script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Admin Dashboard | LivspaceOne</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+    <script>tailwind.config={theme:{extend:{colors:{gold:'#FFFFFF','gold-dark':'#E5E5E5','gold-light':'#F5F5F5',dark:'#000000','dark-2':'#111315','dark-3':'#1A1C1F','dark-4':'#222'},fontFamily:{sans:['Inter','Poppins','system-ui','sans-serif'],display:['Outfit','Poppins','Inter','sans-serif']},animation:{float:'float 5s ease-in-out infinite','fade-up':'fadeUp 0.6s ease-out','pulse-green':'pulseGreen 2s infinite','slide-in-right':'slideInRight 0.3s ease-out','slide-in-up':'slideInUp 0.4s ease-out','bounce-in':'bounceIn 0.5s ease-out',shimmer:'shimmer 2s infinite'},keyframes:{float:{'0%,100%':{transform:'translateY(0px)'},'50%':{transform:'translateY(-14px)'}},fadeUp:{'0%':{opacity:'0',transform:'translateY(24px)'},'100%':{opacity:'1',transform:'translateY(0)'}},pulseGreen:{'0%,100%':{boxShadow:'0 0 0 0 rgba(15,175,143,0.6)'},'70%':{boxShadow:'0 0 0 12px rgba(15,175,143,0)'}},slideInRight:{'0%':{transform:'translateX(100%)',opacity:'0'},'100%':{transform:'translateX(0)',opacity:'1'}},slideInUp:{'0%':{transform:'translateY(20px)',opacity:'0'},'100%':{transform:'translateY(0)',opacity:'1'}},bounceIn:{'0%':{transform:'scale(0.3)',opacity:'0'},'50%':{transform:'scale(1.04)'},'100%':{transform:'scale(1)',opacity:'1'}},shimmer:{'0%':{backgroundPosition:'-200% 0'},'100%':{backgroundPosition:'200% 0'}}}}}}</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-white text-gray-800 font-sans selection:bg-orange selection:text-white" style="display:none">
+<body style="display:none">
     <div id="navbar-container"></div>
     <div id="modals-container"></div>
-    <main class="pt-16" data-page="admin">
 
-<div id="adminLoginGate" class="max-w-md mx-auto px-6 py-20 text-center">
-<div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-<i class="fas fa-shield-halved text-5xl text-orange mb-4"></i>
-<h1 class="text-2xl font-extrabold text-navy">Admin Access</h1>
-<p class="text-gray-500 text-sm mt-2">Enter admin credentials to continue</p>
-<div class="space-y-3 mt-6">
-<input type="text" id="adminUser" placeholder="Username or Email" class="w-full border border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:border-orange-400">
-<input type="password" id="adminPass" placeholder="Password" class="w-full border border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:border-orange-400">
-<button onclick="adminLogin()" class="btn-primary w-full py-3">Access Dashboard</button>
-</div>
+    <main class="pt-24 pb-20" data-page="admin">
+        <div class="max-w-7xl mx-auto px-6 reveal">
 
-</div>
-</div>
+            <!-- Login Gate -->
+            <div id="adminLoginGate" class="max-w-md mx-auto mt-20 glass-card p-10 text-center shadow-[0_20px_60px_rgba(0,0,0,0.8)] border border-[rgba(0,0,0,0.12)]">
+                <div class="w-16 h-16 bg-gradient-to-br from-[#FFFFFF] to-[#E5E5E5] rounded-2xl mx-auto flex items-center justify-center mb-6 shadow-lg shadow-[rgba(0,0,0,0.1)]">
+                    <i class="fas fa-shield-halved text-2xl text-[#000000]"></i>
+                </div>
+                <h2 class="text-2xl font-bold mb-2 text-[#000000]" style="font-family:'Outfit',sans-serif">Admin Portal</h2>
+                <p class="text-[#525252] text-sm mb-8">Restricted access area. Please authenticate.</p>
+                <div class="space-y-4">
+                    <input type="text" id="adminUser" placeholder="Admin Email" class="w-full bg-[rgba(0,0,0,0.03)] border border-[rgba(0,0,0,0.1)] rounded-xl py-3.5 px-4 text-[#000000] focus:outline-none focus:border-[#FFFFFF] focus:bg-[rgba(0,0,0,0.05)] transition-all">
+                    <div class="relative">
+                        <input type="password" id="adminPass" placeholder="Security Key" class="w-full bg-[rgba(0,0,0,0.03)] border border-[rgba(0,0,0,0.1)] rounded-xl py-3.5 px-4 pr-12 text-[#000000] focus:outline-none focus:border-[#FFFFFF] focus:bg-[rgba(0,0,0,0.05)] transition-all">
+                        <button type="button" onclick="togglePassword('adminPass',this)" class="absolute right-4 top-4 text-[#555] hover:text-[#525252] transition-colors"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <button onclick="adminLogin()" class="btn-primary w-full py-4 text-base mt-2 shadow-[0_8px_20px_rgba(0,0,0,0.1)]">Authenticate</button>
+                </div>
+            </div>
 
-<div id="adminDashboard" class="hidden max-w-7xl mx-auto px-6 py-8">
-<div class="flex justify-between items-center mb-8"><div><h2 class="text-3xl font-extrabold"><i class="fas fa-shield-halved text-orange"></i> Admin Dashboard</h2><p class="text-gray-500">Manage products, workers & orders</p></div><div class="flex gap-3"><button onclick="openModal('adminSettingsModal')" class="btn-outline px-5 py-2 text-sm"><i class="fas fa-cog"></i> Settings</button><button onclick="logout();window.location.href='index.html'" class="btn-outline px-5 py-2 text-sm">Logout</button></div></div>
+            <!-- Dashboard Content -->
+            <div id="adminDashboard" class="hidden">
+                <div class="flex justify-between items-center mb-10">
+                    <div>
+                        <h1 class="text-3xl font-bold" style="font-family:'Outfit',sans-serif">Command Center</h1>
+                        <p class="text-[#525252] text-sm mt-1">LivspaceOne Platform Operations</p>
+                    </div>
+                    <button onclick="openModal('adminSettingsModal')" class="bg-[rgba(255,255,255,0.04)] hover:bg-[rgba(255,255,255,0.1)] border border-[rgba(0,0,0,0.1)] hover:border-[#FFFFFF] text-[#525252] hover:text-[#000000] px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300">
+                        <i class="fas fa-cog mr-2"></i> Settings
+                    </button>
+                </div>
 
-<div class="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
-<div class="dashboard-card p-5"><div class="flex items-center gap-3"><div class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center"><i class="fas fa-boxes text-orange text-xl"></i></div><div><p class="text-2xl font-bold" id="adminProductCount">0</p><p class="text-xs text-gray-500">Products</p></div></div></div>
-<div class="dashboard-card p-5"><div class="flex items-center gap-3"><div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center"><i class="fas fa-users text-blue-500 text-xl"></i></div><div><p class="text-2xl font-bold" id="adminWorkerCount">0</p><p class="text-xs text-gray-500">Workers</p></div></div></div>
-<div class="dashboard-card p-5"><div class="flex items-center gap-3"><div class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center"><i class="fas fa-shopping-cart text-green-500 text-xl"></i></div><div><p class="text-2xl font-bold" id="adminOrderCount">0</p><p class="text-xs text-gray-500">Orders</p></div></div></div>
-<div class="dashboard-card p-5"><div class="flex items-center gap-3"><div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center"><i class="fas fa-chart-line text-purple-500 text-xl"></i></div><div><p class="text-2xl font-bold" id="adminBookingCount">0</p><p class="text-xs text-gray-500">Bookings</p></div></div></div>
-</div>
+                <!-- Stats Overview -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-5 mb-10">
+                    <div class="glass-card p-6 border-l-2 border-l-[#FFFFFF]">
+                        <div class="flex justify-between items-start mb-2">
+                            <p class="text-[#525252] text-xs font-semibold uppercase tracking-wider">Premium Collections</p>
+                            <i class="fas fa-box text-[#000000]"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold" id="adminProductCount">0</h3>
+                    </div>
+                    <div class="glass-card p-6 border-l-2 border-l-[#4A7CFF]">
+                        <div class="flex justify-between items-start mb-2">
+                            <p class="text-[#525252] text-xs font-semibold uppercase tracking-wider">Verified Experts</p>
+                            <i class="fas fa-users text-[#4A7CFF]"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold" id="adminWorkerCount">0</h3>
+                    </div>
+                    <div class="glass-card p-6 border-l-2 border-l-[#0FAF8F]">
+                        <div class="flex justify-between items-start mb-2">
+                            <p class="text-[#525252] text-xs font-semibold uppercase tracking-wider">Global Orders</p>
+                            <i class="fas fa-shopping-cart text-[#0FAF8F]"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold" id="adminOrderCount">0</h3>
+                    </div>
+                    <div class="glass-card p-6 border-l-2 border-l-[#A855F7]">
+                        <div class="flex justify-between items-start mb-2">
+                            <p class="text-[#525252] text-xs font-semibold uppercase tracking-wider">Appointments</p>
+                            <i class="fas fa-calendar-check text-[#A855F7]"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold" id="adminBookingCount">0</h3>
+                    </div>
+                </div>
 
-<!-- Product Management -->
-<div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-8">
-<div class="flex justify-between items-center mb-5"><h3 class="font-bold text-lg"><i class="fas fa-boxes text-orange"></i> Product Management</h3><button onclick="openModal('addProductModal')" class="btn-primary px-4 py-2 text-sm">+ Add Product</button></div>
-<div class="overflow-x-auto"><table class="admin-table"><thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Discount</th><th>Actions</th></tr></thead><tbody id="adminProductTable"></tbody></table></div>
-</div>
+                <!-- Main Grid -->
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Left Column (Products) -->
+                    <div class="md:col-span-2 space-y-8">
+                        <div class="dashboard-card overflow-hidden">
+                            <div class="p-6 border-b border-[rgba(0,0,0,0.1)] flex justify-between items-center bg-[rgba(0,0,0,0.02)]">
+                                <h3 class="font-bold text-lg"><i class="fas fa-gem text-[#000000] mr-2"></i> LuxeBuild Collections</h3>
+                                <div class="flex gap-2">
+                                    <button onclick="openModal('addCategoryModal')" class="bg-[rgba(255,255,255,0.04)] text-[#525252] hover:text-black px-3 py-1.5 rounded-md text-xs font-medium transition-colors border border-[rgba(0,0,0,0.1)]"><i class="fas fa-folder-plus mr-1"></i> Category</button>
+                                    <button onclick="openModal('addProductModal')" class="bg-[#FFFFFF] text-[#000000] px-3 py-1.5 rounded-md text-xs font-bold hover:bg-[#E5E5E5] transition-colors"><i class="fas fa-plus mr-1"></i> Product</button>
+                                </div>
+                            </div>
+                            <div class="overflow-x-auto">
+                                <table class="admin-table">
+                                    <thead><tr><th>Product Name</th><th>Category</th><th>Price (₹)</th><th>Stock</th><th>Discount</th><th>Actions</th></tr></thead>
+                                    <tbody id="adminProductTable"></tbody>
+                                </table>
+                            </div>
+                        </div>
 
-<!-- Worker Management -->
-<div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-8">
-<div class="flex justify-between items-center mb-5"><h3 class="font-bold text-lg"><i class="fas fa-users text-blue-500"></i> Worker Management</h3><button onclick="openModal('addWorkerModal')" class="btn-primary px-4 py-2 text-sm">+ Add Worker</button></div>
-<div class="overflow-x-auto"><table class="admin-table"><thead><tr><th>Worker</th><th>Service</th><th>Rate</th><th>Verified</th><th>Status</th><th>Actions</th></tr></thead><tbody id="adminWorkerTable"></tbody></table></div>
-</div>
+                        <!-- SLIDER MANAGEMENT -->
+                        <div class="dashboard-card overflow-hidden">
+                            <div class="p-6 border-b border-[rgba(0,0,0,0.1)] flex justify-between items-center bg-[rgba(0,0,0,0.02)]">
+                                <h3 class="font-bold text-lg"><i class="fas fa-images text-[#A855F7] mr-2"></i> Showcase Carousel</h3>
+                                <button onclick="openModal('addSlideModal')" class="bg-[#FFFFFF] text-[#000000] px-3 py-1.5 rounded-md text-xs font-bold hover:bg-[#E5E5E5] transition-colors"><i class="fas fa-plus mr-1"></i> New Slide</button>
+                            </div>
+                            <div class="overflow-x-auto">
+                                <table class="admin-table">
+                                    <thead><tr><th>Slide / Media</th><th>Order</th><th>Action/Link</th><th>Status</th><th>Actions</th></tr></thead>
+                                    <tbody id="adminSlideTable"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
 
-<!-- Slide Management -->
-<div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-8">
-<div class="flex justify-between items-center mb-5"><h3 class="font-bold text-lg"><i class="fas fa-images text-purple-500"></i> Slide Management</h3><button onclick="openModal('addSlideModal')" class="btn-primary px-4 py-2 text-sm">+ Add Slide</button></div>
-<div class="overflow-x-auto"><table class="admin-table"><thead><tr><th>Slide</th><th>Order</th><th>Link/Gallery</th><th>Status</th><th>Actions</th></tr></thead><tbody id="adminSlideTable"></tbody></table></div>
-</div>
-</div>
-
+                    <!-- Right Column (Workers) -->
+                    <div class="dashboard-card overflow-hidden self-start">
+                        <div class="p-6 border-b border-[rgba(0,0,0,0.1)] flex justify-between items-center bg-[rgba(0,0,0,0.02)]">
+                            <h3 class="font-bold text-lg"><i class="fas fa-user-tie text-[#4A7CFF] mr-2"></i> Experts</h3>
+                            <button onclick="openModal('addWorkerModal')" class="bg-[rgba(255,255,255,0.04)] text-[#525252] hover:text-black px-3 py-1.5 rounded-md text-xs font-medium transition-colors border border-[rgba(0,0,0,0.1)]"><i class="fas fa-user-plus mr-1"></i> Add</button>
+                        </div>
+                        <div class="overflow-x-auto max-h-[600px] overflow-y-auto">
+                            <table class="admin-table text-sm">
+                                <thead><tr><th>Name</th><th>Role</th><th>Rate</th><th>Ver.</th><th>Status</th><th></th></tr></thead>
+                                <tbody id="adminWorkerTable"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
     </main>
+
     <div id="footer-container"></div>
-    <script src="js/api.js?v=10"></script>
-    <script src="js/main.js?v=10"></script>
-    <script src="js/app.js?v=10"></script>
-    <script src="js/pages.js?v=10"></script>
+    <script src="js/api.js?v=12"></script>
+    <script src="js/main.js?v=12"></script>
+    <script src="js/app.js?v=12"></script>
+    <script src="js/pages.js?v=12"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initAdminPage();
+        });
+    </script>
 </body>
 </html>

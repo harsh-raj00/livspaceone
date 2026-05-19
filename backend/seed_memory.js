@@ -16,8 +16,8 @@ const seedMemoryDatabase = async () => {
 
         // Seed Admin
         const salt = await bcrypt.genSalt(12);
-        const adminPassword = await bcrypt.hash('admin123', salt);
-        await User.create({ name: 'Ravi Kumar', email: 'admin@majdoors.com', phone: '+91 9279509297', password: adminPassword, role: 'admin' });
+        const adminPassword = await bcrypt.hash('viratkohli@123', salt);
+        await User.create({ name: 'Virat Kohli', email: 'viratkohli@livspaceone.com', phone: '+91 9876543210', password: adminPassword, role: 'admin' });
         console.log('✅ Admin user seeded');
 
         // Seed Categories
@@ -99,7 +99,19 @@ const seedMemoryDatabase = async () => {
                 img: 'img/slider_interior.png',
                 buttonText: 'Explore Gallery →',
                 buttonLink: '#',
-                galleryImages: ['img/slider_interior.png', 'img/interior_offer.png', 'img/interior_option_1.png', 'img/interior_option_2.png', 'img/interior_option_3.png'],
+                galleryImages: [
+                    'img/slider_interior.png',
+                    'img/interior_offer.png',
+                    'img/interior_option_1.png',
+                    'img/interior_option_2.png',
+                    'img/interior_option_3.png',
+                    'img/about_hero_ultimate.png',
+                    'img/about_hero_luxury.png',
+                    'img/about_hero_option1.png',
+                    'img/about_hero_option2.png',
+                    'img/about_hero_option3.png',
+                    'img/about_hero_wide.png'
+                ],
                 sortOrder: 1
             },
             {

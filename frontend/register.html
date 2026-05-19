@@ -1,36 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Majdoors | Register</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
-<script>tailwind.config={theme:{extend:{colors:{navy:'#0a2540',orange:'#f97316'},fontFamily:{sans:['Inter','system-ui','sans-serif']}}}}</script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Create Account | LivspaceOne</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+    <script>tailwind.config={theme:{extend:{colors:{gold:'#FFFFFF','gold-dark':'#E5E5E5','gold-light':'#F5F5F5',dark:'#000000','dark-2':'#111315','dark-3':'#1A1C1F','dark-4':'#222'},fontFamily:{sans:['Inter','Poppins','system-ui','sans-serif'],display:['Outfit','Poppins','Inter','sans-serif']},animation:{float:'float 5s ease-in-out infinite','fade-up':'fadeUp 0.6s ease-out','pulse-green':'pulseGreen 2s infinite','slide-in-right':'slideInRight 0.3s ease-out','slide-in-up':'slideInUp 0.4s ease-out','bounce-in':'bounceIn 0.5s ease-out',shimmer:'shimmer 2s infinite'},keyframes:{float:{'0%,100%':{transform:'translateY(0px)'},'50%':{transform:'translateY(-14px)'}},fadeUp:{'0%':{opacity:'0',transform:'translateY(24px)'},'100%':{opacity:'1',transform:'translateY(0)'}},pulseGreen:{'0%,100%':{boxShadow:'0 0 0 0 rgba(15,175,143,0.6)'},'70%':{boxShadow:'0 0 0 12px rgba(15,175,143,0)'}},slideInRight:{'0%':{transform:'translateX(100%)',opacity:'0'},'100%':{transform:'translateX(0)',opacity:'1'}},slideInUp:{'0%':{transform:'translateY(20px)',opacity:'0'},'100%':{transform:'translateY(0)',opacity:'1'}},bounceIn:{'0%':{transform:'scale(0.3)',opacity:'0'},'50%':{transform:'scale(1.04)'},'100%':{transform:'scale(1)',opacity:'1'}},shimmer:{'0%':{backgroundPosition:'-200% 0'},'100%':{backgroundPosition:'200% 0'}}}}}}</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-gray-50 text-gray-800" style="display:none">
-<div id="navbar-container"></div>
-<div id="modals-container"></div>
-<main class="pt-16 min-h-screen flex items-center justify-center px-4" data-page="register">
-<div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl border border-gray-100">
-<div class="text-center mb-6"><i class="fas fa-user-plus text-4xl text-orange-500 mb-2"></i><h1 class="text-2xl font-extrabold text-navy">Create Account</h1><p class="text-gray-500 text-sm mt-1">Join Majdoors for best services</p></div>
-<div class="space-y-3">
-<input type="text" id="regNamePage" placeholder="Full Name" class="w-full border border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:border-orange-400">
-<input type="email" id="regEmailPage" placeholder="Email Address" class="w-full border border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:border-orange-400">
-<input type="tel" id="regPhonePage" placeholder="Mobile Number" class="w-full border border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:border-orange-400">
-<input type="password" id="regPasswordPage" placeholder="Create Password" class="w-full border border-gray-200 rounded-xl py-3 px-4 focus:outline-none focus:border-orange-400">
-<button onclick="handleRegisterPage()" class="btn-primary w-full py-3 text-lg">Create Account</button>
-<a href="index.html" class="block w-full text-center text-orange font-semibold hover:underline py-1">Continue as Guest &rarr;</a>
-</div>
-<p class="text-center text-sm text-gray-500 mt-4">Already registered? <a href="login.html" class="text-orange font-semibold">Login</a></p>
-</div>
-</main>
-<script src="js/api.js?v=10"></script>
-<script src="js/main.js?v=10"></script>
-<script src="js/app.js?v=10"></script>
-    <script src="js/pages.js?v=10"></script>
+<body style="display:none">
+    <div id="navbar-container"></div>
+    <div id="modals-container"></div>
+    
+    <main class="pt-24 min-h-screen flex items-center justify-center px-6 relative" data-page="register">
+        <div class="ambient-glow ambient-gold" style="bottom:10%;right:10%;"></div>
+        
+        <div class="glass-card max-w-md w-full p-10 gold-border relative z-10" style="animation:bounceIn 0.4s ease-out">
+            <div class="text-center mb-8">
+                <div class="w-16 h-16 bg-gradient-to-br from-[#FFFFFF] to-[#E5E5E5] rounded-2xl mx-auto flex items-center justify-center mb-6 shadow-lg shadow-[rgba(0,0,0,0.1)]">
+                    <i class="fas fa-user-plus text-2xl text-[#000000]"></i>
+                </div>
+                <h1 class="text-3xl font-bold text-[#000000]" style="font-family:'Outfit',sans-serif">Join LivspaceOne</h1>
+                <p class="text-[#525252] text-sm mt-2">Create an account to unlock premium features.</p>
+            </div>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-[#525252] mb-1">Full Name</label>
+                    <input type="text" id="regNamePage" placeholder="Daniel Hayes" class="w-full bg-[rgba(0,0,0,0.03)] border border-[rgba(0,0,0,0.1)] rounded-xl py-3 px-4 text-[#000000] focus:outline-none focus:border-[#FFFFFF] transition-all">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-[#525252] mb-1">Email Address</label>
+                    <input type="email" id="regEmailPage" placeholder="name@company.com" class="w-full bg-[rgba(0,0,0,0.03)] border border-[rgba(0,0,0,0.1)] rounded-xl py-3 px-4 text-[#000000] focus:outline-none focus:border-[#FFFFFF] transition-all">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-[#525252] mb-1">Phone Number</label>
+                    <input type="tel" id="regPhonePage" placeholder="+91 98765 43210" class="w-full bg-[rgba(0,0,0,0.03)] border border-[rgba(0,0,0,0.1)] rounded-xl py-3 px-4 text-[#000000] focus:outline-none focus:border-[#FFFFFF] transition-all">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-[#525252] mb-1">Security Key</label>
+                    <input type="password" id="regPasswordPage" placeholder="Min. 8 characters" class="w-full bg-[rgba(0,0,0,0.03)] border border-[rgba(0,0,0,0.1)] rounded-xl py-3 px-4 text-[#000000] focus:outline-none focus:border-[#FFFFFF] transition-all">
+                </div>
+                
+                <button onclick="handleRegisterPage()" class="btn-primary w-full py-4 text-base mt-4 shadow-[0_8px_20px_rgba(0,0,0,0.1)]">Create Account</button>
+            </div>
+            
+            <div class="mt-8 text-center border-t border-[rgba(0,0,0,0.1)] pt-6">
+                <p class="text-sm text-[#525252]">Already registered? <a href="login.html" class="text-[#000000] font-bold">Sign In</a></p>
+            </div>
+        </div>
+    </main>
+    
+    <div id="footer-container"></div>
+    <script src="js/api.js?v=12"></script>
+    <script src="js/main.js?v=12"></script>
+    <script src="js/app.js?v=12"></script>
+    <script src="js/pages.js?v=12"></script>
 </body>
 </html>
