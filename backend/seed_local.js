@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const runLocalSeed = async () => {
     try {
-        console.log('Connecting to local MongoDB: mongodb://127.0.0.1:27017/majdoors ...');
-        await mongoose.connect('mongodb://127.0.0.1:27017/majdoors', {
+        console.log('Connecting to local MongoDB: mongodb://127.0.0.1:27017/livspaceone ...');
+        await mongoose.connect('mongodb://127.0.0.1:27017/livspaceone', {
             serverSelectionTimeoutMS: 3000
         });
         console.log('✅ Connected to local MongoDB!');

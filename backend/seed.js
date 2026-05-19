@@ -16,7 +16,7 @@ const readData = (file) => {
 
 const seedDatabase = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/majdoors');
+        await mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/livspaceone');
         console.log('MongoDB Connected for Seeding');
 
         // Clear existing data
@@ -32,7 +32,7 @@ const seedDatabase = async () => {
         const users = [
             {
                 name: 'Admin',
-                email: 'admin@majdoors.com',
+                email: 'admin@livspaceone.com',
                 phone: '1234567890',
                 password: adminPassword,
                 role: 'admin'
@@ -41,7 +41,7 @@ const seedDatabase = async () => {
         // Add existing JSON users if any
         const jsonUsers = readData('users.json');
         for (let u of jsonUsers) {
-            if (u.email === 'admin@majdoors.com') continue;
+            if (u.email === 'admin@livspaceone.com') continue;
             users.push({
                 name: u.name,
                 email: u.email,

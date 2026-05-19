@@ -41,12 +41,12 @@ const io = new Server(server, {
 });
 
 const PORT = process.env.PORT || 3000;
-const JWT_SECRET = process.env.JWT_SECRET || 'majdoors_secure_jwt_key_2026_production_x9k2m';
+const JWT_SECRET = process.env.JWT_SECRET || 'livspaceone_secure_jwt_key_2026_production_x9k2m';
 
 // ===== DATABASE CONNECTION =====
 const connectDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/majdoors', {
+        await mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/livspaceone', {
             serverSelectionTimeoutMS: 3000
         });
         console.log('✅ MongoDB Connected successfully!');
@@ -54,7 +54,11 @@ const connectDB = async () => {
         console.warn('\n⚠️ Local MongoDB not found! Starting In-Memory MongoDB Server...');
         try {
             const { MongoMemoryServer } = require('mongodb-memory-server');
-            const mongoServer = await MongoMemoryServer.create();
+            const mongoServer = await MongoMemoryServer.create({
+                binary: {
+                    version: '7.0.5'
+                }
+            });
             await mongoose.connect(mongoServer.getUri());
             console.log('✅ In-Memory MongoDB running');
             require('./seed_memory');
@@ -309,9 +313,9 @@ app.post('/api/contact', async (req, res) => {
                 auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS }
             });
             await transporter.sendMail({
-                from: `"Majdoors Website" <${process.env.EMAIL_USER}>`,
-                to: process.env.EMAIL_TO || 'Service@majdoors.com',
-                subject: `[Majdoors Contact] ${subject || 'General Inquiry'} from ${name}`,
+                from: `"LivspaceOne Website" <${process.env.EMAIL_USER}>`,
+                to: process.env.EMAIL_TO || 'concierge@livspaceone.com',
+                subject: `[LivspaceOne Contact] ${subject || 'General Inquiry'} from ${name}`,
                 html: `<h3>New Contact Message</h3><p><b>Name:</b> ${name}</p><p><b>Email:</b> ${email}</p><p><b>Phone:</b> ${phone || 'N/A'}</p><p><b>Subject:</b> ${subject || 'General'}</p><p><b>Message:</b></p><p>${message}</p>`
             });
         }
@@ -525,6 +529,6 @@ app.get('/{*path}', (req, res) => {
 
 // ===== START =====
 server.listen(PORT, () => {
-    console.log(`\n🚀 Majdoors Backend running on http://localhost:${PORT}`);
+    console.log(`\n🚀 LivspaceOne Backend running on http://localhost:${PORT}`);
     console.log(`📂 Frontend served from: ${path.join(__dirname, '../frontend')}\n`);
 });

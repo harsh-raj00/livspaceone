@@ -2,14 +2,14 @@
   {
     "id": 1,
     "name": "Admin User",
-    "email": "admin@majdoors.com",
+    "email": "admin@livspaceone.com",
     "role": "admin",
     "password": "admin"
   },
   {
     "id": 2,
     "name": "Test User",
-    "email": "user@majdoors.com",
+    "email": "user@livspaceone.com",
     "role": "user",
     "password": "user123"
   }
