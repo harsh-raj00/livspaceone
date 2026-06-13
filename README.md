@@ -30,10 +30,7 @@
 2. [💎 Core Pillars & Features](#-core-pillars--features)
 3. [🏗️ Technical Architecture](#%EF%B8%8F-technical-architecture)
 4. [⚡ Getting Started (Local Development)](#-getting-started-local-development)
-5. [📦 Database Management & Seeding](#-database-management--seeding)
-6. [☁️ Render Cloud Deployment](#%EF%B8%8F-render-cloud-deployment)
-7. [💤 Render Sleep & Wake-up Guide (CRITICAL)](#-render-sleep--wake-up-guide-critical)
-8. [🤝 Leadership Team](#-leadership-team)
+5. [🤝 Leadership Team](#-leadership-team)
 
 ---
 
