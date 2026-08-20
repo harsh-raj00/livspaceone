@@ -30,7 +30,10 @@
 2. [💎 Core Pillars & Features](#-core-pillars--features)
 3. [🏗️ Technical Architecture](#%EF%B8%8F-technical-architecture)
 4. [⚡ Getting Started (Local Development)](#-getting-started-local-development)
-5. [🤝 Leadership Team](#-leadership-team)
+5. [📦 Database Management & Seeding](#-database-management--seeding)
+6. [☁️ Render Cloud Deployment](#%EF%B8%8F-render-cloud-deployment)
+7. [💤 Render Sleep & Wake-up Guide (CRITICAL)](#-render-sleep--wake-up-guide-critical)
+8. [🤝 Leadership Team](#-leadership-team)
 
 ---
 
@@ -120,8 +123,60 @@ Visit the application at:
 
 ---
 
+## 📦 Database Management & Seeding
 
-## 🤝 Leadership Team For Fun
+> [!NOTE]
+> **Zero-Configuration Fallback**
+>
+> If no `MONGO_URI` is specified in your `.env` file, the server will autonomously spin up an **In-Memory MongoDB Server** (using `mongodb-memory-server` with Debian 12 compatible binary `7.0.5`). The server will seed default categories, items, dynamic slides, and elite workers instantly, making the project ready for immediate offline development!
+
+### Seeding Cloud Database (MongoDB Atlas)
+To populate your production database cluster with premium default values, run:
+```bash
+cd backend
+node seed_atlas.js
+```
+
+---
+
+## ☁️ Render Cloud Deployment
+
+To host LivspaceOne on Render:
+
+1. Create a new **Web Service** on Render and connect your repository.
+2. Configure settings:
+   * **Root Directory**: `backend` (⚠️ *Required*)
+   * **Build Command**: `npm install`
+   * **Start Command**: `node server.js`
+3. Add these variables in the **Environment** tab:
+   * `MONGO_URI` = `mongodb+srv://your-atlas-link`
+   * `JWT_SECRET` = `your-secure-signing-key`
+   * `NODE_ENV` = `production`
+4. Click **Deploy**.
+
+---
+
+## 💤 Render Sleep & Wake-up Guide (CRITICAL)
+
+> [!WARNING]
+> Render's **Free Tier Web Services** spin down (go to sleep) after **15 minutes of zero active traffic**. When a user visits the website after it has slept, the container will encounter a **"Cold Start"**, taking **50 to 90 seconds** to load.
+
+### 🌟 How to Wake It Up manually
+Clicking your active Render API endpoint directly in your browser will force a direct DB query and boot the server up instantly:
+
+👉 **`https://your-app-name.onrender.com/api/categories`**
+
+### ⚡ How to Prevent Sleep Permanently (Free & 24/7)
+Use an automated cron service to keep your server warm:
+1. Go to **[Cron-Job.org](https://cron-job.org/)** and sign up for a free account.
+2. Click **Create Cron Job**.
+3. Set the Address to your backend status URL: `https://your-render-app-name.onrender.com/api/categories`.
+4. Set the **Execution interval** to **Every 12 minutes**.
+5. Save. This completely prevents your free instance from ever going to sleep!
+
+---
+
+## 🤝 Leadership Team
 
 Our elite operations and engineering vectors are steered by legendary visionaries:
 
