@@ -523,7 +523,7 @@ app.delete('/api/admin/slides/:id', protect, admin, async (req, res) => {
 });
 
 // ===== SPA FALLBACK =====
-app.get('*', (req, res) => {
+app.use((req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
