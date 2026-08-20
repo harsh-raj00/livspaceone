@@ -523,12 +523,12 @@ app.delete('/api/admin/slides/:id', protect, admin, async (req, res) => {
 });
 
 // ===== SPA FALLBACK =====
-app.get('/{*path}', (req, res) => {
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
 // ===== START =====
-server.listen(PORT, () => {
-    console.log(`\n🚀 LivspaceOne Backend running on http://localhost:${PORT}`);
+server.listen(PORT, '0.0.0.0', () => {
+    console.log(`\n🚀 LivspaceOne Backend running on port ${PORT}`);
     console.log(`📂 Frontend served from: ${path.join(__dirname, '../frontend')}\n`);
 });

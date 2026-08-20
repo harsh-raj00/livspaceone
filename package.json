@@ -2,6 +2,8 @@
   "name": "livspaceone",
   "version": "1.0.0",
   "scripts": {
+    "start": "node backend/server.js",
+    "build": "npm run build:css",
     "build:css": "tailwindcss -i ./frontend/css/tailwind-input.css -o ./frontend/css/tailwind.css --minify"
   },
   "dependencies": {
