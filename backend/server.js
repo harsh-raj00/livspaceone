@@ -529,6 +529,8 @@ app.use((req, res) => {
 
 // ===== START =====
 server.listen(PORT, '0.0.0.0', () => {
-    console.log(`\n🚀 LivspaceOne Backend running on port ${PORT}`);
+    console.log(`\n🚀 LivspaceOne Server running at:`);
+    console.log(`   ➜ Local:   http://localhost:${PORT}`);
+    console.log(`   ➜ Network: http://127.0.0.1:${PORT}`);
     console.log(`📂 Frontend served from: ${path.join(__dirname, '../frontend')}\n`);
 });
