@@ -107,7 +107,7 @@ Create a `.env` file in the `backend/` directory:
 ```env
 PORT=3000
 MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/livspaceone
-JWT_SECRET=livspaceone_secure_jwt_key_2026_production_x9k2m
+JWT_SECRET=livspaceone_secure_jwt_key_0987_production_x9k2m_2054590_Keep_this.
 ALLOWED_ORIGINS=*
 NODE_ENV=development
 ```
